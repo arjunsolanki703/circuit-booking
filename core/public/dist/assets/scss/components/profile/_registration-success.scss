@@ -1,0 +1,43 @@
+@import '../../base';
+
+.reg-success-page {}
+
+.reg-result-message {
+  padding-top: 60px;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 70px;
+    margin: 0 auto 55px;
+  }
+  .title {
+    font-size: 36px;
+    color: map-get($gray, 700);
+    font-weight: map-get($font-weight, alt);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .message {
+    color: map-get($gray, 600);
+    line-height: 1.5;
+    font-size: map-get($font-size, main);
+    margin-bottom: map-get($gaps, big);
+    text-align: center;
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .reg-result-message {
+    padding-top: map-get($gaps, small);
+
+    .icon {
+      margin-bottom: map-get($gaps, regular);
+    }
+
+    .title {
+      font-size: 24px;
+    }
+  }
+}

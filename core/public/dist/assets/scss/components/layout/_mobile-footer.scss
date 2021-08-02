@@ -1,0 +1,88 @@
+@import '../../base';
+
+#app-footer {
+  @media (max-width: map-get($breakpoints, desktop)-1) {
+    display: none;
+  }
+}
+
+.app-footer_mobile {
+  background: map-get($gray, 700);
+
+  @media (min-width: map-get($breakpoints, desktop)) {
+    display: none;
+  }
+
+  .footer-nav {
+
+    .wrapper {}
+    .footer-nav--column {
+      padding: map-get($gaps, small) 0;
+      display: grid;
+    }
+    .footer-nav--title {
+      color: map-get($opacity-white, 2);
+      margin-bottom: map-get($gaps, main);
+    }
+    .footer-nav--item {
+      @include clear-button();
+
+      color: $white;
+      text-align: right;
+      padding: map-get($gaps, mini) 0;
+      transition: mat-transition(color);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($primary, 200);
+      }
+    }
+  }
+
+  .footer-info {
+    padding: map-get($gaps, small) 0;
+    border-top: 1px solid map-get($opacity-white, 2);
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      height: 100%;
+      width: 53px;
+      overflow: hidden;
+      margin-right: map-get($gaps, small);
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: scale-down;
+      }
+    }
+
+    .company-name {
+      font-size: map-get($font-size, alt);
+    }
+  }
+}
+
+//IE FIX
+@media all and (-ms-high-contrast:none)
+{
+  _:-ms-fullscreen, :root .footer-nav--column {
+    @media (max-width: map-get($breakpoints, desktop)-1) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .footer-nav--item {
+        width: 100%;
+        text-align: right;
+      }
+    }
+  }
+}

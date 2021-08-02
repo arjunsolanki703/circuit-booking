@@ -1,0 +1,16 @@
+$page-sizes: (
+  header-height: 64px,
+  buttons-height: 48px,
+);
+
+$container: (
+  desktop: 1110px,
+  tablet: 690px,
+  mobile: 350px,
+);
+
+$breakpoints: (
+  desktop: 1110px, // desktop >= 1110px
+  tablet: 425px, // desktop > tablet >= 425px
+  mobile: 320px, // tablet > mobile >= 320px
+)

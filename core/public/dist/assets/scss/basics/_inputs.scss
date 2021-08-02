@@ -1,0 +1,337 @@
+@import '../base';
+
+$input-height: 48px;
+
+.required {
+  color: map-get($primary, 200);
+}
+
+//inputs and selects styles should go here
+.form-control {
+
+  label {
+    font-size: map-get($font-size, alt);
+    line-height: 1.4;
+    color: map-get($gray, 600);
+    margin-bottom: map-get($gaps, mini);
+    display: inline-block;
+  }
+
+  .date-input-wrapper {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+
+    &.one-date {
+      &::before {
+        top: 0;
+        right: 0;
+        padding: 0 16px;
+        pointer-events: none;
+        content: "\F0ED";
+      }
+      .date-input {
+        flex: 1 0 100%;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+    }
+
+    .date-input {
+      @include clear_button();
+
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+      height: $input-height;
+      background: map-get($gray, 200);
+      font-size: map-get($font-size, alt);
+      color: map-get($gray, 700);
+      padding: 0 16px;
+      position: relative;
+      //firefox fix
+      min-width: 0;
+
+      &::placeholder {
+        color: map-get($gray, 500);
+      }
+    }
+
+    &::before {
+      content: "\F142";
+      font: $mat-icons-font;
+      font-size: 20px;
+      color: map-get($gray, 600);
+
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 16px;
+      height: $input-height;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .input-wrapper {
+    min-height: $input-height;
+    border-radius: map-get($border-radius, main);
+    position: relative;
+    width: 100%;
+
+    &.file-input {
+      input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+
+      label {
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          margin-right: map-get($gaps, mini);
+          font-size: 24px;
+          position: relative;
+        }
+
+        span {
+          max-width: 200px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    i {
+      position: absolute;
+      top: 0;
+      height: $input-height;
+      width: $input-height;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    i.input-icon {
+      left: 0;
+      color: map-get($primary, 200);
+    }
+
+    i.error-icon {
+      right: 0;
+      opacity: 0;
+      transition: mat-transition(opacity);
+      color: $error;
+    }
+
+    input {
+      @include clear-button();
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: map-get($gray, 200);
+      padding-right: 48px;
+      padding-left: map-get($gaps, main);
+      border-radius: map-get($border-radius, main);
+      font-size: map-get($font-size, alt);
+      line-height: 1.5;
+      color: map-get($gray, 700);
+      border: map-get($border, link-empty);
+      transition: mat-transition(border);
+
+      &:focus {
+        border: map-get($border, link);
+      }
+
+      &::placeholder {
+        font-size: map-get($font-size, alt);
+        color: map-get($gray, 500);
+      }
+    }
+
+    .dropdown-btn {
+      border: none !important;
+      display: flex !important;
+      align-items: center;
+      padding-right: 30px !important;
+
+      .dropdown-down {
+        content: '';
+        position: absolute;
+        top: 21.5px !important;
+        right: 16px;
+        z-index: 2;
+        //generated triangle
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 4.5px 0 4.5px !important;
+        border-color: map-get($primary, 200) transparent transparent transparent !important;
+        transform-origin: center;
+        transform: rotate(0deg);
+        transition: mat-transition(transform);
+      }
+
+      .dropdown-up {
+        position: absolute;
+        top: 21.5px !important;
+        right: 16px;
+        border-width: 0 4.5px 5px 4.5px !important;
+        border-color: transparent transparent map-get($primary, 200) transparent !important;
+      }
+    }
+
+    .dropdown-list {
+      top: 48px;
+      margin-top: 0 !important;
+    }
+
+    .filter-textbox {
+      height: 36px;
+    }
+
+    select, .dropdown-btn {
+      @include clear-button();
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 48px;
+      border-radius: 0 !important;
+      background: map-get($gray, 200);
+      padding-left: 16px;
+      padding-right: 25px;
+      font-size: map-get($font-size, alt);
+      border-radius: map-get($border-radius, main);
+      color: map-get($gray, 700);
+      border: map-get($border, link-empty);
+      transition: mat-transition(border);
+
+      //disable default browser appearance
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      //hack for arrow in IE
+      &::-ms-expand {
+        display: none;
+      }
+
+      &:focus {
+        border: map-get($border, link);
+      }
+
+      &::placeholder {
+        font-size: map-get($font-size, alt);
+        line-height: 1.5;
+        color: map-get($gray, 500);
+      }
+
+      & + .arrow-icon {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        top: 21.5px;
+        right: 16px;
+        z-index: 2;
+        //generated triangle
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 4.5px 0 4.5px;
+        border-color: map-get($primary, 200) transparent transparent transparent;
+        transform-origin: center;
+        transform: rotate(0deg);
+        transition: mat-transition(transform);
+      }
+    }
+
+    textarea {
+      @include clear-button();
+
+      font-family: $main-font !important;
+      padding: 16px;
+      background: map-get($gray, 200);
+      border-radius: map-get($border-radius, main);
+      color: map-get($gray, 700);
+      font-size: map-get($font-size, alt);
+      min-height: 140px;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      border: map-get($border, link-empty);
+      transition: mat-transition(border);
+
+      &:focus {
+        border: map-get($border, link);
+      }
+
+      &::placeholder {
+        font-size: map-get($font-size, alt);
+        line-height: 1.5;
+        color: map-get($gray, 500);
+      }
+    }
+  }
+
+  .description {
+    line-height: 1.4;
+    font-size: map-get($font-size, alt);
+    color: map-get($gray, 700);
+    opacity: .9;
+    margin-top: map-get($gaps, mini);
+  }
+
+  .error-message {
+    line-height: 1.4;
+    font-size: map-get($font-size, alt);
+    color: $error;
+    opacity: .9;
+    margin-top: map-get($gaps, mini);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &.error {
+    i.error-icon {
+      opacity: 1;
+    }
+
+    select,
+    input {
+      color: $error;
+    }
+  }
+
+  &.disabled {
+    select,
+    input {
+      background: map-get($gray, 300);
+      opacity: .6;
+    }
+  }
+
+  &.with-image {
+    input {
+      padding-left: 48px;
+    }
+  }
+}

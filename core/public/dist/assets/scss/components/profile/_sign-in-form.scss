@@ -1,0 +1,33 @@
+@import '../../base';
+
+.sign-in-form {
+
+  .forgot-password-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .forgot-password-link {
+    @include clear-button();
+
+    cursor: pointer;
+    color: map-get($gray, 500);
+    line-height: 1.6;
+    font-size: map-get($font-size, alt);
+    transition: mat-transition(color);
+    margin-top: 8px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: map-get($primary, hover);
+    }
+  }
+
+  .form-footer {
+    margin-top: 40px;
+    display: flex;
+    flex-flow: column;
+    align-content: stretch;
+  }
+}

@@ -1,0 +1,49 @@
+@import '../base';
+
+.irs {
+
+  .irs-handle {
+    top: 30px;
+    height: 16px;
+    width: 16px;
+    box-shadow: none;
+    border: none;
+    border-radius: map-get($border-radius, round);
+    background: map-get($primary, 200);
+    transition: mat-transition(background);
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background: map-get($primary, 100);
+    }
+  }
+  
+  //gray background line
+  .irs-line {
+    top: 38px;
+    height: 2px;
+    background: map-get($gray, 300);
+  }
+  
+  //active bar
+  .irs-bar {
+    top: 38px;
+    height: 2px;
+    background: map-get($primary, 200);
+  }
+
+  //tooltips
+  .irs-from,
+  .irs-to {
+    background: map-get($primary, 200);
+
+    &::before {
+      border-top-color: map-get($primary, 200);
+    }
+  }
+}

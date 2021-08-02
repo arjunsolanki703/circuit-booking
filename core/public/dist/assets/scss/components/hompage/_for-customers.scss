@@ -1,0 +1,49 @@
+@import '../../base';
+
+.homepage-section.for-customers {
+  background: url('/themes/basic/assets/images/basic/forcustomer-image-new.png') center right no-repeat;
+
+  .wrapper {
+    padding-top: 238px;
+    padding-bottom: 172px;
+  }
+
+  .section-header {
+    margin-bottom: 33px;
+  }
+
+  .section-subtitle {
+    color: map-get($primary, 200);
+    font-size: map-get($font-size, alt);
+    font-weight: map-get($font-weight, alt);
+    margin-bottom: map-get($gaps, main);
+  }
+
+  .section-footer {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .homepage-section.for-customers {
+    .left {
+      max-width: 400px;
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .homepage-section.for-customers {
+    background: none;
+    border-bottom: map-get($border, gray);
+    
+    .wrapper {
+      padding-top: map-get($gaps, small);
+      padding-bottom: map-get($gaps, small);
+    }
+    
+    .section-header {
+      margin-bottom: map-get($gaps, small);
+    }
+  }
+}

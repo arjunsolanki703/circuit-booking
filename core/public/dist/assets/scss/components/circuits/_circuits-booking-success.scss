@@ -1,0 +1,30 @@
+@import '../../base';
+
+.booking-success-message {
+  padding-top: 60px;
+
+  .title {
+    font-size: 36px;
+    color: map-get($gray, 700);
+    font-weight: map-get($font-weight, alt);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .message {
+    color: map-get($gray, 600);
+    line-height: 1.5;
+    font-size: map-get($font-size, main);
+    margin-bottom: map-get($gaps, big);
+    text-align: center;
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .booking-success-message {
+    padding-top: map-get($gaps, small);
+
+    .title {
+      font-size: 24px;
+    }
+  }
+}

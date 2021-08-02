@@ -1,0 +1,48 @@
+@import '../../base';
+
+.homepage-section.for-circuits {
+  .wrapper {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .img-wrapper {
+    height: 465px;
+    width: 455px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .section-header {
+    margin-bottom: 33px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    font-weight: map-get($font-weight, alt);
+  }
+
+  .section-subtitle {
+    color: map-get($primary, 200);
+    font-size: map-get($font-size, alt);
+    font-weight: map-get($font-weight, alt);
+    margin-bottom: map-get($gaps, main);
+  }
+
+  .section-footer {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .homepage-section.for-circuits {
+    .wrapper {
+      padding-top: map-get($gaps, small);
+      padding-bottom: map-get($gaps, small);
+    }
+  }
+}

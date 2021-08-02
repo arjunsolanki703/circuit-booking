@@ -1,0 +1,16 @@
+cd themes/basic
+npm run-script build
+# yarn build
+#  npm rebuild node-sass 
+#  yarn build
+
+ls -la assets/dist/
+total 4880
+drwxr-xr-x 3 admin_dev psaserv    4096 Sep 16 11:32 .
+drwxr-xr-x 6 admin_dev psaserv    4096 Jun 11 09:47 ..
+-rw-r--r-- 1 admin_dev psaserv  932253 Sep 16 11:35 bundle.css
+-rw-r--r-- 1 admin_dev psaserv 1351109 Jun 11 09:01 bundle.css.old
+-rw-r--r-- 1 admin_dev psaserv 2696699 Sep 16 11:35 bundle.js
+drwxr-xr-x 2 admin_dev psaserv    4096 Jun 11 09:47 fonts
+
+

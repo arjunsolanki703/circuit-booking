@@ -1,0 +1,322 @@
+//Parts that could be used in both - circuits and locations
+@import '../../base';
+
+.location + .location {
+  margin-top: 16px;
+}
+
+.circuit-item {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border: map-get($border, gray);
+  border-radius: map-get($border-radius, main);
+  margin-bottom: map-get($gaps, main);
+
+  &.location {
+    padding: map-get($gaps, regular);
+  }
+
+  &.homepage-circuit {
+    margin-bottom: map-get($gaps, normal);
+    .circuit-item--content {
+      padding-top: map-get($gaps, normal);
+    }
+  }
+}
+
+.circuit-item--main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+.circuit-item--footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: map-get($gaps, regular);
+}
+
+.circuit-item--preview {
+  width: 100%;
+  min-height: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //margin-right: map-get($gaps, small);
+
+  &.small {
+    min-height: 210px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.circuit-item--content {
+  flex: 1;
+  position: relative;
+  padding: map-get($gaps, regular);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.circuit-item--flag {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+}
+
+.circuit-item--header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .circuit-item--map {
+  
+  }
+  .title-wrapper {
+    flex: 1;
+  }
+  .grade-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .circuits-item--grade {
+    max-width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
+  }
+  .circuit-item--flag {
+    margin-left: 20px;
+  }
+}
+
+
+.circuit-item--title {
+  font-size: 24px;
+  color: map-get($primary, 200);
+  font-weight: map-get($font-weight, alt);
+  margin-bottom: map-get($gaps, regular);
+}
+
+.circuit-item--title.price {
+  margin-top: 8px;
+}
+
+.circuit-item--address {
+  color: map-get($gray, 500);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  i {
+    margin-right: 12px;
+  }
+
+  span {
+    display: flex;
+  }
+}
+
+.circuit-item--info, .circuit-item--date {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: map-get($gaps, regular);
+  
+  .title {
+    width: 100%;
+    font-size: 12px;
+    color: map-get($gray, 500);
+  }
+
+  .value {
+    width: 100%;
+    font-size: map-get($font-size, main);
+    color: map-get($gray, 700);
+    line-height: 1.5;
+  }
+}
+
+.circuit-item--map {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: map-get($gaps, regular);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+  }
+
+  &.small {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.circuit-item--vehicle-types {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &.alter {
+
+    .item {
+      opacity: .2;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  &.many {
+    overflow: auto;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .item {
+    flex: 0 0 50px;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    img {
+      object-fit: cover;
+    }
+
+    &.disabled {
+      opacity: .4;
+    }
+  }
+
+  .item + .item {
+    margin-left: 16px;
+  }
+
+  .location-video_mobile {
+    display: none;
+  }
+}
+
+.circuit-item--buttons,
+.location-buttons {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .circuit-item--preview {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: map-get($gaps, small);
+    min-height: 0;
+    height: 120px;
+  }
+  
+  .circuit-item--content {
+    padding: map-get($gaps, small);
+  }
+
+  .circuit-item--header {
+    flex-wrap: wrap;
+  }
+
+  .circuit-item--title {
+    font-size: 18px;
+  }
+
+  .circuit-item--footer {
+    flex-wrap: wrap;
+  }
+
+  .circuit-item--main {
+    flex-wrap: wrap;
+  }
+
+  .circuit-item--map {
+    width: 100%;
+  }
+
+  .circuit-item--vehicle-types {
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    grid-row-gap: map-get($gaps, small);
+    width: auto !important;
+    margin-bottom: map-get($gaps, regular);
+
+    .item {
+      height: 100%;
+      width: 100%;
+      max-width: 100px;
+      padding: 0 map-get($gaps, regular);
+    }
+    .item + .item {
+      margin-left: 0;
+    }
+  }
+
+  .location-video_mobile {
+    display: block;
+  }
+}
+
+.modal-filter-caller {
+  margin-bottom: map-get($gaps, small);
+  position: sticky;
+  top: 74px;
+  z-index: 99999;
+  
+  @media (min-width: map-get($breakpoints, desktop)) {
+    display: none;
+  }
+}
+.circuit-item--road-badage {
+  position: absolute;
+  left: 35px;
+  top: 100px;
+}
+.circuit-item--road-badage .circuit-item--button {
+  border: none;
+  border-radius: 100px;
+  height: 25px;
+  font-size: 12px;
+  background: #fce5e7;
+  color: #e30b13;
+}

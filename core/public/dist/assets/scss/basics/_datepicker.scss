@@ -1,0 +1,40 @@
+.md-drppicker {
+  .today {
+    &.active {
+      &.start-date {
+        &.end-date {
+          background-color: rgba(255, 0, 0, 0.2) !important;
+          color: red !important;
+          border-radius: 50% !important;
+        }
+      }
+    }
+
+  }
+
+  .in-range {
+    background-color: #e3001b !important;
+    color: white !important;
+    border-radius: unset !important;
+  }
+
+  .start-date {
+    background-color: #e3001b !important;
+    color: white !important;
+    border-radius: 50% 0 0 50% !important;
+  }
+
+  .end-date {
+    border-radius: 0 50% 50% 0 !important;
+  }
+
+  .active {
+    &.start-date {
+      &.end-date {
+        background-color: #e3001b !important;
+        color: white !important;
+        border-radius: 50% 0 0 50% !important;
+      }
+    }
+  }
+}

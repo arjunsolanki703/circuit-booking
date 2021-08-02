@@ -1,0 +1,178 @@
+@import 'base';
+@import 'basics/basic';
+@import '~ion-rangeslider/css/ion.rangeSlider.css';
+@import '~ion-rangeslider/css/ion.rangeSlider.skinModern.css';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: map-get($container, desktop);
+  margin: 0 auto;
+
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    max-width: none;
+    padding: 0 map-get($gaps, small);
+  }
+
+  &.small {
+    max-width: 540px;
+  }
+
+}
+
+body {
+  font-family: $main-font;
+  font-size: map-get($font-size, main);
+  font-weight: map-get($font-weight, main);
+  color: map-get($gray, 600);
+  background: map-get($backgrounds, main);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+p {
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  margin: 0;
+  color: $black;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: map-get($font-weight, alt);
+  color: map-get($gray, 700);
+  margin-top: map-get($gaps, medium);
+  @media (max-width: map-get($breakpoints, desktop)) {
+    font-size: 22px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  @media (max-width: map-get($breakpoints, desktop)) {
+    font-size: 20px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  @media (max-width: map-get($breakpoints, desktop)) {
+    font-size: 18px;
+  }
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+.faq-collapses {
+  margin-top: map-get($gaps, small);
+}
+
+.success-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin: 0 map-get($gaps, mini);
+  }
+}
+.md-drppicker .btn {
+  background-color: #e3001b !important;
+}
+.md-drppicker .today.active.start-date.end-date {
+  color: white !important;
+}
+.md-drppicker .calendar.right .calendar-table table.table-condensed {
+  // margin-top: 58px !important;
+}
+.md-drppicker .calendar.right .calendar-table table th {
+  top: 0 !important;
+}
+.md-drppicker .calendar.left {
+  display: none !important;
+}
+.md-drppicker .calendar.right .calendar-table table.table-condensed .active.end-date.available {
+  background-color: #e3001b !important;
+}
+.md-drppicker .calendar.right table tr td.available:first-child {
+  border-radius: 50% 0 0 50% !important;
+}
+.md-drppicker .calendar.right table tr td.available:last-child {
+  border-radius: 0 50% 50% 0 !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item {
+  border: 1px solid #e3001b !important;
+  background: #e3001b !important;
+}
+.multiselect-item-checkbox input[type=checkbox] + div:before {
+  color: #e3001b !important;
+  border: 2px solid #e3001b !important;
+}
+.multiselect-item-checkbox input[type=checkbox]:checked + div:before {
+  background: #e3001b !important;
+}
+
+.ngx-slider .ngx-slider-pointer {
+  width: 15px !important;
+  height: 15px !important;
+  top: -7px !important;
+  outline: none;
+}
+.ngx-slider .ngx-slider-pointer::after {
+  content: none !important;
+}
+.ngx-slider .ngx-slider-bar {
+  height: 2px !important;
+}
+
+.ngx-slider .ngx-slider-model-value, .ngx-slider .ngx-slider-model-high {
+  background: #e3001b;
+    color: white !important;
+    font-size: 12px !important;
+    border-radius: 3px !important;
+}
+
+.ngx-slider .ngx-slider-model-value::after, .ngx-slider .ngx-slider-model-high::after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -3px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-top-color: #e3001b;
+}
