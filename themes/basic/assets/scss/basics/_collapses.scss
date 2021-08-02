@@ -1,0 +1,57 @@
+@import '../base';
+
+//.collapses > .collapse > .collapse--header + .collapse--content
+.collapses {
+
+  .collapse {
+
+    &.active {
+      .collapse--header {
+        &::before {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    
+    &:last-child {
+      border-bottom: map-get($border, gray);
+    }
+  }
+
+  .collapse + .collapse {}
+
+  .collapse--header {
+    cursor: pointer;
+    padding: map-get($gaps, main) 0 map-get($gaps, main) 30px;
+    color: map-get($primary, 200);
+    font-size: 20px;
+    border-top: map-get($border, gray);
+    position: relative;
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: 11px;
+      width: 2px;
+      height: 22px;
+      transition: mat-transition(transform);
+      transform-origin: center;
+      background: map-get($primary, 200);
+    }
+
+    &::before {}
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+  .collapse--content {
+    padding-bottom: map-get($gaps, main);
+    display: none;
+  }
+}

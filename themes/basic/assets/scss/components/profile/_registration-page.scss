@@ -1,0 +1,16 @@
+@import '../../base';
+
+.registration-page {
+
+  .wrapper {}
+
+  .description {
+    line-height: 1.5;
+    font-size: map-get($font-size, main);
+    color: map-get($gray, 600)
+  }
+
+  .registration-form-wrapper {
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,163 @@
+@import '../../base';
+
+.booking-page {
+
+  .data-picker-header {
+    margin-bottom: 32px;
+  }
+
+  .tab-page {
+    display: none;
+    width: 100%;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .data-picker-tabs {
+
+    .tabs-labels {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .tab-label {
+        flex: 1;
+        padding: 5px 16px;
+        color: map-get($gray, 500);
+        font-size: map-get($font-size, alt);
+        line-height: 1.4;
+      }
+    }
+
+    .tabs-buttons {
+      border: map-get($border, gray);
+      height: 48px;
+      display: flex;
+      align-items: stretch;
+
+      .tab-button {
+        flex: 1;
+        padding: 12px 16px;
+        font-size: map-get($font-size, main);
+        line-height: 1.5;
+        position: relative;
+        cursor: pointer;
+        color: map-get($gray, 700);
+        transition: mat-transition(color);
+
+        &::after {
+          @include underline();
+
+          width: 90%;
+          left: 5%;
+          opacity: 0;
+          transition: mat-transition(opacity);
+        }
+
+        &:hover {
+          color: map-get($primary, 200);
+        }
+
+        &.active {
+          color: map-get($primary, 200);
+
+          &::after {
+            opacity: 1;
+          }
+
+          input {
+            color: map-get($primary, 200);
+          }
+        }
+
+        input {
+          @include clear-button();
+
+          font-size: map-get($font-size, main);
+          cursor: pointer;
+          transition: mat-transition(color);
+        }
+      }
+      
+      .tab-button + .tab-button {
+        border-left: map-get($border, gray);
+      }
+    }
+    .tabs-datapicker {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+    }
+  }
+
+  .data-picker-footer {
+
+  }
+
+  .buttons-wrapper {
+    margin-top: map-get($gaps, main);
+    
+    button + button {
+      margin-left: map-get($gaps, main);
+    }
+  }
+  
+  .terms {
+    a {
+      @include clear-button();
+
+      color: map-get($primary, 200);
+      margin: 0 map-get($gaps, mini);
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .booking-page {
+    .lightpicker-wrapper .lightpick__months {
+      margin-top: 0 !important;
+    }
+    .data-picker-tabs {
+
+      .tabs-buttons {
+        .tab-button {
+          padding: map-get($gaps, mini);
+        }
+      }
+
+      .tabs-datapicker {
+        input {
+          font-size: 12px;
+        }
+      }
+
+      .lightpicker-wrapper {
+        .lightpick__month {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+
+    .terms {
+      label {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.no-p {
+  padding: 0;
+}
+
+.raw-input {
+  padding: 0;
+
+  input {
+    padding: 12px 16px;
+  }
+}

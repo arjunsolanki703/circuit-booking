@@ -1,0 +1,129 @@
+name: 'Header menu'
+items:
+    -
+        title: Circuits
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: circuits/circuits-list
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Europe
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '1'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'North America'
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '7'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'South America'
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '5'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Africa
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '3'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Asia
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '2'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Australia
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '12'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Last Minute Bookings'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: sharing/last-minute-bookings
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+      title: 'Trackday'
+      nesting: ''
+      type: cms-page
+      url: ''
+      code: ''
+      reference: trackdaybooking/trackday-list.htm
+      cmsPage: ''
+      replace: ''
+      viewBag:
+          isHidden: '0'
+          cssClass: ''
+          isExternal: '0'
+    -
+        title: 'We hire!'
+        type: cms-page
+        code: ''
+        reference: jobs/list
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

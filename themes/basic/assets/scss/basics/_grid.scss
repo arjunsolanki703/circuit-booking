@@ -1,0 +1,111 @@
+@import '../base';
+
+//GRID SYSTEM
+$columns-total: 12;
+$columns-gap: map-get($gaps, normal);
+
+//columns layout
+.columns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-left: - $columns-gap/2;
+  margin-right: - $columns-gap/2;
+
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    $columns-gap: map-get($gaps, regular);
+    margin-left: - $columns-gap/2;
+    margin-right: - $columns-gap/2;
+  }
+
+  .col-item {
+    flex: 1 0 auto;
+    width: 100%;
+    padding: 0 $columns-gap/2;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+
+    @media (max-width: map-get($breakpoints, desktop) - 1) {
+      $columns-gap: map-get($gaps, regular);
+      padding: 0 $columns-gap / 2;
+    }
+  }
+
+  @for $column-number from 1 through $columns-total {
+    $columns-gap: map-get($gaps, normal);
+    .col-#{$column-number} {
+      flex: 0 0 percentage($column-number / $columns-total);
+      width: percentage($column-number / $columns-total);
+      max-width: percentage($column-number / $columns-total);
+      padding: 0 $columns-gap/2;
+      min-width: 0;
+      overflow: hidden;
+      @media (max-width: map-get($breakpoints, desktop) - 1) {
+        $columns-gap: map-get($gaps, regular);
+        padding: 0 $columns-gap/2;
+      }
+    };
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: map-get($breakpoints, desktop) - 1) {
+  .hidden-xl {
+    display: none;
+  }
+}
+.columns + .columns {
+  margin-top: map-get($gaps, regular);
+  
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    margin-top: map-get($gaps, small);
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  $columns-gap: map-get($gaps, regular);
+
+  .columns {
+    margin-left: - $columns-gap/2;
+    margin-right: - $columns-gap/2;
+
+    .col-xs-item {
+      flex: 1 0 auto;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 0 $columns-gap/2;
+      min-width: 0;
+    }
+
+    @for $column-number from 1 through $columns-total {
+      .col-xs-#{$column-number} {
+        flex: 0 0 percentage($column-number / $columns-total);
+        width: percentage($column-number / $columns-total);
+        max-width: percentage($column-number / $columns-total);
+        overflow: hidden;
+        padding: 0 $columns-gap/2;
+        min-width: 0;
+      };
+    }
+  }
+  
+  .col-xs-12 + .col-xs-12 {
+    margin-top: map-get($gaps, small);
+  }
+
+  .hidden-xs {
+    display: none !important;
+  }
+
+  @for $order-number from 1 through 6 {
+    .mo-#{$order-number} {
+      order: $order-number;
+    };
+  }
+}

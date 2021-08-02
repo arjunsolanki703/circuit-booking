@@ -1,0 +1,78 @@
+@import '../base';
+
+//Common list styles
+ul, ol {
+  padding-left: 37px;
+
+  li {
+    line-height: 1.6;
+    position: relative;
+  }
+
+  li + li {
+    margin-top: 8px;
+  }
+
+  ul, ol {
+    margin-top: 8px;
+  }
+}
+
+//Default - with red squares
+ul {
+  list-style: none;
+
+  li {
+    position: relative;
+
+    &::before {
+      content: "";
+      height: 6px;
+      width: 6px;
+      border-radius: map-get($border-radius, main);
+      background: map-get($primary, 200);
+      position: absolute;
+      top: 9px;
+      left: -16px;
+    }
+  }
+}
+
+//List variation with check marks on the left
+.checked {
+list-style: none;
+padding: 0;
+
+  ul, ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 0;
+    font-size: map-get($font-size, alt);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: map-get($gray, 700);
+
+    &::before {
+      content: '';
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      background: url('/themes/basic/assets/images/basic/check-green.png');
+      margin-right: map-get($gaps, main);
+    }
+  }
+
+  li + li {
+    margin-top: 18px;
+  }
+}

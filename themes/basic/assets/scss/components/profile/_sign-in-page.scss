@@ -1,0 +1,78 @@
+@import '../../base';
+
+.sign-in-page {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 96px;
+
+  .page-header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 72px;
+  }
+
+  .subheader {
+    font-size: map-get($font-size, main);
+    color: map-get($gray, 600);
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  .page-content {
+    width: 323px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .registration-wrapper {
+    width: 100%;
+  }
+  .sign-up-wrapper {
+    width: 100%;
+    margin-top: 88px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .sign-up-title {
+    margin-bottom: 16px;
+    color: map-get($gray, 600);
+    font-size: map-get($font-size, main);
+  }
+
+  .sign-up-content {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .sign-in-page {
+    margin-top: 0;
+    padding: 0 map-get($gaps, small);
+    
+    .page-header {
+      margin-bottom: map-get($gaps, regular);
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, tablet)) {
+  .sign-in-page {
+    .page-content {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+@import '../../base';
+
+#app-footer {
+  background: map-get($gray, 700);
+  .wrapper {}
+  .sign-up {
+    padding: 95px 0 125px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sign-up-text {
+    .title {
+      font-size: 28px;
+      color: $white;
+      margin-bottom: map-get($gaps, medium);
+    }
+    .subtitle {
+      font-size: map-get($font-size, alt);
+      color: map-get($opacity-white, 5);
+    }
+  }
+  .sign-up-input-wrapper {
+    max-width: 440px;
+    width: 100%;
+    height: 48px;
+    background: rgba(map-get($gray, 200), .1);
+    border-radius: map-get($border-radius, main);
+    overflow: hidden;
+    position: relative;
+    input {
+      @include clear-button();
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: map-get($gaps, main)/2 48px map-get($gaps, main)/2 16px;
+      background: transparent;
+      color: $white;
+      border: map-get($border, main-empty);
+      font-size: map-get($font-size, main);
+      transition: mat-transition(border, color);
+
+      &::placeholder {
+        color: map-get($opacity-white, 5);
+        font-size: map-get($font-size, main);
+      }
+
+      .error {
+        color: $error;
+      }
+
+      &:focus,
+      &:active {
+        border: map-get($border, main);
+      }
+
+
+    }
+    .icon {
+      @include clear-button();
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 48px;
+      width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+  .footer-nav {
+    padding: 65px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: map-get($font-size, alt);
+
+    .column {
+      flex: 0 0 25%;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: map-get($gaps, mini) 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+  .footer-nav--title {
+    color: map-get($opacity-white, 2);
+    margin-bottom: map-get($gaps, main);
+  }
+  .footer-nav--item {
+    @include clear-button();
+
+    color: $white;
+    transition: mat-transition(color);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: map-get($primary, 200);
+    }
+  }
+  .footer-info {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid map-get($opacity-white, 2);
+  }
+  .company-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .company-info--logo {
+      margin-right: map-get($gaps, main);
+      img {
+        height: 43px;
+        width: 53px;
+        object-fit: cover;
+      }
+    }
+    .company-info--name {
+      color: map-get($opacity-white, 2);
+      font-size: map-get($font-size, alt);
+    }
+  }
+  .socials {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      @include clear-button();
+      color: map-get($gray, 100);
+      transition: mat-transition(color);
+      margin-left: map-get($gaps, main);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($primary, 200);
+      }
+    }
+  }
+}

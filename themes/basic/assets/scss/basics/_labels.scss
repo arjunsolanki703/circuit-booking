@@ -1,0 +1,42 @@
+@import '../base';
+
+//label for radio and checkboxes
+.right-label {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: map-get($font-size, main);
+  line-height: 1.5;
+  color: map-get($gray, 700);
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .image {
+      width: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 4px;
+
+      img {
+        width: 100%;
+      }
+    }
+    .text {}
+  }
+  .right {
+    flex: 1;
+    text-align: right;
+    color: map-get($gray, 500);
+  }
+}
+//disabled label
+.mdc-radio--disabled + label,
+.mdc-checkbox--disabled + label {
+  cursor: default;
+}

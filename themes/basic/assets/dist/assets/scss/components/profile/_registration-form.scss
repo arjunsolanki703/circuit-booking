@@ -1,0 +1,247 @@
+@import '../../base';
+
+.registration-form {
+
+  .registration-form--header {
+    height: 72px;
+    border: map-get($border, gray);
+    border-radius: map-get($border-radius, main);
+  }
+
+  .registration-form--content {
+    margin-top: 40px;
+  }
+
+  .registration-form--footer {
+    margin-top: 40px;
+
+    .terms-check {
+
+      label {
+        font-size: map-get($font-size, alt);
+        color: map-get($gray, 600);
+      }
+
+      a {
+        @include clear-button();
+
+        color: map-get($primary, 200);
+        margin: 0 map-get($gaps, mini);
+      }
+    }
+  }
+
+  .buttons-block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .button + .button {
+      margin-left: 16px;
+    }
+  }
+
+  .steps-header {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    cursor: pointer;
+    padding: 0 16px;
+
+    &:hover {
+      .number {
+        color: map-get($primary, 100);
+      }
+    }
+
+    &.click-disabled {
+      pointer-events: none;
+    }
+
+    &.active,
+    &.done {
+      .number {
+        border: 2px solid map-get($primary, 200);
+        color: map-get($primary, 200);
+      }
+    }
+
+    &.active {
+    }
+
+    &.done {
+      .number {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    
+    .number {
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid map-get($gray, 400);
+      color: map-get($gray, 400);
+      font-weight: map-get($font-weight, bold);
+      font-size: map-get($font-size, alt);
+      border-radius: map-get($border-radius, round);
+      margin-right: map-get($gaps, medium);
+      position: relative;
+      transition: mat-transition(border, color);
+
+      &::after {
+        content: '\F12C';
+        position: absolute;
+        top: 0;
+        left: 0;
+        font: $mat-icons-font;
+        font-size: map-get($font-size, main);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 26px;
+        width: 26px;
+        border-radius: map-get($border-radius, round);
+        background: map-get($primary, 200);
+        color: $white;
+        opacity: 0;
+        transition: mat-transition(opacity);
+      }
+    }
+
+    .title {}
+  }
+
+  .step-header + .step-header {
+    border-left: map-get($border, gray);
+  }
+
+  .steps {
+    position: relative;
+  }
+
+  .step {
+    display: none;
+
+    &.step-1 {}
+    &.step-2 {}
+    &.step-3 {}
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .step-info {
+    margin-bottom: 32px;
+
+    .step-number {
+      color: map-get($primary, 200);
+      font-size: map-get($font-size, alt);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .step-title {
+      font-size: 20px;
+      color: map-get($gray, 700);
+      font-weight: map-get($font-weight, alt);
+    }
+  }
+
+  .user-group-selection {
+
+    .col-6 {
+      margin-bottom: map-get($gaps, small);
+    }
+
+    .user-group {
+      border: map-get($border, gray);
+      transition: mat-transition(border);
+      cursor: pointer;
+      width: 100%;
+      min-height: 170px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 29px 32px;
+    }
+
+    input[type=radio]:checked + .user-group {
+      border: map-get($border, main);
+
+      .user-group--title {
+        color: map-get($primary, 200);
+      }
+    }
+
+    .user-group--title {
+      color: map-get($gray, 700);
+      transition: mat-transition(color);
+      font-weight: map-get($font-weight, alt);
+      width: 100%;
+    }
+
+    .user-group--description {
+      font-size: map-get($font-size, main);
+      line-height: 1.5;
+      color: map-get($gray, 600);
+      width: 100%;
+      margin-top: 16px;
+    }
+  }
+}
+
+//MOBILE
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .registration-form-wrapper {}
+  .registration-form {
+    .registration-form--header {
+      height: auto;
+    }
+    .steps-header {
+      display: grid;
+      grid-template: repeat(3, 1fr) / 1fr;
+      padding: 0;
+    }
+    .step-header {
+      padding: 10px;
+    }
+    .step-header + .step-header {
+      border: none;
+      border-top: map-get($border, gray);
+    }
+  }
+
+  //IE HACK
+
+  @media all and (-ms-high-contrast:none)
+  {
+    _:-ms-fullscreen, :root .steps-header {
+      display: flex !important;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-flow: column nowrap;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none)
+  {
+    _:-ms-fullscreen, :root .step-header {
+      width: 100%;
+      flex: 1 0 100%;
+      padding: 30px 10px;
+    }
+  }
+}
+

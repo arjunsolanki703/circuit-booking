@@ -1,0 +1,100 @@
+@import '../../base';
+
+//ul(ol).line-menu > li.line-menu--item(.active) > .line-menu--link
+.line-menu {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+
+  .line-menu--item {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+      display: none;
+    }
+    &::after {
+      @include underline();
+
+      opacity: 0;
+      z-index: 2;
+      transition: mat-transition(opacity);
+    }
+
+    &.active {
+      &::after {
+        opacity: 1;
+      }
+
+      &>.line-menu--link {
+        color: map-get($primary, 200);
+      }
+    }
+
+    &:hover {
+      .line-menu--submenu {
+        transition: mat-transition(transform);
+        transform: rotate3d(1, 0, 0, 0deg);
+      }
+    }
+  }
+
+  .line-menu--link {
+    @include clear-button();
+
+    color: map-get($gray, 700);
+    transition: mat-transition(color);
+
+    &:hover,
+    &:focus {
+      color: map-get($primary, 200);
+    }
+  }
+
+  span {
+    color: map-get($gray, 500) !important;
+    cursor: default;
+  }
+
+  .line-menu--item + .line-menu--item {
+    margin-left: 40px;
+  }
+
+  .line-menu--submenu {
+    position: absolute;
+    top: map-get($page-sizes, header-height);
+    left: 0;
+    padding: 16px;
+    margin: 0;
+    background: $white;
+    box-shadow: $mat-elevation;
+    min-width: 302px;
+    transform: rotate3d(1, 0, 0, 90deg);
+    transform-origin: top;
+
+    .line-menu--item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .line-menu--item + .line-menu--item {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+
+    .line-menu--item {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

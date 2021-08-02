@@ -1,0 +1,6 @@
+@import '../variables/variables';
+
+@mixin cb-elevation() {
+  border-radius: map-get($border-radius, main);
+  box-shadow: 0 10px 17px 0 rgba(43, 45, 66, 0.1);
+}

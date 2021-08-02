@@ -1,0 +1,51 @@
+@import '../base';
+
+.drop-down--container {
+  position: relative;
+
+  &:hover {
+    .drop-down {
+      transform: rotate3d(1, 0, 0, 0deg);
+    }
+  }
+}
+
+.drop-down {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 16px;
+  transform-origin: top;
+  transform: rotate3d(1, 0, 0, 90deg);
+  transition: mat-transition(transform);
+
+  @include cb-elevation();
+
+  &.right {
+    right: 0;
+    left: auto;
+  }
+
+  .drop-down--item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+    cursor: pointer;
+    
+    &::before {
+      display: none;
+    }
+  }
+
+  .drop-down--link {
+    white-space: nowrap;
+  }
+}

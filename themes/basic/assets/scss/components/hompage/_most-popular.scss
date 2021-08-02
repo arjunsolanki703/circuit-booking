@@ -1,0 +1,117 @@
+@import '../../base';
+
+.homepage-section.most-popular {
+
+  .wrapper {
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
+  .section-header {
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-title {
+    max-width: 334px;
+  }
+
+  .homepage-tabs--controls {
+    height: 72px;
+    border-bottom: map-get($border, gray);
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    .tab-control {
+      @include clear-button();
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      border-top-left-radius: map-get($border-radius, main);
+      border-top-right-radius: map-get($border-radius, main);
+      font-size: map-get($font-size, alt);
+      font-weight: map-get($font-weight, alt);
+      color: map-get($gray, 700);
+      line-height: 1.5;
+      transition: mat-transition(color);
+
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: map-get($primary, hover);
+      }
+
+      &::after {
+        @include underline();
+        opacity: 0;
+        transition: mat-transition(opacity);
+      }
+
+      &.active {
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &.disabled {
+        color: map-get($gray, 300);
+        cursor: default;
+      }
+    }
+    
+    .tab-control + .tab-control {
+      margin-left: map-get($gaps, big);
+    }
+  }
+
+  .homepage-tabs--content {
+
+    .tab-page {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .homepage-section.most-popular {
+
+    .wrapper {
+      padding-top: map-get($gaps, regular);
+      padding-bottom: map-get($gaps, regular);
+    }
+
+    .section-header {
+      margin-bottom: map-get($gaps, small);
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      width: 100%;
+    }
+
+    .homepage-tabs--controls {
+      width: 100%;
+    }
+
+    .homepage-tabs--controls {
+      overflow-x: scroll;
+      
+      .tab-control {
+        flex: 0 0 auto;
+      }
+      
+      .tab-control + .tab-control {
+        margin-left: map-get($gaps, small);
+      }
+    }
+  }
+}

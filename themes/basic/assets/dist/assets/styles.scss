@@ -1,0 +1,32 @@
+// material icons
+$mdi-font-path: '~@mdi/font/fonts/';
+@import "~@mdi/font/scss/materialdesignicons";
+
+//libs
+//@import '~ion-rangeslider/css/ion.rangeSlider.css';
+//@import '~lightpick/css/lightpick.css';
+//@import '~toastr/build/toastr.min.css';
+
+//MDC LIBS
+@import '~@material/ripple/dist/mdc.ripple.min.css';
+@import '~@material/form-field/mdc-form-field';
+$mdc-checkbox-size: 20px;
+$mdc-checkbox-border-width: 1px;
+$mdc-checkbox-mark-stroke-size: 2/20 * $mdc-checkbox-size !default;
+@import '~@material/checkbox/mdc-checkbox';
+$mdc-radio-size: 20px;
+$mdc-radio-border-width: 1px;
+$mdc-radio-mark-stroke-size: 2/20 * $mdc-radio-size !default;
+@import '~@material/radio/mdc-radio';
+
+// theme import
+@import 'scss/theme';
+
+// components
+@import 'scss/components/layout/layout';
+@import 'scss/components/hompage/homepage';
+@import 'scss/components/news/news';
+@import 'scss/components/circuits/circuits';
+@import 'scss/components/profile/profile';
+@import 'scss/components/management/management';
+@import 'scss/components/contacts/contacts';

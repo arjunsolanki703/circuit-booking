@@ -1,0 +1,84 @@
+en:
+  news.relatedNews: 'Related news'
+  news.relatedJobs: 'Job offers'
+
+  home.title: 'The easy way to book a circuit'
+  home.description: 'More than 450 circuits world-wide easily bookable.'
+  home.goMap: 'See more circuits on the map'
+  home.forCustomers.title: 'For Customers'
+  home.forCustomers.description: "Choose from the world's largest circuit database."
+  home.forCircuits.title: 'For Circuits'
+  home.forCircuits.description: "Manage your circuit with a professional software."
+  home.seeMostPopular: 'See most popular circuits in the world'
+  home.url: 'About circuit-booking.com'
+  home.news: 'News'
+  home.circuit: 'Circuit'
+  home.dates: 'Dates'
+  home.describe.title: 'Signup with our newsletter'
+  home.describe.description: 'To get more information about new circuits'
+  home.typeToSearch: 'Type to search'
+  home.home: 'Home'
+
+  buttons.bookNow: 'Book now'
+  buttons.seeAll: 'See all circuits'
+  buttons.signUp: 'Sign up'
+  buttons.allNews: 'All news'
+  buttons.signUp: "Sign Up"
+  buttons.signIn: "Sign In"
+  buttons.profile: "Profile"
+  buttons.signOut: "Sign Out"
+  buttons.more: 'More'
+
+  user.passwordResetComplite: 'Password reset complete, you may now sign in.'
+  user.pleseCheckEmail: 'Please check your email for the activation code.'
+  user.activationCode: 'Activation Code'
+  user.newPass: 'New Password'
+  user.resetPass: 'Reset password'
+  user.lostPass: 'Lost your password?'
+  user.noProblemEnterEmail: 'No problem! Enter your email address to verify your account.'
+  user.email: 'Email'
+  user.enterEmail: 'Enter your email'
+  user.restorePass: 'Restore password'
+
+de:
+  news.relatedNews: 'Related news DE'
+  news.relatedJobs: 'Job offers DE'
+
+  home.title: 'The easy way to book a circuit DE'
+  home.description: 'More than 450 circuits world-wide easily bookable. DE'
+  home.goMap: 'See more circuits on the map DE'
+  home.forCustomers.title: 'For Customers DE'
+  home.forCustomers.description: "Choose from the world's largest circuit database. DE"
+  home.forCircuits.title: 'For Circuits DE'
+  home.forCircuits.description: "Manage your circuit with a professional software. DE"
+  home.seeMostPopular: 'See most popular circuits in the world DE'
+  home.url: 'About circuit-booking.com DE'
+  home.news: 'News DE'
+  home.circuit: 'Circuit'
+  home.dates: 'Dates'
+  home.describe.title: 'Signup with our newsletter'
+  home.describe.description: 'To get more information about new circuits'
+  home.typeToSearch: 'Type to search'
+  home.home: 'Home'
+
+  buttons.bookNow: 'Book now DE'
+  buttons.seeAll: 'See all circuits DE'
+  buttons.signUp: 'Sign up DE'
+  buttons.allNews: 'All news DE'
+  buttons.signUp: "Sign Up"
+  buttons.signIn: "Sign In"
+  buttons.profile: "Profile"
+  buttons.signOut: "Sign Out"
+  buttons.more: 'More'
+
+  user.passwordResetComplite: 'Password reset complete, you may now sign in.'
+  user.pleseCheckEmail: 'Please check your email for the activation code.'
+  user.activationCode: 'Activation Code'
+  user.newPass: 'New Password'
+  user.resetPass: 'Reset password'
+  user.lostPass: 'Lost your password?'
+  user.noProblemEnterEmail: 'No problem! Enter your email address to verify your account.'
+  user.email: 'Email'
+  user.enterEmail: 'Enter your email'
+  user.restorePass: 'Restore password'
+  

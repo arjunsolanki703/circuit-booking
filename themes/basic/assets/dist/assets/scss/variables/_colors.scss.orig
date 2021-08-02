@@ -1,0 +1,58 @@
+//COLORS
+$gray: (
+  100: #fafafb,
+  200: #f4f7fc,
+  300: #e0e6f0,
+  400: #bcc7d9,
+  500: #8d9cb6,
+  600: #69718c,
+  700: #2b2d42,
+);
+
+$primary: (
+  100: #01A0E9,
+ #  200: #e3001b,
+  200: #01A0E9,
+  300: #b90015,
+  hover: #ee0723,
+  contrast: (
+    100: map-get($gray, 100),
+    200: map-get($gray, 100),
+    300: map-get($gray, 100),
+  )
+);
+
+$opacity-black: (
+  2: rgba(#1f1f22, .2),
+  5: rgba(#1f1f22, .5),
+  8: rgba(#1f1f22, .8),
+);
+
+$opacity-white: (
+  2: rgba(#fff, .2),
+  5: rgba(#fff, .5),
+  8: rgba(#fff, .8),
+);
+
+$white: #fff;
+$black: #322f3c;
+$accent: $primary;
+
+$success: #4cd964;
+$warning: #ffcd00;
+$error: #ff3b30;
+
+$backgrounds: (
+  header: $white,
+  main: $white,
+  footer: map-get($gray, 700),
+  input: map-get($gray, 200),
+  modal: $white,
+);
+
+$link-color: (
+  normal: map-get($gray, 700),
+  contrast: map-get($gray, 100),
+  hover: map-get($primary, 100),
+  disabled: map-get($gray, 300),
+)

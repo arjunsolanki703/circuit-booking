@@ -1,0 +1,142 @@
+@import '../../base';
+
+#map {
+  .leaflet-control {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+
+    &.leaflet-control-zoom {
+
+      a {
+        background: rgba(map-get($gray, 500), .8);
+        color: $white;
+        border-radius: map-get($border-radius, main);
+        height: 32px;
+        width: 32px;
+        font-size: 30px;
+        line-height: 26px;
+        align-items: unset;
+        transition: mat-transition(background);
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: map-get($gray, 500);
+        }
+      }
+
+      a + a {
+        margin-top: 5px;
+      }
+    }
+
+    &.leaflet-control-layers {
+      a {
+        background: rgba(map-get($gray, 500), .8);
+        color: $white;
+        border-radius: map-get($border-radius, main);
+        height: 32px;
+        width: 32px;
+        font-size: 30px;
+        line-height: 26px;
+        align-items: unset;
+        transition: mat-transition(background);
+        position: relative;
+
+        &::after {
+          font: $mat-icons-font;
+          font-size: 26px;
+          content: "\F1E7";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          color: $white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: map-get($gray, 500);
+        }
+      }
+
+      &.leaflet-control-layers-expanded {
+        background: rgba(map-get($gray, 500), .8);
+        color: $white;
+        border-radius: map-get($border-radius, main);
+        display: flex;
+        height: 32px;
+        align-items: center;
+        padding: 0 10px;
+
+        #map-control-sitellite,
+        #map-control-standart {
+          font-size: 16px;
+          padding: 0;
+          margin: 0;
+          text-transform: uppercase;
+          font-family: $main-font;
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+
+      .leaflet-control-layers-list {
+        input {
+          display: none !important;
+        }
+      }
+    }
+
+    .leaflet-control-zoom-fullscreen {
+      background: rgba(map-get($gray, 500), .8);
+      border-radius: map-get($border-radius, main);
+      height: 32px;
+      width: 32px;
+      font-size: 30px;
+      line-height: 26px;
+      align-items: unset;
+      transition: mat-transition(background);
+      position: relative;
+      color: transparent;
+
+      &::after {
+        font: $mat-icons-font;
+        font-size: 32px;
+        content: "\F293";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: $white;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: map-get($gray, 500);
+      }
+    }
+  }
+}
+
+#map {
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    height: 200px !important;
+
+    .leaflet-control-zoom-fullscreen {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../base';
+
+.mdc-radio {
+  cursor: pointer;
+  margin-left: -10px;
+
+  @include mdc-radio-unchecked-stroke-color(map-get($gray, 400));
+  @include mdc-radio-checked-stroke-color(map-get($primary, 200));
+  @include mdc-radio-ink-color(map-get($primary, 200));
+}
+.mdc-radio__background {}
+.mdc-radio__inner-circle {}
+.mdc-radio__outer-circle {
+  border-width: 1px;
+};

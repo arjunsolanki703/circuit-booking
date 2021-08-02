@@ -1,0 +1,47 @@
+@import '../base';
+
+.tabs {
+
+  .tabs-header {
+    border-bottom: map-get($border, gray);
+    margin-bottom: map-get($gaps, main);
+
+    .tabs-header--item {
+      @include clear-button();
+
+      padding: 21px;
+      cursor: pointer;
+      position: relative;
+      font-weight: map-get($font-weight, alt);
+      font-size: map-get($font-size, alt);
+      color: map-get($gray, 700);
+      transition: mat-transition(color);
+
+      &::after {
+        @include underline();
+
+        opacity: 0;
+        z-index: 2;
+        transition: mat-transition(opacity);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($primary, hover);
+      }
+
+      &.active {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .tabs-content {}
+
+  .tab {
+    display: none;
+  }
+}

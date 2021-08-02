@@ -1,0 +1,11 @@
+name: 'Aside Mobile Menu'
+items:
+    -
+        title: 'Homepage de'
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

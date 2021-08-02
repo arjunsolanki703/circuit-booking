@@ -1,0 +1,14 @@
+@import '../../base';
+
+.homepage-section {
+
+  .wrapper {}
+  .section-header {}
+  .section-title {
+    font-size: 28px;
+    font-weight: map-get($font-weight, alt);
+  }
+  p + p {
+    margin-top: map-get($gaps, main);
+  }
+}

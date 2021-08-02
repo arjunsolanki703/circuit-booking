@@ -1,0 +1,223 @@
+name: 'Footer menu'
+items:
+    -
+        title: 'Circuit Operators'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Concept Introduction'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: concept-introduction
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Administration Software'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: administration-software
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Registration
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: profile/register
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Customers
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Online Booking'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: online-booking
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Circuit Overview'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: circuits/circuits-list
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Registration
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: profile/register
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Company
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Management
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: managements
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: News
+                type: cms-page
+                code: ''
+                reference: news/news-list
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Contact
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: contact
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Services
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Terms and Conditions'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: terms-and-conditions
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Privacy Policy'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: privacy-policy
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'FAQ / Help'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: faq
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Imprint
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: imprint
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
