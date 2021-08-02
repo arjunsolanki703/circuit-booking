@@ -1,0 +1,29 @@
+<form class="sharing-request-form"
+      id="sharing-request-form"
+      method="POST"
+      accept-charset="UTF-8"
+      enctype="multipart/form-data"
+      data-request="{{ __SELF__ }}::onTrackDaysSave"
+      data-request-files
+      data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+      data-request-success="removeErrors($(this));magicFormSuccessDynamic($(this),'Create TrackDays successful!');"
+>
+    {% partial __SELF__ ~ '::include_form' %}
+
+    <div class="columns jc-e">
+        <div class="col-9 col-xs-12">
+            <div class="columns">
+                <div class="col-4 col-xs-12">
+                    <button type="button" class="button alt"
+                            data-request="{{ __SELF__ }}::onRun"
+                            data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+                    >{{ 'cb.tabtrackdaysprofile::lang.component.cancel' | trans }}
+                    </button>
+                </div>
+                <div class="col-8 col-xs-12">
+                    <button type="submit" class="button solid" data-toggle="modal">{{ 'cb.tabtrackdaysprofile::lang.component.submit' | trans }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    twitter:
+        label   : cb.ssbuttons::lang.settings.twitter
+        type    : switch
+        span    : left
+        default : true
+    facebook:
+        label   : cb.ssbuttons::lang.settings.facebook
+        type    : switch
+        span    : left
+        default : true
+    google+:
+        label   : cb.ssbuttons::lang.settings.google+
+        type    : switch
+        span    : left
+        default : true
+    stumbleupon:
+        label   : cb.ssbuttons::lang.settings.stumbleupon
+        type    : switch
+        span    : left
+        default : true
+    linkedin:
+        label   : cb.ssbuttons::lang.settings.linkedin
+        type    : switch
+        span    : left
+        default : true

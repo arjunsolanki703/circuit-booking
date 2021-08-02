@@ -1,0 +1,12 @@
+name: Bookings
+modelClass: Cb\Pgmware\Models\BookingVariant
+form: $/cb/pgmware/models/bookingvariant/fields.yaml
+defaultRedirect: cb/pgmware/bookings
+create:
+    redirect: 'cb/pgmware/bookings/update/:id'
+    redirectClose: cb/pgmware/bookings
+update:
+    redirect: cb/pgmware/bookings
+    redirectClose: cb/pgmware/bookings
+preview:
+    form: $/cb/pgmware/models/bookingvariant/preview.yaml

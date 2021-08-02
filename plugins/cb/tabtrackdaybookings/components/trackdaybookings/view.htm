@@ -1,0 +1,143 @@
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.trackday_program' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.title }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.location_variant' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.variant.location.name }} {{ item.variant.name }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.description' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <textarea class="form-control">{{ item.description }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.vehicle_type' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.price_per_day' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.price }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.vat' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.vat_value }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.currency' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.currency.name }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.start_date_time' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.start_date }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.end_date_time' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="{{ item.end_date }}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaybookings::lang.component.bookable_capacity_via' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" value="" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="columns jc-e">
+    <div class="col-12">
+        <button type="button" class="button alt"
+                data-request="{{ __SELF__ }}::onRun"
+                data-request-update="'{{ __SELF__ }}::main': '#TrackDayBookings'"
+        >Cancel
+        </button>
+    </div>
+</div>

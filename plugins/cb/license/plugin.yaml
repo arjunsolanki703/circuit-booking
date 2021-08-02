@@ -1,0 +1,11 @@
+plugin:
+    name: 'cb.license::lang.plugin.name'
+    description: 'cb.license::lang.plugin.description'
+    author: cb
+    icon: oc-icon-key
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: License
+        url: cb/license/tokens
+        icon: icon-life-ring

@@ -1,0 +1,130 @@
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title"></div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ item.vehicle_type.name }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaysprofile::lang.component.title' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ item.title }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaysprofile::lang.component.description' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ item.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaysprofile::lang.component.price' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ item.price }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="licenseplate">{{ 'cb.tabtrackdaysprofile::lang.component.currency' | trans }}</label>
+                <div class="input-wrapper">
+                   {{ item.currency.currency_symbol }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="licenseplate">{{ 'cb.tabtrackdaysprofile::lang.component.vat_value' | trans }}<span class="required">*</span></label>
+                <div class="input-wrapper">
+                    {{ item.vat_value }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaysprofile::lang.component.bookable' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ item.bookable == 1 ? 'On':'Off' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaysprofile::lang.component.trackday_company' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ item.company.name }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.tabtrackdaysprofile::lang.component.image' | trans }}</div>
+            <div class="form-group--content">
+                <img style="width: auto" src="{{ item.image.path }}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns jc-e">
+    <div class="col-9 col-xs-12">
+        <div class="columns">
+            <div class="col-4 col-xs-12">
+                <button type="button" class="button alt"
+                        data-request="{{ __SELF__ }}::onRun"
+                        data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+                >{{ 'cb.tabtrackdaysprofile::lang.component.back' | trans }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

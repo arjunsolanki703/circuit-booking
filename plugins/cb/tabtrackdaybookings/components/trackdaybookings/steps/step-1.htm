@@ -1,0 +1,209 @@
+<div class="columns">
+    <div class="col-8 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Trackday</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="trackday_id" onchange="changeTrackDayStep1()">
+                            {% for item in model.trackdays %}
+                                <option value="{{ item.id }}"
+                                        data-description="{{ item.description }}"
+                                        data-price="{{ item.price }}"
+                                        data-vat_value="{{ item.vat_value }}"
+                                        data-currency_id="{{ item.currency_id }}"
+                                        data-vehicle_type_id="{{ item.vehicle_type_id }}"
+                                >{{ item.title }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Continent</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="continent_id" onchange="changeContinentStep1()">
+                            {% for item in model.continents %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Country</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper step1Country">
+                        <select name="country_id" onchange="changeCountryStep1()"></select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Location</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper step1Location" onchange="changeLocationStep1()">
+                        <select name="location_id"></select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Variants</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper step1Variant">
+                        <select name="variant_id"></select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns jc-e">
+    <div class="col-9 col-xs-12">
+        <div class="columns">
+            <div class="col-4 col-xs-12">
+                <button type="button" class="button alt" onclick="closeModel();return false;">Cancel</button>
+            </div>
+            <div class="col-8 col-xs-12">
+                <button class="button solid" onclick="$('#step2').click();return false;">Save And Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function closeModel() {
+        if (confirm('Do you really want to cancel this wizard?')){
+            $('.modal-backdrop').click()
+        }
+    }
+</script>
+{% put scripts %}
+    <script>
+        changeContinentStep1();
+        changeTrackDayStep1();
+
+
+        function changeContinentStep1() {
+            $.request('onStep1Country', {
+                    data: {'id': document.querySelector('[name="continent_id"]').value},
+                    update: {'{{ __SELF__ }}::step-1-country': '.step1Country'},
+                },
+            );
+        }
+
+        function changeCountryStep1() {
+
+
+            $.request('onStep1Location', {
+                    data: {'id': document.querySelector('[name="country_id"]').value},
+                    update: {'{{ __SELF__ }}::step-1-location': '.step1Location'}
+                },
+            );
+        }
+
+        function changeLocationStep1() {
+
+            setLocationName();
+
+            $.request('onStep1Variant', {
+                    data: {'id': document.querySelector('[name="location_id"]').value},
+                    update: {'{{ __SELF__ }}::step-1-variant': '.step1Variant'}
+                },
+            );
+        }
+
+        function setLocationName() {
+            let e = document.querySelector('[name="location_id"]');
+            document.querySelector('[name="location_name"]').value = e.options[e.selectedIndex].text;
+            document.querySelector('[name="location_name_readonly"]').value = e.options[e.selectedIndex].text;
+
+        }
+
+
+        function changeTrackDayStep1() {
+            let e = document.querySelector('[name="trackday_id"]');
+            let options = e.options[e.selectedIndex];
+
+            var vat_value = document.querySelector('[name="vat_value"]');
+            var trackday_name = document.querySelector('[name="trackday_name"]');
+            var description = document.querySelector('[name="description"]');
+            var price_per_person = document.querySelector('[name="price_per_person"]');
+
+            document.querySelector('[name="currency_id_step_2"]').value = options.getAttribute('data-currency_id');
+            document.querySelector('[name="vehicle_type_id"]').value = options.getAttribute('data-vehicle_type_id');
+            trackday_name.value = options.text;
+            description.value = options.getAttribute('data-description');
+            price_per_person.value = options.getAttribute('data-price_per_person');
+            vat_value.value = options.getAttribute('data-vat_value');
+
+        }
+
+        var vat_value = document.querySelector('[name="vat_value"]');
+        var trackday_name = document.querySelector('[name="trackday_name"]');
+        var description = document.querySelector('[name="description"]');
+        var price_per_person = document.querySelector('[name="price_per_person"]');
+        var start_data_time = document.querySelector('[name="start_data_time"]');
+        var end_data_time = document.querySelector('[name="end_data_time"]');
+        var bookble_capacity = document.querySelector('[name="bookble_capacity"]');
+        document.querySelector('[name="description_readonly"]').value = description.value;
+        document.querySelector('[name="price_per_person_readonly"]').value = price_per_person.value;
+        document.querySelector('[name="trackday_name_readonly"]').value = trackday_name.value;
+        document.querySelector('[name="start_data_time_readonly"]').value = start_data_time.value;
+        document.querySelector('[name="end_data_time_readonly"]').value = end_data_time.value;
+        document.querySelector('[name="bookble_capacity_readonly"]').value = bookble_capacity.value;
+
+        bookble_capacity.addEventListener('change', function () {
+            document.querySelector('[name="bookble_capacity_readonly"]').value = bookble_capacity.value;
+        });
+
+        end_data_time.addEventListener('change', function () {
+            document.querySelector('[name="end_data_time_readonly"]').value = end_data_time.value;
+        });
+
+        start_data_time.addEventListener('change', function () {
+            document.querySelector('[name="start_data_time_readonly"]').value = start_data_time.value;
+        });
+
+        description.addEventListener('change', function () {
+            document.querySelector('[name="description_readonly"]').value = description.value;
+        });
+
+        price_per_person.addEventListener('change', function () {
+            document.querySelector('[name="price_per_person_readonly"]').value = price_per_person.value;
+        });
+
+        vat_value.addEventListener('change', function () {
+            document.querySelector('[name="vat_value_readonly"]').value = vat_value.value;
+        });
+
+        trackday_name.addEventListener('change', function () {
+            document.querySelector('[name="trackday_name_readonly"]').value = trackday_name.value;
+        });
+    </script>
+{% endput %}

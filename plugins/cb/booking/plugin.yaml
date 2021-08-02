@@ -1,0 +1,32 @@
+plugin:
+    name: 'CB Booking'
+    description: 'Circuit Booking Booking-Plugin'
+    author: cb
+    icon: oc-icon-car
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: CB Booking
+        url: cb/booking/bookings
+        icon: icon-globe
+        sideMenu:
+            side-menu-item7:
+                label: 'cb.booking::lang.backend.label-booking'
+                url: cb/booking/bookings
+                icon: icon-road
+            side-menu-item2:
+                label: 'cb.booking::lang.backend.label-booking-types'
+                url: cb/booking/bookingtypes
+                icon: icon-globe
+            side-menu-item:
+                label: 'cb.booking::lang.backend.label-booking-status'
+                url: cb/booking/bookingstatus
+                icon: icon-list
+            side-menu-item3:
+                label: 'cb.booking::lang.backend.label-booking-participant-all'
+                url: cb/booking/bookingparticipant
+                icon: icon-user-o
+            side-menu-item4:
+                label: 'cb.booking::lang.backend.label-booking-participant-booking'
+                url: cb/booking/bookingparticipantbooking
+                icon: icon-users

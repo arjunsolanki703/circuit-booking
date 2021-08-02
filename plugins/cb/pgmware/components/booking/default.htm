@@ -1,0 +1,5 @@
+{% if can('booking') %}
+    {% partial __SELF__ ~ '::form' %}
+{% else %}
+    {% partial __SELF__ ~ '::forbidden' %}
+{% endif %}

@@ -1,0 +1,10 @@
+name: BookingType
+form: $/cb/pgmware/models/bookingtype/fields.yaml
+modelClass: Cb\Pgmware\Models\BookingType
+defaultRedirect: cb/pgmware/bookingtypes
+create:
+    redirect: 'cb/pgmware/bookingtypes/update/:id'
+    redirectClose: cb/pgmware/bookingtypes
+update:
+    redirect: cb/pgmware/bookingtypes
+    redirectClose: cb/pgmware/bookingtypes

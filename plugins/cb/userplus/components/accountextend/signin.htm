@@ -1,0 +1,28 @@
+<form onsubmit="makeOnSignin($(this), 'onSignin'); return false;" class="sign-in-form">
+    <div class="form-group">
+        <div class="form-control">
+            <div class="input-wrapper">
+                <input type="text" id="userSigninLogin" name="login" placeholder="Enter your {{ loginAttributeLabel|lower }}" >
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control">
+            <div class="input-wrapper">
+                <input type="password" id="userSigninPassword" name="password" placeholder="Enter your password" >
+            </div>
+        </div>
+    </div>
+
+    <div class="forgot-password-wrapper">
+        <a href="javascript:void(0);" onclick="$('#reset').toggle('fast');" class="forgot-password-link">{{ 'cb.userplus::lang.component.forgot'|trans }}</a>
+    </div>
+
+    <div class="form-footer">
+        <button type="submit" class="button solid">{{ 'cb.userplus::lang.component.signin'|trans }}</button>
+    </div>
+</form>
+<div id="reset" style="display:none;">
+    {% component 'resetPassword' %}
+</div>

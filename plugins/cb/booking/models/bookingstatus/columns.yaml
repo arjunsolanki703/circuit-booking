@@ -1,0 +1,14 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    name:
+        label: name
+        type: text
+##  color:
+#        label: color
+#        type: text
+    order:
+        label: order
+        type: number

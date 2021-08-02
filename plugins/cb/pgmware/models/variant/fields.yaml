@@ -1,0 +1,84 @@
+fields:
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+    location:
+        label: 'cb.pgmware::lang.default.location'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+        emptyOption: 'Please select'
+        required: 1
+    bookable:
+        label: 'cb.pgmware::lang.default.bookable'
+        span: auto
+        type: checkbox
+tabs:
+    fields:
+        description:
+            label: 'cb.pgmware::lang.default.description'
+            size: large
+            mode: tab
+            span: full
+            required: 1
+            type: markdown
+            tab: 'cb.pgmware::lang.default.content'
+        variantType:
+            label: 'cb.pgmware::lang.default.circuitType'
+            nameFrom: description
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'cb.pgmware::lang.default.details'
+        length:
+            label: 'cb.pgmware::lang.default.length'
+            span: auto
+            type: number
+            tab: 'cb.pgmware::lang.default.details'
+        grade:
+            label: 'cb.pgmware::lang.default.circuitGrade'
+            span: auto
+            type: relation
+            tab: 'cb.pgmware::lang.default.details'
+            emptyOption: ' - '
+        fia_grade_valid_before_date:
+            label: 'cb.pgmware::lang.default.fia_grade_valid_before_date'
+            span: auto
+            mode: date
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        cost_type:
+            label: 'cb.pgmware::lang.default.costType'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.details'
+        cost_center:
+            label: 'cb.pgmware::lang.default.costCenter'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.details'
+        color:
+            label: 'cb.pgmware::lang.default.color'
+            span: auto
+            type: colorpicker
+            tab: 'cb.pgmware::lang.default.details'
+        variant_scheme:
+            label: 'cb.pgmware::lang.default.location_scheme'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'cb.pgmware::lang.default.details'
+        vehicleTypes:
+            label: 'cb.pgmware::lang.default.vehicleType'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'cb.pgmware::lang.default.vehicleType'

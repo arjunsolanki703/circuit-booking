@@ -1,0 +1,63 @@
+fields:
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    city:
+        label: 'cb.pgmware::lang.default.city'
+        span: auto
+        required: 1
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    zip:
+        label: 'cb.pgmware::lang.default.zip'
+        span: auto
+        required: 1
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    street:
+        label: 'cb.pgmware::lang.default.street'
+        span: auto
+        required: 1
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    gps_lat:
+        label: 'cb.pgmware::lang.default.latitude'
+        span: auto
+        required: 1
+        type: number
+        tab: 'cb.pgmware::lang.default.address'
+    gps_lon:
+        label: 'cb.pgmware::lang.default.longitude'
+        span: auto
+        required: 1
+        type: number
+        tab: 'cb.pgmware::lang.default.address'
+    additional:
+        label: 'cb.pgmware::lang.default.additional'
+        span: auto
+        required: 1
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    phone:
+        label: 'cb.pgmware::lang.default.phone'
+        span: auto
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    fax:
+        label: 'cb.pgmware::lang.default.fax'
+        span: auto
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    web:
+        label: 'cb.pgmware::lang.default.url'
+        span: auto
+        type: text
+        tab: 'cb.pgmware::lang.default.address'
+    email:
+        label: 'cb.pgmware::lang.default.email'
+        span: auto
+        type: text
+        tab: 'cb.pgmware::lang.default.address'

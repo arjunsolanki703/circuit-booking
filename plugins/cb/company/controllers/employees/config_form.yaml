@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.employee.label
+
+# Model Form Field configuration
+form: $/cb/company/models/employee/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Employee
+
+# Default redirect location
+defaultRedirect: cb/company/employees
+
+# Create page
+create:
+    title: cb.company::lang.employee.create_title
+    redirect: cb/company/employees/update/:id
+    redirectClose: cb/company/employees
+
+# Update page
+update:
+    title: cb.company::lang.employee.update_title
+    redirect: cb/company/employees
+    redirectClose: cb/company/employees
+
+# Preview page
+preview:
+    title: cb.company::lang.employee.preview_title

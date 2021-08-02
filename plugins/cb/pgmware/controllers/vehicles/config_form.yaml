@@ -1,0 +1,10 @@
+name: Vehicles
+form: $/cb/pgmware/models/vehicle/fields.yaml
+modelClass: Cb\Pgmware\Models\Vehicle
+defaultRedirect: cb/pgmware/vehicles
+create:
+    redirect: 'cb/pgmware/vehicles/update/:id'
+    redirectClose: cb/pgmware/vehicles
+update:
+    redirect: cb/pgmware/vehicles
+    redirectClose: cb/pgmware/vehicles

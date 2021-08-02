@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.tag.label
+
+# Model Form Field configuration
+form: $/cb/company/models/tag/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Tag
+
+# Default redirect location
+defaultRedirect: cb/company/tags
+
+# Create page
+create:
+    title: cb.company::lang.tag.create_title
+    redirect: cb/company/tags/update/:id
+    redirectClose: cb/company/tags
+
+# Update page
+update:
+    title: cb.company::lang.tag.update_title
+    redirect: cb/company/tags
+    redirectClose: cb/company/tags
+
+# Preview page
+preview:
+    title: cb.company::lang.tag.preview_title

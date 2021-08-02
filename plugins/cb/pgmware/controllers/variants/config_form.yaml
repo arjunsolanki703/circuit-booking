@@ -1,0 +1,10 @@
+name: Variants
+form: $/cb/pgmware/models/variant/fields.yaml
+modelClass: Cb\Pgmware\Models\Variant
+defaultRedirect: cb/pgmware/variants
+create:
+    redirect: 'cb/pgmware/variants/update/:id'
+    redirectClose: cb/pgmware/variants
+update:
+    redirect: cb/pgmware/variants
+    redirectClose: cb/pgmware/variants

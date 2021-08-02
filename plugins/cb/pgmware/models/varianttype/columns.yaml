@@ -1,0 +1,12 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: false
+    description:
+        label: 'cb.pgmware::lang.default.description'
+        type: text
+        searchable: true
+    created_at:
+        label: 'cb.pgmware::lang.default.createdAt'
+        type: datetime

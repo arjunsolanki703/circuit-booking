@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.role.label
+
+# Model Form Field configuration
+form: $/cb/company/models/role/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Role
+
+# Default redirect location
+defaultRedirect: cb/company/roles
+
+# Create page
+create:
+    title: cb.company::lang.role.create_title
+    redirect: cb/company/roles/update/:id
+    redirectClose: cb/company/roles
+
+# Update page
+update:
+    title: cb.company::lang.role.update_title
+    redirect: cb/company/roles
+    redirectClose: cb/company/roles
+
+# Preview page
+preview:
+    title: cb.company::lang.role.preview_title

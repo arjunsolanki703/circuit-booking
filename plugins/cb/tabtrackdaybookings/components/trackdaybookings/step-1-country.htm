@@ -1,0 +1,7 @@
+<select name="country_id" onchange="changeCountryStep1()">
+    {% for item in country %}
+        <option value="{{ item.id }}">{{ item.name }}</option>
+    {% endfor %}
+</select>
+<i class="arrow-icon"></i>
+<script>changeCountryStep1()</script>

@@ -1,0 +1,70 @@
+<table class="table-sortable">
+    <thead>
+    <tr>
+        <th class="mobile-table-header">{{ 'cb.tabtrackdaysprofile::lang.component.titlevehicle_type' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaysprofile::lang.component.price' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaysprofile::lang.component.active' | trans }}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in trackDaysProfile %}
+        <tr>
+            <td class="mobile-table-column">
+                <i class="{{ item.vehicle_type.icon }}"></i>
+            </td>
+            <td> {{ item.currency.currency_symbol }} {{ item.price }} </td>
+            <td>
+                {% set checked = item.bookable ? 'checked' : '' %}
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               onchange="changeTrackDaysProfileAvailability('{{ item.id }}');"
+                               value="{{ item.id }}"
+                               id="available-{{ item.id }}"
+                                {{ checked }}/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="available-{{ item.id }}">
+                        <div class="left">
+                            <span class="title">Active</span>
+                        </div>
+                    </label>
+                </div>
+            </td>
+            <td>
+                <button class="alt" type="submit"
+                        data-request="onViewTrackDays"
+                        data-request-data="{{ item }}"
+                        data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+                >
+                    <i class="mdi  mdi-eye"></i>
+                </button>
+                <button class="alt" type="submit"
+                        data-request="onEditOrCreateTrackDays"
+                        data-request-data="{{ item }}"
+                        data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+                >
+                    <i class="mdi  mdi-pencil"></i>
+                </button>
+                <button class="alt" type="submit"
+                        data-request="onDeleteTrackDays"
+                        data-request-data="{{ item }}"
+                        data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+                        data-request-confirm="Do you really want to delete this trackday?"
+                >
+                    <i class="mdi mdi-delete"></i>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

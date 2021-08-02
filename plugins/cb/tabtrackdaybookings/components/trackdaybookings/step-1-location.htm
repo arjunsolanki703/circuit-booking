@@ -1,0 +1,7 @@
+<select name="location_id">
+    {% for item in location %}
+        <option value="{{ item.id }}">{{ item.name }}</option>
+    {% endfor %}
+</select>
+<i class="arrow-icon"></i>
+<script>changeLocationStep1()</script>

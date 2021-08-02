@@ -1,0 +1,38 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+    country:
+        label: 'cb.pgmware::lang.default.country'
+        type: text
+        select: name
+        relation: country
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+        searchable: true
+        sortable: true
+    open_from:
+        label: 'cb.pgmware::lang.default.openFrom'
+        type: text
+    open_to:
+        label: 'cb.pgmware::lang.default.openTo'
+        type: text
+    lunch_from:
+        label: 'cb.pgmware::lang.default.lunchFrom'
+        type: text
+    lunch_to:
+        label: 'cb.pgmware::lang.default.lunchTo'
+        type: text
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    featured:
+        label: 'cb.pgmware::lang.default.featured'
+        type: switch
+        invisible: true
+        sortable: true

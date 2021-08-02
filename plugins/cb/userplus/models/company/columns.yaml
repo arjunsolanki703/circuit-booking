@@ -1,0 +1,70 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: false
+        sortable: true
+    name:
+        label: 'cb.userplus::lang.default.name'
+        type: text
+        searchable: true
+        sortable: true
+    user:
+        label: 'cb.userplus::lang.plugin.name'
+        type: text
+        searchable: true
+        sortable: true
+        select: email
+        relation: user
+    phone:
+        label: 'cb.userplus::lang.personal.telephone'
+        type: text
+        searchable: true
+        sortable: true
+    fax:
+        label: 'cb.userplus::lang.default.companyFax'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    address:
+        label: 'cb.userplus::lang.default.address'
+        type: text
+        searchable: true
+        sortable: true
+    zip:
+        label: 'cb.userplus::lang.default.zip'
+        type: text
+        searchable: true
+        sortable: true
+    city:
+        label: 'cb.userplus::lang.default.city'
+        type: text
+        searchable: true
+        sortable: true
+    country:
+        label: 'cb.userplus::lang.default.country'
+        type: text
+        select: name
+        relation: country
+    vat_number:
+        label: 'cb.userplus::lang.default.vat'
+        type: text
+        searchable: true
+        invisible: true
+        sortable: true
+    url:
+        label: 'cb.userplus::lang.default.webpage'
+        type: text
+        searchable: true
+        invisible: true
+    created_at:
+        label: created
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: updated
+        type: datetime
+        invisible: true
+        sortable: true

@@ -1,0 +1,10 @@
+name: CircuitSharing
+form: $/cb/pgmware/models/circuitsharing/fields.yaml
+modelClass: Cb\Pgmware\Models\CircuitSharing
+defaultRedirect: cb/pgmware/circuitsharing
+create:
+    redirect: 'cb/pgmware/circuitsharing/update/:id'
+    redirectClose: cb/pgmware/circuitsharing
+update:
+    redirect: cb/pgmware/circuitsharing
+    redirectClose: cb/pgmware/circuitsharing

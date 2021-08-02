@@ -1,0 +1,32 @@
+<table class="table-sortable" id="table-sortable">
+    <thead>
+    <tr>
+        <th>{{ 'cb.userplus::lang.component.dateCreated'|trans }}</th>
+        <th class="mobile-table-header">{{ 'cb.userplus::lang.component.circuit'|trans }}</th>
+        <th>{{ 'cb.userplus::lang.component.status'|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in user.booking %}
+    <tr>
+        <td>{{ item.created_at|date('j M Y') }}</td>
+        <td class="mobile-table-column">
+            <div class="name">{{ item.variant.location.name }}</div>
+            <div class="mobile-info">
+                <div class="line">
+                    <div class="name">{{ 'cb.userplus::lang.component.dateCreated'|trans }}</div>
+                    <div class="value">{{ item.created_at|date('j M Y') }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">{{ 'cb.userplus::lang.component.status'|trans }}</div>
+                    <div class="value"><i class="mdi mdi-check"></i></div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <i class="mdi mdi-check"></i>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

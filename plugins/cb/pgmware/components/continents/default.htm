@@ -1,0 +1,14 @@
+{% set continents = __SELF__.continents %}
+
+{% for continent in continents %}
+    {% if loop.first %}
+        <ul>
+    {% endif %}
+
+    <li><a href="/circuits/continent/{{ continent.code }}">{{ continent.name }}</a></li>
+    {% if loop.last %}
+        </ul>
+    {% endif %}
+{% else %}
+    <span class="post-nodata">{{ noVariantsMessage }}</span>
+{% endfor %}

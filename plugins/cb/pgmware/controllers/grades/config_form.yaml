@@ -1,0 +1,10 @@
+name: Grades
+form: $/cb/pgmware/models/grade/fields.yaml
+modelClass: Cb\Pgmware\Models\Grade
+defaultRedirect: cb/pgmware/grades
+create:
+    redirect: 'cb/pgmware/grades/update/:id'
+    redirectClose: cb/pgmware/grades
+update:
+    redirect: cb/pgmware/grades
+    redirectClose: cb/pgmware/grades

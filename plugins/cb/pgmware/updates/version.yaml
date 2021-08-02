@@ -1,0 +1,126 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table cb_pgmware_address'
+    - builder_table_create_cb_pgmware_adress.php
+1.0.3:
+    - 'Add fields in location table'
+    - add_continent_field_to_countries_table.php
+1.0.4:
+    - 'Add locations'
+    - builder_table_create_cb_pgmware_locations.php
+1.0.5:
+    - 'Add companies'
+    - builder_table_create_cb_pgmware_companies.php
+1.0.6:
+    - 'Add variants'
+    - builder_table_create_cb_pgmware_variants.php
+1.0.7:
+    - 'Add variants-matrix for simultanious variants usage at one location'
+    - builder_table_delete_cb_pgmware_variants_variants.php
+1.0.8:
+    - 'Add countries'
+    - builder_table_create_cb_pgmware_countries.php
+1.0.9:
+    - 'Add continents'
+    - builder_table_create_cb_pgmware_continents.php
+1.0.10:
+    - 'Add vehicles'
+    - builder_table_create_cb_pgmware_vehicles.php
+1.0.11:
+    - 'Add vehicle_types'
+    - builder_table_create_cb_pgmware_vehicles_type.php
+1.0.12:
+    - 'Add variant_types'
+    - builder_table_create_cb_pgmware_variant_types.php
+1.0.13:
+    - 'Add timezones'
+    - builder_table_create_cb_pgmware_timezones.php
+1.0.14:
+    - 'Add members'
+    - builder_table_create_cb_pgmware_members.php
+1.0.15:
+    - 'Create Locations'
+    - seeder10121.php
+1.0.16:
+    - 'Created table cb_pgmware_booking_types'
+    - builder_table_create_cb_pgmware_booking_types.php
+1.0.17:
+    - 'Created table cb_pgmware_orders_variants'
+    - builder_table_create_cb_pgmware_orders_variants.php
+1.0.18:
+    - 'Updated table cb_pgmware_bookings_variants'
+    - builder_table_update_cb_pgmware_bookings_variants.php
+1.0.19:
+    - 'Updated table cb_pgmware_bookings_variants'
+    - builder_table_update_cb_pgmware_bookings_variants_2.php
+1.0.20:
+    - 'Add geojson field to country'
+    - migration1020.php
+1.0.21:
+    - 'Seed polygons in country'
+    - seeder1021.php
+1.0.22:
+    - 'Add fields to continent'
+    - migration1022.php
+1.0.23:
+    - 'Add continents list'
+    - seeder1023.php
+1.0.24:
+    - 'Relation with gallery'
+    - migration1024.php
+1.0.25:
+    - 'Updated table cb_pgmware_variants'
+    - builder_table_update_cb_pgmware_variants.php
+1.0.26:
+    - 'Updated table cb_pgmware_locations'
+    - builder_table_update_cb_pgmware_locations.php
+1.0.27:
+    - 'Updated table cb_pgmware_bookings_variants'
+    - builder_table_update_cb_pgmware_bookings_variants_3.php
+1.0.28:
+    - 'Created table cb_pgmware_circuit_sharing'
+    - builder_table_create_cb_pgmware_circuit_sharing.php
+1.0.29:
+    - 'Add slug to countries'
+    - migration1029.php
+1.0.30:
+    - 'Created table cb_pgmware_lastminute'
+    - builder_table_create_cb_pgmware_lastminute.php
+1.0.31:
+    - 'Updated table cb_pgmware_lastminute'
+    - builder_table_update_cb_pgmware_lastminute.php
+1.0.32:
+    - 'Updated table cb_pgmware_circuit_sharing'
+    - builder_table_update_cb_pgmware_circuit_sharing.php
+1.0.33:
+    - 'Updated table cb_pgmware_bookings_variants'
+    - builder_table_update_cb_pgmware_bookings_variants_4.php
+1.0.34:
+    - 'Updated table cb_pgmware_variants'
+    - builder_table_update_cb_pgmware_variants_2.php
+1.0.35:
+    - 'Created table cb_pgmware_grades'
+    - builder_table_create_cb_pgmware_grades.php
+1.0.36:
+    - 'Updated table cb_pgmware_variants'
+    - builder_table_update_cb_pgmware_variants_3.php
+1.0.37:
+    - 'Seed grades and migrate it to variants'
+    - seeder1037.php
+1.0.38:
+    - 'Updated table cb_pgmware_variants'
+    - builder_table_update_cb_pgmware_variants_4.php
+1.0.39:
+    - 'Created table cb_pgmware_user_stripe'
+    - create_user_stripes_table.php
+1.0.40:
+    - 'Seed Dev and Test Data for Stripe'
+    - seederDevStripeDemo.php
+1.0.41:
+    - 'Create PluginType table'
+    - create_plugin_types_table.php
+1.0.42:
+    - 'Create Company_Stripe table'
+    - create_company_stripes_table.php
+

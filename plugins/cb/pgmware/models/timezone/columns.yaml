@@ -1,0 +1,7 @@
+columns:
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+    gmt:
+        label: 'cb.pgmware::lang.default.gmt'
+        type: text

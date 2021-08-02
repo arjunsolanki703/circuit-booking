@@ -1,0 +1,80 @@
+{% set location = __SELF__.location %}
+<div class="columns">
+    <div class="col-8 col-xs-12">
+        <header class="page-header d-f jc-sb">
+            <div class="info">
+                {% if not __SELF__.property('isCircuitSharing') %}
+                    {% set replaceBread = { 2: {"title": continent.name}, 3: {"title": country.name} } %}
+                {% endif %}
+                {% component 'breadcrumbs' replaceBread=replaceBread %}
+                {% partial "page/title" %}
+                <div class="location-address">
+                    <i class="mdi mdi-map-marker"></i>
+                    <span>{{ location.address.street ~ ', ' ~ location.address.zip ~ ', ' ~ location.address.city }}</span>
+                </div>
+            </div>
+            {% if location.location_logo %}
+                <div class="location-logo">
+                    <img src="{{ location.location_logo.path }}" alt="location logo">
+                </div>
+            {% endif %}
+            {% if location.youtube_video_url %}
+                {% set video_code = location.youtube_video_url|split('v=', 2) %}
+                <div class="location-video_mobile hidden-xl">
+                    <iframe width="100%" height="236" src="https://www.youtube.com/embed/{{ video_code[1] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            {% endif %}
+        </header>
+        <main class="page-main">
+            <div class="location-description">{{ location.description|md }}</div>
+            {% component 'locationGallery' gallery=location.rjgallery %}
+            <div class="location-variants">{% partial __SELF__ ~ '::variant' %}</div>
+        </main>
+    </div>
+    <div class="col-4 col-xs-12">
+        <aside class="page-aside">
+            <div class="location-form">
+                {% if not __SELF__.property('isCircuitSharing') %}
+                    {% partial __SELF__ ~ '::bookForm' %}
+                {% else %}
+                    {% partial __SELF__ ~ '::sharingForm' %}
+                {% endif %}
+            </div>
+
+            {% if location.address.gps_lat and location.address.gps_lon %}
+                {% partial __SELF__ ~ '::darksky' %}
+            {% endif %}
+
+            {% if location.youtube_video_url %}
+                {% set video_code = location.youtube_video_url|split('v=', 2) %}
+                <div class="location-video hidden-xs">
+                    <iframe width="100%" height="236" src="https://www.youtube.com/embed/{{ video_code[1] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            {% endif %}
+            {% if sharingCrossCount > 0 %}
+                <div class="location-form">
+                    {% content "circuitItem/SharingOffers" %}
+                    <a href="{{ 'sharing/circuit-sharing'|page }}?search={{ location.name }}" class="button solid w-all">{{ 'cb.pgmware::lang.component.seeCountOffers'|transchoice(sharingCrossCount, {COUNT: sharingCrossCount}) }}</a>
+                </div>
+            {% endif %}
+            {% if lastCrossCount > 0 %}
+                <div class="location-form">
+                    {% content "circuitItem/LastminuteOffers" %}
+                    <a href="{{ 'sharing/last-minute-bookings'|page }}?search={{ location.name }}" class="button solid w-all">{{ 'cb.pgmware::lang.component.seeCountOffers'|transchoice(lastCrossCount, {COUNT: lastCrossCount}) }}</a>
+                </div>
+            {% endif %}
+        </aside>
+    </div>
+</div>
+
+{% if location.address.gps_lat and location.address.gps_lon %}
+    {% put scripts %}
+        <script>
+            addCircuitToMap({{ location.address.gps_lat }}, {{ location.address.gps_lon }}, '#', '{{ location.name }}');
+            fitCircuitsOnMap();
+            setMapZoom(16);
+            $('#map-control-sitellite').closest('label').click();
+            clickSitellite($('#map-control-sitellite').closest('label'));
+        </script>
+    {% endput %}
+{% endif %}

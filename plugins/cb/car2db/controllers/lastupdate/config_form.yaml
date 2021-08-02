@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Last Update
+
+# Model Form Field configuration
+form: $/cb/car2db/models/lastupdate/fields.yaml
+
+# Model Class name
+modelClass: Cb\Car2db\Models\LastUpdate
+
+# Default redirect location
+defaultRedirect: cb/car2db/lastupdate
+
+# Create page
+create:
+    title: Create Last Update
+    redirect: cb/car2db/lastupdate/update/:id
+    redirectClose: cb/car2db/lastupdate
+
+# Update page
+update:
+    title: Edit Last Update
+    redirect: cb/car2db/lastupdate
+    redirectClose: cb/car2db/lastupdate
+
+# Preview page
+preview:
+    title: Preview Last Update

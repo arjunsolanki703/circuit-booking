@@ -1,0 +1,11 @@
+name: Continents
+modelClass: Cb\Pgmware\Models\Continent
+form: $/cb/pgmware/models/continent/fields.yaml
+defaultRedirect: cb/pgmware/continents
+create:
+    redirect: 'cb/pgmware/continents/update/:id'
+    redirectClose: cb/pgmware/continents
+update:
+    redirect: cb/pgmware/continents
+    redirectClose: cb/pgmware/continents
+preview: {  }

@@ -1,0 +1,18 @@
+<!--MODAL-->
+<div class="modal-wrapper modal" id="vehicle-create-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window" id="vehiclecreate">
+        <div class="modal-header">
+            <div class="modal-header--title">Vehicle create</div>
+        </div>
+        {% if mode == 'edit' %}
+            <div class="modal-content">
+                {% partial __SELF__ ~ '::vehicle_edit_form' %}
+            </div>
+        {% else %}
+            <div class="modal-content">
+                {% partial __SELF__ ~ '::vehicle_create_form' %}
+            </div>
+        {% endif %}
+    </div>
+</div>

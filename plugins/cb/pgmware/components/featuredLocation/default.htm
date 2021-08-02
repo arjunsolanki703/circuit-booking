@@ -1,0 +1,54 @@
+{% if (featuredLocation) %}
+<section class="homepage-section most-popular">
+    <div class="container wrapper">
+        <header class="section-header">
+            <h2 class="section-title">{{ 'home.seeMostPopular'|_ }}</h2>
+            <div class="homepage-tabs--controls">
+                {% set active = 'active' %}
+                {% for item in featuredLocation %}
+                <button data-target="{{ item.continent.code }}" class="tab-control {{ active }}">{{ item.continent.name }}</button>
+                {% set active = '' %}
+                {% endfor %}
+            </div>
+        </header>
+        <div class="homepage-tabs--content">
+            {% for item in featuredLocation %}
+            <div class="tab-page" id="{{ item.continent.code }}">
+                <div class="homepage-circuits columns">
+                    {% for location in item.list %}
+                    <div class="col-6 col-xs-12">
+                        <div class="circuit-item homepage-circuit">
+                            {% if location.location_preview %}
+                            <div class="circuit-item--preview">
+                                <img src="{{ location.location_preview.path }}" alt="">
+                            </div>
+                            {% endif %}
+                            <div class="circuit-item--content">
+                                {% set fl = 'assets/images/flags/' ~ location.country.name|lower|replace({' ': '-', ',': ''}) ~ '.png' %}
+                                <div class="circuit-item--flag"><img src="{{ fl|theme }}" alt="flag icon"></div>
+                                <div class="circuit-item--main">
+                                    <div class="circuit-item--title">{{ location.name }}</div>
+                                    <div class="circuit-item--address">
+                                        <i class="mdi mdi-map-marker"></i>
+                                        <span>{{ location.country.name ~ ', ' ~ location.address.city ~ ' ' ~ location.address.street ~ ' ' ~ location.address.name ~ ' ' ~ location.address.additional }}</span>
+                                    </div>
+                                </div>
+                                <div class="circuit-item--footer ai-e">
+                                    {% if location.location_scheme %}
+                                    <div class="circuit-item--map small"><img src="{{ location.location_scheme.path }}" alt=""></div>
+                                    {% endif %}
+                                    <div class="buttons">
+                                        <a href="{{ 'circuits/circuits-item'|page({ country: location.country.cb_slug, continent: location.country.continent.code, slug: location.slug }) }}" class="button alt">{{ 'cb.pgmware::lang.componentFilter.learnMore'|trans }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}

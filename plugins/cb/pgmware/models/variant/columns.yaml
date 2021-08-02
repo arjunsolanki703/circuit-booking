@@ -1,0 +1,48 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        invisible: false
+        sortable: true
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+        searchable: true
+        invisible: false
+    location:
+        label: 'cb.pgmware::lang.default.location'
+        type: text
+        searchable: true
+        select: name
+        relation: location
+    grade:
+        label: 'cb.pgmware::lang.default.circuitGrade'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: grade
+    variantType:
+        label: 'cb.pgmware::lang.default.circuitType'
+        type: text
+        select: description
+        relation: variantType
+    bookable:
+        label: 'cb.pgmware::lang.default.bookable'
+        type: switch
+        sortable: true
+    length:
+        label: 'cb.pgmware::lang.default.length'
+        type: number
+        sortable: true
+    sort_order:
+        label: Sorting
+        type: number
+        sortable: true
+    fia_grade_valid_before_date:
+        label: 'cb.pgmware::lang.default.fia_grade_valid_before_date'
+        type: date
+        searchable: true
+        invisible: true
+        sortable: true

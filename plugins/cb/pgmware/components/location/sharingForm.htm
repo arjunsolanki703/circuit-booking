@@ -1,0 +1,35 @@
+<form method="get" action="{{ 'sharing/circuit-sharing'|page }}">
+    <input type="hidden" name="continent" value="{{ location.country.continent.id }}">
+    <input type="hidden" name="country" value="{{ location.country.id }}">
+    {% if types %}
+    <div class="form-group">
+        <div class="form-control">
+            <label for="typeVariant">{{ 'cb.pgmware::lang.componentFilter.vehicleType'|trans }}</label>
+            <div class="input-wrapper">
+                <select id="typeVariant" name="vehicleType[]">
+                    <option selected disabled>Please select</option>
+                    {% for t in vehicleTypes %}
+                    <option value="{{ t.id }}">{{ t.name }}</option>
+                    {% endfor %}
+                </select>
+                <i class="arrow-icon"></i>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="form-group">
+        <div class="form-control">
+            <label for="pre_start_date">Dates</label>
+            <div    data-disabled="[]"
+                    data-min="{{ dateStart }}"
+                    data-max="{{ dateEnd }}"
+                    class="date-input-wrapper single-date-picker">
+                <input type="text" readonly name="start_date" class="date-input first" id="pre_start_date">
+                <input type="text" readonly name="end_date" class="date-input second" id="pre_end_date">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="button solid w-all">Send a request</button>
+    </div>
+</form>

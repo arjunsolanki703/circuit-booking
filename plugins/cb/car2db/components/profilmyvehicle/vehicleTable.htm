@@ -1,0 +1,80 @@
+<table class="table-sortable">
+    <thead>
+    <tr>
+        <th class="mobile-table-header">Licenseplate</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Series</th>
+        <th>Trim </th>
+        <th>Gerneration</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in userVehicles %}
+    <tr>
+        <td class="mobile-table-column">
+            <div class="name">
+                {{ item.licenseplate }}
+            </div>
+            <div class="mobile-info">
+                <div class="line">
+                    <div class="name">Make</div>
+                    <div class="value">{{ item.trim.getSerie().getModel().getMake().name }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Model</div>
+                    <div class="value">{{ item.trim.getSerie().getModel().name }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Series</div>
+                    <div class="value">{{ item.trim.getSerie().name }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Trim</div>
+                    <div class="value">{{ item.trim.name  }}</div>
+                </div>
+                <div class="line">
+                    <button class="alt" type="submit"
+                            data-request="onEditVehicle"
+                            data-request-data="{{ item }}"
+                            data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+                    >
+                        <i class="mdi  mdi-pencil"></i>
+                    </button>
+                    <button class="alt" type="submit"
+                            data-request="onDeleteVehicle"
+                            data-request-data="{{ item }}"
+                            data-request-update="'{{ __SELF__ }}::vehicleTable': '#vehicleTable'"
+                    >
+                        <i class="mdi mdi-delete"></i>
+                    </button>
+                </div>
+            </div>
+        </td>
+        <td> {{ item.trim.getSerie().getModel().getMake().name }} </td>
+        <td> {{ item.trim.getSerie().getModel().name }} </td>
+        <td> {{ item.trim.getSerie().name }} </td>
+        <td> {{ item.trim.name }} </td>
+        <td> {{ item.trim.getSerie().getGeneration().name }}</td>
+        <td>
+            <button class="alt" type="submit"
+                    data-request="onEditVehicle"
+                    data-request-data="{{ item }}"
+                    data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+            >
+                <i class="mdi  mdi-pencil"></i>
+            </button></td>
+        <td>
+            <button class="alt" type="submit"
+                    data-request="onDeleteVehicle"
+                    data-request-data="{{ item }}"
+                    data-request-update="'{{ __SELF__ }}::vehicleTable': '#vehicleTable'"
+            >
+                <i class="mdi mdi-delete"></i>
+            </button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

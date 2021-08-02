@@ -1,0 +1,6 @@
+fields:
+    description:
+        label: 'cb.pgmware::lang.default.description'
+        span: full
+        required: 1
+        type: text

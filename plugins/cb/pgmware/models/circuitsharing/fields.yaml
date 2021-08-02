@@ -1,0 +1,133 @@
+fields:
+    title:
+        label: 'cb.pgmware::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+    is_available:
+        label: 'cb.pgmware::lang.default.available'
+        span: auto
+        type: checkbox
+tabs:
+    fields:
+        continent:
+            label: 'cb.pgmware::lang.default.continent'
+            emptyOption: ' - '
+            span: auto
+            required: 1
+            type: dropdown
+            tab: 'cb.pgmware::lang.default.circuit'
+        country:
+            label: 'cb.pgmware::lang.default.country'
+            emptyOption: ' - '
+            span: auto
+            required: 1
+            dependsOn:
+                - continent
+            type: dropdown
+            tab: 'cb.pgmware::lang.default.circuit'
+        location:
+            label: 'cb.pgmware::lang.default.location'
+            emptyOption: ' - '
+            span: auto
+            required: 1
+            dependsOn:
+                - continent
+                - country
+            type: dropdown
+            tab: 'cb.pgmware::lang.default.circuit'
+        variant_id:
+            label: 'cb.pgmware::lang.default.circuit'
+            span: auto
+            required: 1
+            dependsOn:
+                - continent
+                - country
+                - location
+            type: dropdown
+            tab: 'cb.pgmware::lang.default.circuit'
+        is_booked:
+            label: 'cb.pgmware::lang.componentSharing.booked'
+            span: auto
+            type: checkbox
+            tab: 'cb.pgmware::lang.default.circuit'
+        start_date:
+            label: 'cb.pgmware::lang.default.startDate'
+            mode: date
+            span: auto
+            required: 1
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        end_date:
+            label: 'cb.pgmware::lang.default.endDate'
+            mode: date
+            span: auto
+            required: 1
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        valid_before_date:
+            label: 'cb.pgmware::lang.componentSharing.validBeforeDate'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        vehicles_count:
+            label: 'cb.pgmware::lang.default.vehiclesCount'
+            span: auto
+            required: 1
+            type: number
+            tab: 'cb.pgmware::lang.default.details'
+        circuit_sharing_type:
+            label: 'cb.pgmware::lang.componentFilter.type'
+            span: auto
+            required: 1
+            type: dropdown
+            tab: 'cb.pgmware::lang.default.details'
+        booking_type:
+            label: 'cb.pgmware::lang.default.bookingType'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            required: 1
+            type: relation
+            tab: 'cb.pgmware::lang.default.details'
+        vehicle_type:
+            label: 'cb.pgmware::lang.default.vehicleType'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            required: 1
+            type: relation
+            tab: 'cb.pgmware::lang.default.details'
+        user:
+            label: 'cb.userplus::lang.default.user'
+            nameFrom: email
+            span: auto
+            required: 1
+            type: relation
+            tab: 'cb.pgmware::lang.default.details'
+        description:
+            label: 'cb.pgmware::lang.default.description'
+            size: small
+            span: auto
+            type: textarea
+            tab: 'cb.pgmware::lang.default.details'
+        currency:
+            label: 'cb.pgmware::lang.default.currency'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            required: 1
+            type: relation
+            tab: 'cb.pgmware::lang.default.price'
+        price:
+            label: 'cb.pgmware::lang.default.price'
+            span: auto
+            required: 1
+            type: number
+            tab: 'cb.pgmware::lang.default.price'
+        is_with_vat:
+            label: 'cb.pgmware::lang.componentSharing.withVat'
+            span: auto
+            type: checkbox
+            tab: 'cb.pgmware::lang.default.price'

@@ -1,0 +1,65 @@
+plugin:
+    name: 'cb.pgmware::lang.plugin.name'
+    description: 'cb.pgmware::lang.plugin.description'
+    author: cb
+    icon: oc-icon-car
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Locations
+        url: cb/pgmware/variants
+        icon: icon-globe
+        sideMenu:
+            side-menu-item7:
+                label: 'cb.pgmware::lang.default.circuit'
+                url: cb/pgmware/variants
+                icon: icon-road
+            side-menu-item2:
+                label: 'cb.pgmware::lang.default.location'
+                url: cb/pgmware/locations
+                icon: icon-globe
+            side-menu-item:
+                label: 'cb.pgmware::lang.default.continent'
+                url: cb/pgmware/continents
+                icon: icon-globe
+            side-menu-item3:
+                label: 'cb.pgmware::lang.default.timezone'
+                url: cb/pgmware/timezones
+                icon: icon-clock-o
+            side-menu-item5:
+                label: 'cb.pgmware::lang.default.vehicle'
+                url: cb/pgmware/vehicles
+                icon: icon-car
+            side-menu-item4:
+                label: 'cb.pgmware::lang.default.vehicleType'
+                url: cb/pgmware/vehicletypes
+                icon: icon-list
+            side-menu-item6:
+                label: 'cb.pgmware::lang.default.circuitType'
+                url: cb/pgmware/varianttypes
+                icon: icon-list
+            side-menu-item8:
+                label: 'cb.pgmware::lang.default.circuitGrade'
+                url: cb/pgmware/grades
+                icon: icon-graduation-cap
+    main-menu-item2:
+        label: 'cb.pgmware::lang.default.booking'
+        url: cb/pgmware/bookings
+        icon: icon-shopping-cart
+        sideMenu:
+            side-menu-item:
+                label: 'cb.pgmware::lang.default.booking'
+                url: cb/pgmware/bookings
+                icon: icon-shopping-cart
+            side-menu-item3:
+                label: 'cb.pgmware::lang.default.sharing'
+                url: cb/pgmware/circuitsharing
+                icon: icon-slideshare
+            side-menu-item4:
+                label: 'cb.pgmware::lang.default.lastminute'
+                url: cb/pgmware/lastminute
+                icon: icon-clock-o
+            side-menu-item2:
+                label: 'cb.pgmware::lang.default.bookingType'
+                url: cb/pgmware/bookingTypes
+                icon: icon-list

@@ -1,0 +1,274 @@
+<div class="step-content">
+    <div class="user-group-selection">
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerGender">Gender<span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerGender"> {{userdata.gender}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerName">
+                            <span>First Name</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerName"> {{userdata.name}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerLastName">Last Name<span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerLastName"> {{userdata.surname}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerStreet">
+                            <span>Street / Address</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerStreet"> {{userdata.street}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerZip">
+                            <span>Zip</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerZip"> {{userdata.zip}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerCity">
+                            <span>City</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerCity"> {{userdata.city}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerCountry">
+                            <span>Country</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerCountry"> {{userdata.countryname}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerPhone">
+                            <span>Phone</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerPhone"> {{userdata.phone}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerEmail">
+                            <span>Email</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerEmail"> {{userdata.email}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerMake">
+                            <span>Make</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerMake"> {{vehicledata.makename}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerModel">
+                            <span>Model</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerModel"> {{vehicledata.modelname}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerLicenseplate">
+                            <span>Licenseplate</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <p style="color: #0D0A0A" id="registerLicenseplate"> {{vehicledata.licenseplate}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="registration-form--footer">
+        <div class="columns ai-c jc-e">
+            <div class="col-8 col-xs-12">
+                <div class="form-group">
+                    <div class="mdc-form-field terms-check">
+                        <div class="mdc-checkbox input-wrapper">
+                            <input type="checkbox" class="mdc-checkbox__native-control" name="agreetdo" value="1" required="" id="agreetdo">
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                        <label class="right-label" for="agreetdo">
+                            <div class="left">
+                                    <span class="title">
+                                        I hereby agree to the Trackday Organizer's <a target="_blank" href="{{ 'terms-and-conditions'|staticPage }}">Terms and Conditions</a>
+                                        <span class="required">*</span>
+                                    </span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="mdc-form-field terms-check">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" name="agreetcb" value="1" required="" id="agreetcb">
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                        <label class="right-label" for="agreetcb">
+                            <div class="left">
+                                    <span class="title">
+                                        I hereby agree to the circuit-booking.com's <a target="_blank" href="{{ 'terms-and-conditions'|staticPage }}">Terms and Conditions</a> and <a target="_blank" href="{{ 'privacy-policy'|staticPage }}">Privacy Policy</a>
+                                        <span class="required">*</span>
+                                    </span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="columns">
+                </div>
+            </div>
+        </div>
+        <div class="columns ai-c jc-e">
+            <div class="col-8 col-xs-12">
+
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="columns">
+                    <div class="col-4 col-xs-12">
+                        <button type="button" onclick="$('#step2').click();return false;" class="button alt w-all mdc-ripple-upgraded">Cancel</button>
+                    </div>
+                    <div class="col-8 col-xs-12">
+                        <button type="button" class="button solid w-all mdc-ripple-upgraded"
+                                onclick="checkConfirmData($(this).closest('form'));return false;"
+                        >PROCEED TO PAYMENT {{user.id}} </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script src="https://js.stripe.com/v3/"></script>
+
+<script type="text/javascript">
+
+    function checkConfirmData(form) {
+        removeErrors(form);
+        form.request('onSaveDataComplete', {
+            success: function(data) {
+                alert("Success! ");
+                onBookStripeJs(data);
+            },
+            error: function(data) {
+                if (data && data.status != undefined && data.status == 423) {
+                    console.log("Sorry the Trackday is fully booked.");
+                    alert("Sorry the Trackday is fully booked.");
+                }
+                else if (data && data.status != undefined && data.status == 406)
+                {
+                    addErrors(form, data.responseJSON.X_OCTOBER_ERROR_FIELDS);
+                }
+                else
+                {
+                    alert(data.responseText);
+                }
+            },
+        });
+    }
+
+
+    function onBookStripeJs(backendData) {
+
+        var stripe = Stripe('pk_test_e4wtZSZOABPer3wrFCwB9J0g', {
+            stripeAccount: backendData.account
+        });
+
+        stripe.redirectToCheckout({
+            sessionId: backendData.session.id
+        }).then(function (result) {
+
+        });
+    }
+</script>
+{% endput %}

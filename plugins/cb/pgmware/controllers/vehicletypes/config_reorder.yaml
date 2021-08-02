@@ -1,0 +1,4 @@
+title: VehicleTypes
+modelClass: Cb\Pgmware\Models\VehicleType
+toolbar:
+    buttons: reorder_toolbar

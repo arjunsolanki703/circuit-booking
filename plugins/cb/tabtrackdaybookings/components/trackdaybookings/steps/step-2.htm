@@ -1,0 +1,164 @@
+<div class="columns">
+    <div class="col-8 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Trackday</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="trackday_name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Location</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input readonly name="location_name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="form-group--title">Description</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <textarea name="description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Vehicle Type</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="vehicle_type_id">
+                            {% for item in model.vehicle_type %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Price per person</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="price_per_person" type="number">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">VAT [%]</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="vat_value" type="number">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Currency</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="currency_id_step_2">
+                            {% for item in model.currency %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Start date & time</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="start_data_time" class="dateTime">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">End date & time</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="end_data_time" class="dateTime">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Bookble capacity via circuit-booking.com</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="bookble_capacity" type="number">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns jc-e">
+    <div class="col-9 col-xs-12">
+        <div class="columns">
+            <div class="col-4 col-xs-12">
+                <button type="button" class="button alt" onclick="closeModel();return false;">Cancel</button>
+            </div>
+            <div class="col-8 col-xs-12">
+                <button class="button solid" onclick="$('#step3').click();return false;">Save And Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+    <script>
+        flatpickr(".dateTime",{
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+    </script>
+{% endput %}

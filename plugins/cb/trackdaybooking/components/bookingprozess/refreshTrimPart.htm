@@ -1,0 +1,18 @@
+<div class="form-group">
+    <div class="form-group--title">Trim <span class="required">*</span></div>
+    <div class="form-group--content">
+        <div class="form-control">
+            <div class="input-wrapper">
+                <select
+                        name="trim"
+                        id="trim">
+                    <option selected disabled>Please select</option>
+                    {% for item in trimList %}
+                    <option  value="{{ item.id }}">{{ item.name }} ( {{ item.start_production_year }} - {{ item.end_production_year }} ) </option>
+                    {% endfor %}
+                </select>
+                <i class="arrow-icon"></i>
+            </div>
+        </div>
+    </div>
+</div>

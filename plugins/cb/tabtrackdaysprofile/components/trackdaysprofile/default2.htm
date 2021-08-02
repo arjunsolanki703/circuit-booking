@@ -1,0 +1,19 @@
+{% if mode == 'add' %}
+    <div id="TrackDaysProfileCreate"> {% partial __SELF__ ~ '::create_form' %} </div>
+{% elseif mode == 'edit' %}
+    <div id="TrackDaysProfileCreateForm"> {% partial __SELF__ ~ '::edit_form' %} </div>
+{% elseif mode == 'view' %}
+    <div id="TrackDaysProfileCreateForm"> {% partial __SELF__ ~ '::view' %} </div>
+{% else %}
+    <div class="profile-ch--header">
+        <div class="columns">
+            <div class="col-4 col-xs-12">
+                <button class="button solid w-all"
+                        data-request="onEditOrCreateTrackDays"
+                        data-request-update="'{{ __SELF__ }}::default2': '#TrackDaysProfile'"
+                >{{ 'cb.tabtrackdaysprofile::lang.component.add_trackdays' | trans }}</button>
+            </div>
+        </div>
+    </div>
+    <div id="TrackDaysProfileTable"> {% partial __SELF__ ~ '::Table' %} </div>
+{% endif %}

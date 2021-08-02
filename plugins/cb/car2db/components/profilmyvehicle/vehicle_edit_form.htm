@@ -1,0 +1,89 @@
+<form class="sharing-request-form"
+    id="sharing-request-form"
+    data-request="{{ __SELF__ }}::onVehicleEdit"
+    data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+      data-request-success="removeErrors($(this));magicFormSuccessDynamic($(this),'Edit vehicle successful!');"
+>
+
+    <div class="columns">
+        <div class="col-6 col-xs-12" id="refreshMakePart">
+            <div class="form-group">
+                <div class="form-group--title">Make <span class="required">*</span></div>
+                <div class="form-group--content">
+                    <div class="form-control">
+                        <div class="input-wrapper">
+                            <p>{{ item.trim.getSerie().getModel().getMake().name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xs-12" id="refreshModelPart">
+            <div class="form-group">
+                <div class="form-group--title">Model <span class="required">*</span></div>
+                <div class="form-group--content">
+                    <div class="form-control">
+                        <div class="input-wrapper">
+                            {{ item.trim.getSerie().getModel().name }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="col-6 col-xs-12" id="refreshSeriePart">
+            <div class="form-group">
+                <div class="form-group--title">Serie <span class="required">*</span></div>
+                <div class="form-group--content">
+                    <div class="form-control">
+                        <div class="input-wrapper">
+                            {{ item.trim.getSerie().name }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xs-12" id="refreshTrimPart">
+            <div class="form-group">
+                <div class="form-group--title">Trim <span class="required">*</span></div>
+                <div class="form-group--content">
+                    <div class="form-control">
+                        <div class="input-wrapper">
+                            {{ item.trim.name }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="col-12">
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="licenseplate"> Licenseplate <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="licenseplate" name="licenseplate" value="{{item.licenseplate}}" placeholder="licenseplate">
+                        <input type="hidden" id="id" name="id" value="{{item.id}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns jc-e">
+        <div class="col-9 col-xs-12">
+            <div class="columns">
+                <div class="col-4 col-xs-12">
+                    <button type="button" class="button alt"
+                            data-request="{{ __SELF__ }}::onStartTable"
+                            data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+                    >Cancel</button>
+                </div>
+                <div class="col-8 col-xs-12">
+                    <button type="submit" class="button solid" data-toggle="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

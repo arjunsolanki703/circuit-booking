@@ -1,0 +1,10 @@
+name: Tokens
+form: $/cb/license/models/token/fields.yaml
+modelClass: Cb\License\Models\Token
+defaultRedirect: cb/license/tokens
+create:
+    redirect: 'cb/license/tokens/update/:id'
+    redirectClose: cb/license/tokens
+update:
+    redirect: cb/license/tokens
+    redirectClose: cb/license/tokens

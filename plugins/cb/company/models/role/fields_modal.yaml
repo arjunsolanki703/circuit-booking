@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: cb.company::lang.labels.name
+        span: auto
+    published_at:
+        label: cb.company::lang.labels.published_at
+        default: now
+        type: datepicker
+        mode: date
+        span: auto
+tabs:
+  fields:
+    description:
+        type: richeditor
+        size: giant
+        label: cb.company::lang.labels.description
+        span: full
+        tab: cb.company::lang.labels.description

@@ -1,0 +1,107 @@
+{% if __SELF__.filteredVariants.data %}
+{% set gradesObjects = __SELF__.getGradesObjects() %}
+{% for item in __SELF__.filteredVariants.data %}
+<div class="circuit-item">
+    <div class="circuit-item--preview">
+        <img src="{{ item.image }}" alt="circuit preview">
+    </div>
+    <div class="circuit-item--content">
+        <div class="circuit-item--header">
+            <div class="circuit-item--map small">
+                <img src="{{ item.location_scheme_path }}" alt="circuit scheme">
+            </div>
+            <div class="title-wrapper">
+                <div class="circuit-item--title">{{ item.order_trackday_title }}</div>
+                <div class="circuit-item--address">
+                    <i class="mdi mdi-map-marker"></i>
+                    <span>{{ item.fullAddress }}</span>
+                </div>
+            </div>
+            <div class="col-6">
+
+            </div>
+            {% if false %}}
+            <div class="col-6">
+                {% if item.image %}
+                <div style="width: 100%;"><img src="{{ item.image }}" style="max-height: 8em; width: auto; padding-left: 1.5em; padding-right: auto;"></div>                <br/>
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="grade-wrapper">
+                {% if item.grade[0] and gradesObjects[item.grade[0]] and gradesObjects[item.grade[0]].grade_logo %}
+                <div class="circuits-item--grade"><img src="{{ gradesObjects[item.grade[0]].grade_logo.path|resize(140, 140) }}" alt="grade"></div>
+                {% endif %}
+
+                {% set fl = 'assets/images/flags/' ~ item.country_name|lower|replace({' ': '-', ',': ''}) ~ '.png' %}
+                {% if item.country_name and fl %}
+                <div class="circuit-item--flag"><img src="{{ fl|theme }}" alt="flag icon"></div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="circuit-item--main">
+            <div class="columns">
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ 'cb.pgmware::lang.default.location'|trans }}</div>
+                        <div class="value">{{ item.name }}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ 'cb.pgmware::lang.componentFilter.type'|trans }}</div>
+                        <div class="value">{{ item.variant_name }}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        {% set strLen = item.min_length ~ 'm' %}
+                        {% if (item.min_length != item.max_length) %}
+                        {% set strLen = strLen ~ ' - ' ~ item.max_length ~ 'm' %}
+                        {% endif %}
+                        <div class="title">{{ 'cb.pgmware::lang.componentFilter.length'|trans }}</div>
+                        <div class="value">{{ strLen }}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title"> Date </div>
+                        <div class="value">{{ item.shar_start_date |date('d.m.Y')}} - {{ item.shar_end_date |date('d.m.Y')}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <p style="margin-left: 1em; margin-right: 1.5em;">{{ item.order_trackday_description }}</p>
+            </div>
+        </div>
+
+        <div class="circuit-item--footer">
+            <div class="circuit-item--vehicle-types alter">
+                {% for vehicle in item.vehicles %}
+                {% if loop.index < 6 %}
+                    {% set activeVehicle = vehicle.id == item.shar_vehicle_type_id ? 'active' : '' %}
+                    <div class="item {{ activeVehicle }}"><img src="{{ vehicle.vehicle_icon.path }}" alt="vehicle icon"></div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="circuit-item--buttons">
+                <a href="{{ 'trackdaybooking/trackday-item'|page({ slug: item.shar_id }) }}" class="button solid"> {{ item.currency_symbol }} {{ item.shar_price | number_format }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% if (__SELF__.filteredVariants.next_page_url) %}
+    <a href="javascript:void(0);" class="button solid" id="show-more" data-index="{{__SELF__.filteredVariants.next_page_url}}" style="margin-top: 24px;" onclick="makeSubmitMore('{{__SELF__.filteredVariants.next_page_url}}');">{{ 'cb.pgmware::lang.componentFilter.showMore'|trans }}</a>
+{% endif %}
+{% else %}
+    {% set isSharing = __SELF__.property('isCircuitSharing') %}
+    {% set isLastMinute = __SELF__.property('isLastminute') %}
+    {% if isSharing %}
+        <p>We are sorry, but unfortunately no Circuit Sharing Offers or Requests are available at the moment.</p>
+    {% endif %}
+    {% if isLastMinute %}
+        <p>We are sorry but unfortunately no Last Minute Bookings according to your search filters are available at the moment.</p>
+    {% endif %}
+{% endif %}

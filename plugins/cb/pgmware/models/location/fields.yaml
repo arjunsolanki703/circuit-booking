@@ -1,0 +1,220 @@
+fields:
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+    slug:
+        label: 'cb.pgmware::lang.default.slug'
+        span: auto
+        preset:
+            field: name
+            type: slug
+        type: text
+tabs:
+    fields:
+        description:
+            label: 'cb.pgmware::lang.default.description'
+            size: large
+            mode: tab
+            span: full
+            type: markdown
+            tab: 'cb.pgmware::lang.default.content'
+        equipment:
+            label: 'cb.pgmware::lang.default.equipment'
+            size: large
+            span: auto
+            type: textarea
+            tab: 'cb.pgmware::lang.default.content'
+        specials:
+            label: 'cb.pgmware::lang.default.specials'
+            size: large
+            span: auto
+            type: textarea
+            tab: 'cb.pgmware::lang.default.content'
+        youtube_video_url:
+            label: 'cb.pgmware::lang.default.videoUrl'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.files'
+        location_preview:
+            label: 'cb.pgmware::lang.default.location_preview'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'cb.pgmware::lang.default.files'
+        rjgallery:
+            label: 'cb.pgmware::lang.default.gallery'
+            tab: 'cb.pgmware::lang.default.files'
+            type: relation
+            emptyOption: ' - '
+            span: auto
+        module_file:
+            label: 'cb.pgmware::lang.default.moduleFile'
+            mode: file
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: left
+            type: fileupload
+            tab: 'cb.pgmware::lang.default.files'
+        location_scheme:
+            label: 'cb.pgmware::lang.default.location_scheme'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'cb.pgmware::lang.default.files'
+        location_logo:
+            label: 'cb.pgmware::lang.default.logo'
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: right
+            type: fileupload
+            tab: 'cb.pgmware::lang.default.files'
+        country:
+            label: 'cb.pgmware::lang.default.country'
+            span: auto
+            tab: 'cb.pgmware::lang.default.address'
+            type: relation
+        timeZone:
+            label: 'cb.pgmware::lang.default.timezone'
+            span: auto
+            tab: 'cb.pgmware::lang.default.address'
+            type: relation
+            emptyOption: ' - '
+        'address[name]':
+            label: 'cb.pgmware::lang.default.name'
+            span: auto
+            required: 1
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[city]':
+            label: 'cb.pgmware::lang.default.city'
+            span: auto
+            required: 1
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[zip]':
+            label: 'cb.pgmware::lang.default.zip'
+            span: auto
+            required: 1
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[street]':
+            label: 'cb.pgmware::lang.default.street'
+            span: auto
+            required: 1
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[gps_lat]':
+            label: 'cb.pgmware::lang.default.latitude'
+            span: auto
+            required: 1
+            type: number
+            tab: 'cb.pgmware::lang.default.address'
+        'address[gps_lon]':
+            label: 'cb.pgmware::lang.default.longitude'
+            span: auto
+            required: 1
+            type: number
+            tab: 'cb.pgmware::lang.default.address'
+        'address[additional]':
+            label: 'cb.pgmware::lang.default.additional'
+            span: auto
+            required: 1
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[phone]':
+            label: 'cb.pgmware::lang.default.phone'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[fax]':
+            label: 'cb.pgmware::lang.default.fax'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[web]':
+            label: 'cb.pgmware::lang.default.url'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        'address[email]':
+            label: 'cb.pgmware::lang.default.email'
+            span: auto
+            type: text
+            tab: 'cb.pgmware::lang.default.address'
+        name_short:
+            label: 'cb.pgmware::lang.default.short_name'
+            span: full
+            type: text
+            tab: 'cb.pgmware::lang.default.details'
+        company:
+            label: 'cb.pgmware::lang.default.company'
+            span: auto
+            type: relation
+            emptyOption: ' - '
+            tab: 'cb.pgmware::lang.default.details'
+        user:
+            label: 'cb.pgmware::lang.default.responsableMember'
+            span: auto
+            type: relation
+            emptyOption: ' - '
+            tab: 'cb.pgmware::lang.default.details'
+            select: concat(concat(name, ' ', surname), ' ', email)
+        open_from:
+            label: 'cb.pgmware::lang.default.openFrom'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        open_to:
+            label: 'cb.pgmware::lang.default.openTo'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        lunch_from:
+            label: 'cb.pgmware::lang.default.lunchFrom'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        lunch_to:
+            label: 'cb.pgmware::lang.default.lunchTo'
+            span: auto
+            mode: date
+            type: datepicker
+            tab: 'cb.pgmware::lang.default.details'
+        restaurant:
+            label: 'cb.pgmware::lang.default.hasRestaurant'
+            span: auto
+            type: checkbox
+            tab: 'cb.pgmware::lang.default.details'
+        medical:
+            label: 'cb.pgmware::lang.default.hasMedical'
+            span: auto
+            type: checkbox
+            tab: 'cb.pgmware::lang.default.details'
+        fuel:
+            label: 'cb.pgmware::lang.default.hasFuel'
+            span: auto
+            type: checkbox
+            tab: 'cb.pgmware::lang.default.details'
+        featured:
+            label: 'cb.pgmware::lang.default.featured'
+            span: auto
+            type: checkbox
+            tab: 'cb.pgmware::lang.default.details'

@@ -1,0 +1,45 @@
+columns:
+    id:
+        label: id
+        type: number
+    description:
+        label: 'cb.pgmware::lang.plugin.description'
+        type: text
+        searchable: true
+        invisible: true
+    is_available:
+        label: 'cb.pgmware::lang.default.available'
+        type: switch
+        sortable: true
+    variant:
+        label: 'cb.pgmware::lang.default.circuit'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: variant
+    start_date:
+        label: 'cb.pgmware::lang.default.startDate'
+        type: date
+        searchable: true
+        sortable: true
+    end_date:
+        label: 'cb.pgmware::lang.default.endDate'
+        type: date
+        searchable: true
+        sortable: true
+    valid_before_date:
+        label: 'cb.pgmware::lang.componentSharing.validBeforeDate'
+        type: date
+        searchable: true
+        invisible: true
+        sortable: true
+    price:
+        label: 'cb.pgmware::lang.default.price'
+        type: number
+        searchable: true
+        sortable: true
+    is_separately:
+        label: 'cb.pgmware::lang.default.separately'
+        type: switch
+        sortable: true

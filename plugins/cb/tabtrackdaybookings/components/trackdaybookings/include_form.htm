@@ -1,0 +1,317 @@
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">title</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" name="title" value="{{ item.title }}" class="form-control" autocomplete="off" maxlength="255">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">variant</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="variant_id">
+                            {% for variant in variants %}
+                                <option value="{{ variant.id }}" {{ item.variant_id == variant.id ? 'selected' : '' }}>{{ variant.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">description</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <textarea name="description"
+                                  autocomplete="off"
+                                  class="form-control field-textarea size-large"
+                                  onchange="onChangeDescription_trackdaysprofile()"
+                                  data-flag="0"
+                                  data-value="{{ item.description }}"
+                        >{{ item.description }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">trackday</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="trackday_id">
+                            {% for trackday in trackdays %}
+                                <option value="{{ trackday.id }}" {{ item.trackday_id == trackday.id ? 'selected' : '' }}>{{ trackday.title }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">start date</div>
+            <div class="form-group--content form-control">
+                <div class="columns">
+                    <div class="col-6 col-xs-12">
+                        <div class="input-wrapper">
+                            <input type="text"
+                                   data-toggle="datepicker"
+                                   class="form-control date_f"
+                                   name="start_date"
+                                   value="{{ start_date }}"
+                                   data-flag="0"
+                                   onchange="onChangeStart_date_trackdaysprofile()"
+                                   data-value="{{ start_date }}"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-6 col-xs-12 form-control">
+                        <div class="input-group clockpicker input-wrapper" data-placement="left" data-align="top" data-autoclose="true">
+                            <input type="text"
+                                   class="form-control"
+                                   name="start_date_time"
+                                   data-flag="0"
+                                   onchange="onChangeStart_date_time_trackdaysprofile()"
+                                   data-value="{{ start_date_time }}"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">end date</div>
+            <div class="form-group--content form-control">
+                <div class="columns">
+                    <div class="col-6 col-xs-12">
+                        <div class="input-wrapper">
+                            <input type="text"
+                                   data-toggle="datepicker"
+                                   class="form-control date_f"
+                                   name="end_date"
+                                   value="{{ end_date }}"
+                                   data-flag="0"
+                                   onchange="onChangeEnd_date_trackdaysprofile()"
+                                   data-value="{{ end_date }}"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-6 col-xs-12 form-control">
+                        <div class="input-group clockpicker input-wrapper" data-placement="left" data-align="top" data-autoclose="true">
+                            <input type="text"
+                                   class="form-control"
+                                   name="end_date_time"
+                                   data-flag="0"
+                                   onchange="onChangeEnd_date_time_trackdaysprofile()"
+                                   data-value="{{ end_date_time }}"
+                                   value="{{ end_date_time }}"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="licenseplate"> price</label>
+                <div class="input-wrapper">
+                    <input type="number"
+                           step="any"
+                           name="price"
+                           value="{{ item.price }}"
+                           data-value="{{ item.price }}"
+                           class="form-control"
+                           autocomplete="off"
+                           maxlength="255"
+                           data-flag="0"
+                           onchange="onChangePrice_trackdaysprofile()"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="licenseplate"> currency</label>
+                <div class="input-wrapper">
+                    <select name="currency_id"
+                            onchange="onChangeCurrency_trackdaysprofile()"
+                            data-flag="0"
+                            data-id="{{ item.currency_id }}"
+                    >
+                        {% for currency in currencys %}
+                            <option value="{{ currency.id }}" {{ item.currency_id == currency.id ? 'selected' : '' }}>{{ currency.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="columns">
+
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="licenseplate"> VAT value [%] <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="number"
+                           step="any"
+                           name="vat_value"
+                           value="{{ item.vat_value }}"
+                           class="form-control"
+                           autocomplete="off" pattern="-?\d+(\.\d+)?"
+                           maxlength="255"
+                            {{ mode =='edit' ? 'readonly' : '' }}
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">bookable</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="booking_id">
+                            {% for booking in bookings %}
+                                <option value="{{ booking.id }}" {{ item.booking_id == booking.id ? 'selected' : '' }}>{{ booking.description }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('.date_f').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+    $('.clockpicker').clockpicker();
+</script>
+
+
+{% if(mode=='edit') %}
+    <script>
+        function onChangeCurrency_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="currency_id"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_currency' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-id');
+                }
+            }
+        }
+
+        function onChangePrice_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="price"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_price' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-value');
+                }
+            }
+        }
+
+        function onChangeStart_date_time_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="start_date_time"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_start_date_time' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-value');
+                }
+            }
+        }
+
+        function onChangeStart_date_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="start_date"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_start_date_time' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-value');
+                }
+            }
+        }
+
+
+        function onChangeEnd_date_time_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="end_date_time"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_end_date_time' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-value');
+                }
+            }
+        }
+
+        function onChangeEnd_date_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="end_date"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_end_date_time' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-value');
+                }
+            }
+        }
+
+        function onChangeDescription_trackdaysprofile() {
+            let a = document.querySelector('#TrackDayBookings [name="description"]');
+            if (a.getAttribute('data-flag') === '0') {
+                if (confirm("{{ 'cb.tabtrackdaybookings::lang.component.ask_description' |trans({'count':orderTrackdayParticipantCount}) }}")) {
+                    a.setAttribute('data-flag', 1)
+                } else {
+                    a.value = a.getAttribute('data-value');
+                }
+            }
+        }
+    </script>
+{% endif %}

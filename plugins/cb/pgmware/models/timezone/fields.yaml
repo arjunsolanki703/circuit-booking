@@ -1,0 +1,14 @@
+tabs:
+    fields:
+        name:
+            label: 'cb.pgmware::lang.default.name'
+            span: auto
+            required: 1
+            type: text
+            tab: 'Tab 1'
+        gmt:
+            label: 'cb.pgmware::lang.default.gmt'
+            span: auto
+            required: 1
+            type: text
+            tab: 'Tab 1'

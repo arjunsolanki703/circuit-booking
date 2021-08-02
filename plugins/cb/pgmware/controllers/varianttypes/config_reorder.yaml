@@ -1,0 +1,4 @@
+title: VariantTypes
+modelClass: Cb\Pgmware\Models\VariantType
+toolbar:
+    buttons: reorder_toolbar

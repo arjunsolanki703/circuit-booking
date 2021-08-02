@@ -1,0 +1,20 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'cb.pgmware::lang.default.createdAt'
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: 'cb.pgmware::lang.default.updatedAt'
+        type: datetime
+        invisible: true
+        sortable: true

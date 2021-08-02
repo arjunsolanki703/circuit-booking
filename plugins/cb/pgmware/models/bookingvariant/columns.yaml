@@ -1,0 +1,72 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+    location:
+        label: Location Name
+        select: name
+        type: text
+        relation: location
+    variant_id:
+        label: 'cb.pgmware::lang.default.circuit'
+        type: text
+        select: name
+        relation: variant
+    booking_type_id:
+        label: 'cb.pgmware::lang.default.bookingType'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: booking_type
+    vehicle_type_id:
+        label: 'cb.pgmware::lang.default.vehicleType'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: vehicle_type
+    vehicles_count:
+        label: 'cb.pgmware::lang.default.vehiclesCount'
+        type: text
+        searchable: true
+        sortable: true
+    garage:
+        label: 'cb.pgmware::lang.default.garage'
+        type: text
+    meeteng_rooms:
+        label: 'cb.pgmware::lang.default.meetengRooms'
+        type: text
+    start_date:
+        label: 'cb.pgmware::lang.default.startDate'
+        type: date
+        searchable: true
+        sortable: true
+    end_date:
+        label: 'cb.pgmware::lang.default.endDate'
+        type: date
+        searchable: true
+        sortable: true
+    time_keeping:
+        label: 'cb.pgmware::lang.default.timeKeeping'
+        type: switch
+        invisible: true
+        sortable: true
+    comment:
+        label: 'cb.pgmware::lang.default.comment'
+        type: text
+        invisible: true
+    created_at:
+        label: 'cb.pgmware::lang.default.createdAt'
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: 'cb.pgmware::lang.default.updatedAt'
+        type: datetime
+        invisible: true
+        sortable: true
+    username_surname:
+        label: User Name And Surname
+        type: text

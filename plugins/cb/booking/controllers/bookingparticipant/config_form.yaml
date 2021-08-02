@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking Participant
+
+# Model Form Field configuration
+form: $/cb/booking/models/bookingparticipant/fields.yaml
+
+# Model Class name
+modelClass: Cb\Booking\Models\BookingParticipant
+
+# Default redirect location
+defaultRedirect: cb/booking/bookingparticipant
+
+# Create page
+create:
+    title: Create Booking Participant
+    redirect: cb/booking/bookingparticipant/update/:id
+    redirectClose: cb/booking/bookingparticipant
+
+# Update page
+update:
+    title: Edit Booking Participant
+    redirect: cb/booking/bookingparticipant
+    redirectClose: cb/booking/bookingparticipant
+
+# Preview page
+preview:
+    title: Preview Booking Participant

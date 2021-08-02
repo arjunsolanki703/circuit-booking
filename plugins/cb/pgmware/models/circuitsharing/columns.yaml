@@ -1,0 +1,76 @@
+columns:
+    id:
+        label: id
+        type: number
+    title:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'cb.pgmware::lang.plugin.description'
+        type: text
+        searchable: true
+        invisible: true
+    is_available:
+        label: 'cb.pgmware::lang.default.available'
+        type: switch
+        sortable: true
+    variant:
+        label: 'cb.pgmware::lang.default.circuit'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: variant
+    is_booked:
+        label: 'cb.pgmware::lang.default.booked'
+        type: switch
+        invisible: true
+        sortable: true
+    start_date:
+        label: 'cb.pgmware::lang.default.startDate'
+        type: date
+        searchable: true
+        sortable: true
+    end_date:
+        label: 'cb.pgmware::lang.default.endDate'
+        type: date
+        searchable: true
+        sortable: true
+    valid_before_date:
+        label: 'cb.pgmware::lang.componentSharing.validBeforeDate'
+        type: date
+        searchable: true
+        invisible: true
+        sortable: true
+    vehicles_count:
+        label: 'cb.pgmware::lang.default.vehiclesCount'
+        type: number
+        searchable: true
+        invisible: true
+        sortable: true
+    vehicle_type:
+        label: 'cb.pgmware::lang.default.vehicleType'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: vehicle_type
+    circuit_sharing_type:
+        label: type
+        type: text
+        searchable: true
+        sortable: true
+    booking_type:
+        label: 'cb.pgmware::lang.default.bookingType'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: booking_type
+    price:
+        label: 'cb.pgmware::lang.default.price'
+        type: number
+        searchable: true
+        sortable: true

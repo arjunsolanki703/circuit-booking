@@ -1,0 +1,36 @@
+fields:
+    id:
+        label: ID
+        disabled: true
+        type: text
+tabs:
+    fields:
+        number_prefix:
+            label: number_prefix
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        number:
+            label: number
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        description:
+            label: description
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        booking_status:
+            label: 'booking status'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        booking_type:
+            label: 'booking type'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'

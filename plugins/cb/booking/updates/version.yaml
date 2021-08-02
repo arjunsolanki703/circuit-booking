@@ -1,0 +1,37 @@
+1.0.1: First version of booking
+1.0.2:
+  - 'Create the table booking_types'
+  - create_booking_types_table.php
+1.0.3:
+  - 'Create the table booking_statuses'
+  - create_booking_statuses_table.php
+1.0.4:
+  - 'Create the table bookings'
+  - create_bookings_table.php
+1.0.5:
+  - 'Seed the table booking_statuses with default statuses'
+  - seed_booking_statuses_table.php
+1.0.6:
+  - 'Seed the table booking_types with default types'
+  - seed_booking_types_table.php
+1.0.7:
+  - 'Create the booking participant system tables'
+  - create_participant_types_table.php
+  - create_booking_participants_table.php
+  - create_booking_participant_bookings_table.php
+1.0.8:
+  - 'Alter table booking types with the pluginname'
+  - alter_booking_types_table.php
+  - seed_booking_types_table2.php
+1.0.9:
+  - 'Alter table booking_participants make user_id nullable'
+  - alter_booking_participants_table_nullable_user_id.php
+1.0.10:
+  - 'Alter table booking_participants make user_id nullable'
+  - alter_booking_participants_table_nullable_user_id2.php
+1.0.11:
+  - 'Alter table booking_participants add gender attribute'
+  - alter_booking_participants_table_add_gender.php
+1.0.12:
+  - 'Alter table booking_participant_bookings add status refenrence'
+  - alter_booking_participant_bookings_table_add_status.php

@@ -1,0 +1,46 @@
+<div class="step-content">
+    <div class="user-group-selection">
+        <div class="columns ai-st">
+            <div class="col-6 col-xs-12">
+                {% if profiltype == "user" %}
+                <input type="radio" name="profiltype" id="bookclient" value="guest" hidden="">
+                {% else %}
+                <input type="radio" checked="true" name="profiltype" id="bookclient" value="guest" hidden="">
+                {% endif %}
+                <label class="user-group h-all" for="bookclient">
+                    <span class="user-group--title">Book as Guest</span>
+                    <span class="user-group--description"><p>In Book as Guest you we just save your data for this trackday and don't match this booking with a account. If you don't want a account or want to book for a friend use this one. <br/> ...Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt at trackdaium. </p></span>
+                </label>
+            </div>
+            <div class="col-6 col-xs-12">
+                {% if profiltype == "user" %}
+                <input type="radio" checked="true" name="profiltype" id="bookuser" value="user" hidden="">
+                {% else %}
+                <input type="radio" name="profiltype" id="bookuser" value="user" hidden="">
+                {% endif %}
+                <label class="user-group h-all" for="bookuser">
+                    <span class="user-group--title">Book as User</span>
+                    <span class="user-group--description"><p>In Book as User we match your data with your Account and pre fill your booking. Later you will find this booking in yopur profil. <br/> ...Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="registration-form--footer">
+        <div class="columns ai-c jc-e">
+            <div class="col-4 col-xs-12">
+                <div class="columns">
+                    <div class="col-4 col-xs-12">
+                        <a href="/trackday" class="button alt w-all mdc-ripple-upgraded">Cancel</a>
+                    </div>
+                    <div class="col-8 col-xs-12">
+                        <button type="button" class="button solid w-all mdc-ripple-upgraded"
+                                onclick="$('#step2').click();return false;"
+                                data-request="onSelectProfilType"
+                                data-request-update="'{{ __SELF__ }}::userdataB': '#datapart2'"
+                        >Save and continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

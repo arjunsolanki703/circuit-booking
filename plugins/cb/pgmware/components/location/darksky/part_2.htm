@@ -1,0 +1,33 @@
+<div class="darSky_more_shadow darSky_more_hidden">
+    <div class="darSky_more">
+        <div class="header">
+            <div class="close">Close</div>
+        </div>
+        <div class="body" id="spice_forecast">
+
+            <div id="forecast_embed" class="fe_container">
+                <div class="fe_forecast">
+                    <div class="fe_currently">
+                        <canvas id="fe_current_icon" width="160" height="160" style="width:80px; height:80px"></canvas>
+                        <div class="fe_temp">0° <span class="fe_dir"></span></div>
+                        <div class="fe_summary"></div>
+                        <div class="fe_wind"></div>
+                    </div>
+                    <div class="fe_daily"></div>
+                    <div style="clear:left"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded',function () {
+            ddg_spice_forecast({{ location.getDarkSky(false) | json_encode| raw }});
+        })
+    </script>
+{% endput %}

@@ -1,0 +1,20 @@
+columns:
+    code:
+        label: 'cb.pgmware::lang.default.code'
+        type: text
+        searchable: true
+        sortable: true
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+        searchable: true
+        sortable: true
+    is_enabled:
+        label: 'cb.pgmware::lang.default.enabled'
+        type: switch
+        sortable: true
+    id:
+        label: id
+        type: number
+        invisible: true
+        sortable: true

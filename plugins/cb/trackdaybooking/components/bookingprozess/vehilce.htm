@@ -1,0 +1,87 @@
+<div class="step-content">
+
+    <div class="columns">
+        <div class="col-6 col-xs-12" id="refreshMakePart">{% partial __SELF__ ~ '::refreshMakePart' %} </div>
+        <div class="col-6 col-xs-12" id="refreshModelPart">{% partial __SELF__ ~ '::refreshModelPart' %} </div>
+    </div>
+    <div class="columns">
+        <div class="col-6" id="refreshSeriePart"> {% partial __SELF__ ~ '::refreshSeriePart' %} </div>
+        <div class="col-6" id="refreshTrimPart"> {% partial __SELF__ ~ '::refreshTrimPart' %} </div>
+    </div>
+    <div class="columns">
+        <div class="col-12">
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="licenseplate"> Licenseplate <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="licenseplate" name="licenseplate" placeholder="licenseplate">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="registration-form--footer">
+        <div class="columns ai-c jc-e">
+            <div class="col-4 col-xs-12">
+                <div class="columns">
+                    <div class="col-4 col-xs-12">
+                        <a onclick="$('#step2').click();return false;" class="button alt w-all mdc-ripple-upgraded">Cancel</a>
+                    </div>
+                    <div class="col-8 col-xs-12">
+                        <button id="checkVehicleDataBtn" type="button"
+                                class="button solid w-all mdc-ripple-upgraded"
+                                onclick="checkVehicleData($(this).closest('form'));return false;">
+                            Check Data
+                        </button>
+
+                        <button id="sendVehicleDataBtn" type="button"
+                                style="display: none;"
+                                class="button solid w-all mdc-ripple-upgraded"
+                                data-request-data="
+                                email: '{{userdata.email}}',
+                                name: '{{userdata.name}}',
+                                gender: '{{userdata.gender}}',
+                                surname: '{{userdata.surname}}',
+                                street: '{{userdata.street}}',
+                                zip: '{{userdata.zip}}',
+                                city: '{{userdata.city}}',
+                                phone: '{{userdata.phone}}',
+                                country_id: '{{userdata.country_id}}',
+                                countryname: '{{userdata.countryname}}'"
+                                data-request="onSaveVehilceInfo"
+                                data-request-update="'{{ __SELF__ }}::confirm': '#datapart4'"
+                                onclick="$('#step4').click();return false;" >
+                            <i class="mdi mdi-upload"></i>
+                            Save and continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script type="text/javascript">
+    $(function(){
+        $( "#sendVehicleDataBtn" ).hide();
+        $( "#checkVehicleDataBtn" ).show();
+    });
+
+    function checkVehicleData(form) {
+        removeErrors(form);
+        form.request('onSaveVehilceInfo', {
+            success: function(data) {
+                $( "#sendVehicleDataBtn" ).show();
+                $( "#checkVehicleDataBtn" ).hide();
+            },
+            error: function(data) {
+                if (data && data.status != undefined && data.status == 406) {
+                    addErrors(form, data.responseJSON.X_OCTOBER_ERROR_FIELDS);
+                } else {
+                    addAlert(form, data.responseText);
+                }
+            },
+        });
+    }
+</script>
+{% endput %}

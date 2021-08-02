@@ -1,0 +1,264 @@
+<div class="columns">
+    <div class="col-8 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Trackday</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="trackday_id_readonly" disabled>
+                            {% for item in model.trackdays %}
+                                <option value="{{ item.id }}"
+                                        data-description="{{ item.description }}"
+                                        data-price="{{ item.price }}"
+                                        data-vat_value="{{ item.vat_value }}"
+                                >{{ item.title }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Continent</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="continent_id_readonly" disabled>
+                            {% for item in model.continents %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Country</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper step1Country">
+                        <select name="country_id_readonly" disabled></select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Location</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper step1Location">
+                        <select name="location_id_readonly" disabled></select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Variants</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper step1Variant">
+                        <select name="variant_id_readonly" disabled></select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-8 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Trackday</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="trackday_name_readonly" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Location</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input readonly name="location_name_readonly" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="form-group--title">Description</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <textarea name="description_readonly" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Vehicle Type</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="vehicle_type_id_readonly" disabled>
+                            {% for item in model.vehicle_type %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Price per person</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="price_per_person_readonly" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">VAT [%]</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="vat_value_readonly" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Continent</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="continent_id_readonly" disabled>
+                            {% for item in model.continents %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Start date & time</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="start_data_time_readonly" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">End date & time</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="end_data_time_readonly" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">Bookble capacity via circuit-booking.com</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input name="bookble_capacity_readonly" readonly type="number">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="mdc-form-field terms-check">
+    <div class="mdc-checkbox">
+        <input type="checkbox"
+               class="mdc-checkbox__native-control"
+               name="agree"
+               required
+               id="agree"/>
+        <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark"
+                 viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark-path"
+                      fill="none"
+                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+    </div>
+    <label class="right-label" for="agree">
+        <div class="left">
+            <span class="title">I hereby agree to the terms and conditions of circuit-booking.com <span class="required">*</span></span>
+        </div>
+    </label>
+</div>
+
+<div class="columns jc-e">
+    <div class="col-9 col-xs-12">
+        <div class="columns">
+            <div class="col-4 col-xs-12">
+                <button type="button" class="button alt" onclick="closeModel();return false;">Cancel</button>
+            </div>
+            <div class="col-8 col-xs-12">
+                <button class="button solid" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

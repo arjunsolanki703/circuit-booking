@@ -1,0 +1,8 @@
+1.0.1: First version of demostripe
+1.0.2:
+  - Create the lnk Table stripe_users
+  - create_cb_lnk_stripe_users_table.php
+1.0.3:
+  - Create rechnungsdaten und teilnehmerndaten Tabellen
+  - create_cb_teilnehmerdatens_table.php
+  - create_cb_rechnungsdatens_table.php

@@ -1,0 +1,54 @@
+fields:
+    description:
+        label: 'cb.pgmware::lang.default.description'
+        span: auto
+        required: 1
+        type: text
+    license_plate:
+        label: 'cb.pgmware::lang.default.license_plate'
+        span: auto
+        required: 1
+        type: text
+    company:
+        label: 'cb.pgmware::lang.default.company'
+        span: auto
+        type: relation
+        emptyOption: ' - '
+    vehicleType:
+        label: 'cb.pgmware::lang.default.vehicleType'
+        span: auto
+        type: relation
+        emptyOption: ' - '
+    notes:
+        label: 'cb.pgmware::lang.default.notes'
+        size: small
+        span: auto
+        type: textarea
+    drivetype:
+        label: 'cb.pgmware::lang.default.drivertype'
+        size: small
+        span: auto
+        type: textarea
+    checkedin:
+        label: 'cb.pgmware::lang.default.checkedin'
+        span: auto
+        type: checkbox
+    mule:
+        label: 'cb.pgmware::lang.default.mule'
+        span: auto
+        type: checkbox
+    power:
+        label: 'cb.pgmware::lang.default.power'
+        span: auto
+        required: 1
+        type: number
+    max_speed:
+        label: 'cb.pgmware::lang.default.maxSpeed'
+        span: auto
+        required: 1
+        type: number
+    noise:
+        label: 'cb.pgmware::lang.default.noise'
+        span: auto
+        required: 1
+        type: number

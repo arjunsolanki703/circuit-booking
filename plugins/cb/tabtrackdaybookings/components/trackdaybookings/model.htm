@@ -1,0 +1,60 @@
+<!--MODAL-->
+<div class="modal-wrapper modal" id="trackdaybookings-create-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window">
+        <form style="width: 100%"
+              method="POST"
+              accept-charset="UTF-8"
+              data-request="{{ __SELF__ }}::onSaveModel"
+              data-request-success="successTrackDayBookingSave()"
+        >
+            <div class="registration-form">
+                <div class="registration-form--header">
+                    <div class="steps-header" id="steps-header">
+                        <div class="step-header" id="step1">
+                            <div class="number">1</div>
+                            <div class="title">Trackday Program & Location</div>
+                        </div>
+                        <div class="step-header" id="step2">
+                            <div class="number">2</div>
+                            <div class="title">Dates, Prices & Capacity</div>
+                        </div>
+                        <div class="step-header" id="step3">
+                            <div class="number">3</div>
+                            <div class="title">Summary</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="registration-form--content steps" id="steps-content">
+                    <div class="step step-1 active" id="datapart1">
+                        {% partial __SELF__ ~ '::steps/step-1' %}
+                    </div>
+
+                    <div class="step step-2" id="datapart2">
+                        {% partial __SELF__ ~ '::steps/step-2' %}
+                    </div>
+
+                    <div class="step step-3" id="datapart3">
+                        {% partial __SELF__ ~ '::steps/step-3' %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% put scripts %}
+    <script>
+        function successTrackDayBookingSave() {
+            toastr.success('Availability changed');
+            window.location.reload();
+        }
+    </script>
+{% endput %}
+
+<style>
+    #trackdaybookings-create-modal .modal-window {
+        width: 80%;
+        max-height: 639px;
+    }
+</style>

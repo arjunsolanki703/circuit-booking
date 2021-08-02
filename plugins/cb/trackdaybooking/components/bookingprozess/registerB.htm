@@ -1,0 +1,43 @@
+{% partial "trackdaybookingprozess::trackday" %}
+
+<form style="width: 100%" data-request="onRegister" data-request-error="removeErrors($(this));if(jqXHR.responseJSON == undefined){toastr.error('Unknown error');}else{addErrors($(this),jqXHR.responseJSON.X_OCTOBER_ERROR_FIELDS,'company');}return false;">
+    <div class="registration-form">
+        <div class="registration-form--header">
+            <div class="steps-header" id="steps-header">
+                <div class="step-header" id="step1">
+                    <div class="number">1</div>
+                    <div class="title">Profile type</div>
+                </div>
+                <div class="step-header" id="step2">
+                    <div class="number">2</div>
+                    <div class="title">Contact Information</div>
+                </div>
+                <div class="step-header" id="step3">
+                    <div class="number">3</div>
+                    <div class="title">Vehicle Information</div>
+                </div>
+                <div class="step-header" id="step4">
+                    <div class="number">4</div>
+                    <div class="title">Confirmation</div>
+                </div>
+            </div>
+        </div>
+        <div class="registration-form--content steps" id="steps-content">
+            <div class="step step-1 active" id="datapart1">
+                {% partial "trackdaybookingprozess::profile" %}
+            </div>
+
+            <div class="step step-2" id="datapart2">
+                {% partial "trackdaybookingprozess::userdataB" %}
+            </div>
+
+            <div class="step step-3" id="datapart3">
+                {% partial "trackdaybookingprozess::vehilce" %}
+            </div>
+
+            <div class="step step-4" id="datapart4">
+                {% partial "trackdaybookingprozess::confirm" %}
+            </div>
+        </div>
+    </div>
+</form>

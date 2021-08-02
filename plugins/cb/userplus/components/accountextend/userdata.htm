@@ -1,0 +1,120 @@
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="registerGender">{{ 'cb.userplus::lang.component.gender'|trans }}<span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <select
+                            name="cb_gender"
+                            id="registerGender"
+                            required
+                            placeholder="{{ 'cb.userplus::lang.component.enterGender'|trans }}">
+
+                        {% if not user %}
+                        <option selected desabled>Please select</option>
+                        {% endif %}
+                        {% for key, label in {'unknown':'unknown', 'female':'female', 'male':'male'} %}
+                        {% set selected = '' %}
+                        {% if (user and key == user.cb_gender) %}{% set selected = 'selected' %}{% endif %}
+                        <option {{selected}} value="{{ key }}">{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user %}{% set val = user.name %}{% endif %}
+                <label for="registerName">
+                    <span>{{ 'cb.userplus::lang.component.firstName'|trans }}</span>
+                    <span class="required">*</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="registerName" required name="name" placeholder="{{ 'cb.userplus::lang.component.enterFirstName'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user %}{% set val = user.surname %}{% endif %}
+                <label for="registerLastName">{{ 'cb.userplus::lang.component.lastName'|trans }}<span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="text" id="registerLastName" name="surname" required placeholder="{{ 'cb.userplus::lang.component.enterLastName'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user %}{% set val = user.cb_function %}{% endif %}
+                <label for="registerFunction">{{ 'cb.userplus::lang.component.function'|trans }}</label>
+                <div class="input-wrapper">
+                    <input
+                            name="cb_function"
+                            class="form-control"
+                            id="registerFunction"
+                            placeholder="Enter your function"
+                            value="{{val}}"  />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user %}{% set val = user.cb_telephone %}{% endif %}
+                <label for="registerPhone">
+                    <span>{{ 'cb.userplus::lang.component.phone'|trans }}</span>
+                    <span class="required">*</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="registerPhone" name="cb_telephone" placeholder="{{ 'cb.userplus::lang.component.enterYourPhone'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            {% set val = '' %}
+            {% set disabled = '' %}
+            {% if user %}{% set val = user.email %}{% set disabled = 'disabled' %}{% endif %}
+            <div class="form-control {{ disabled }}">
+                <label for="registerEmail">
+                    <span>{{ 'cb.userplus::lang.component.email'|trans }}</span>
+                    <span class="required">*</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="registerEmail" required name="email" placeholder="{{ 'cb.userplus::lang.component.enterEmail'|trans }}" value="{{val}}" {{ disabled }} >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="avatar">Profile image</label>
+                <div class="input-wrapper file-input">
+                    <input type="file" id="avatar" name="avatar">
+                    <label for="avatar" class="button solid w-all">
+                        <i class="mdi mdi-upload"></i>
+                        <span>Choose the file</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

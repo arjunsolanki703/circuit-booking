@@ -1,0 +1,35 @@
+columns:
+    id:
+        label: Trackday ID
+        type: number
+        searchable: true
+    vehicle_type:
+        label: vehicle_type
+        relation: vehicle_type
+        select: name
+    title:
+        label: title
+        type: text
+    description:
+        label: description
+        type: text
+    bookable:
+        label: bookable
+        type: switch
+        default: '1'
+    company_id:
+        label: company id
+        relation: company
+        select: id
+    company_name:
+        label: company name
+        relation: company
+        select: name
+    company_city:
+        label: company city
+        relation: company
+        select: city
+    company_zip:
+        label: company zip
+        relation: company
+        select: zip

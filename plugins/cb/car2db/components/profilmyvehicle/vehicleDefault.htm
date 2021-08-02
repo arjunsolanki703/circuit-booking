@@ -1,0 +1,18 @@
+{% if mode == 'add' %}
+    <div id="vehicleCreate"> {% partial __SELF__ ~ '::vehicle_create_form' %} </div>
+{% elseif mode == 'edit' %}
+    <div id="vehicleCreateForm"> {% partial __SELF__ ~ '::vehicle_edit_form' %} </div>
+{% else %}
+    <div class="profile-ch--header">
+        <div class="columns">
+            <div class="col-4 col-xs-12">
+                <button class="button solid w-all"
+                        data-request="onStartAddVehicle"
+                        data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+                >
+                    Add Vehicle</button>
+            </div>
+        </div>
+    </div>
+    <div id="vehicleTable"> {% partial __SELF__ ~ '::vehicleTable' %} </div>
+{% endif %}

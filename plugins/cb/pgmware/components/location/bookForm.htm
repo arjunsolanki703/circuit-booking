@@ -1,0 +1,34 @@
+<form method="get" onsubmit="$(this).attr('action', '{{ 'circuits/booking-request'|page({ country: location.country.cb_slug, continent: location.country.continent.code, slug: location.slug, variant: '0' }) }}'+$('#typeVariant').val())">
+    {% if location.variants %}
+    <div class="form-group">
+        <div class="form-control">
+            <label for="typeVariant">{{ 'cb.pgmware::lang.componentFilter.trackConfiguration'|trans }}</label>
+            <div class="input-wrapper">
+                <select id="typeVariant" name="typeVariant">
+                    {% for t in location.variants %}
+                    <option value="{{ t.id }}">{{ t.name }}</option>
+                    {% endfor %}
+                </select>
+                <i class="arrow-icon"></i>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="form-group">
+        <div class="form-control">
+            <label for="pre_start_date">Dates</label>
+            <div    data-disabled="[]"
+                    data-preselect-start="{{ __SELF__.property('startDateDefault') }}"
+                    data-preselect-end="{{ __SELF__.property('endDateDefault') }}"
+                    data-min="{{ dateStart }}"
+                    data-max="{{ dateEnd }}"
+                    class="date-input-wrapper single-date-picker">
+                <input type="text" placeholder="dd.mm.yyyy" readonly name="start_day" class="date-input first" id="pre_start_date">
+                <input type="text" placeholder="dd.mm.yyyy" readonly name="end_day" class="date-input second" id="pre_end_date">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="button solid w-all">Book</button>
+    </div>
+</form>

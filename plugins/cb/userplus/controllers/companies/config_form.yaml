@@ -1,0 +1,10 @@
+name: Companies
+form: $/cb/userplus/models/company/fields.yaml
+modelClass: Cb\UserPlus\Models\Company
+defaultRedirect: cb/userplus/companies
+create:
+    redirect: 'cb/userplus/companies/update/:id'
+    redirectClose: cb/userplus/companies
+update:
+    redirect: cb/userplus/companies
+    redirectClose: cb/userplus/companies

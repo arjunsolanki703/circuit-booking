@@ -1,0 +1,19 @@
+<ul class="share-socials--list">
+{% for button in __SELF__.property('buttons_order') %}
+    {% if (__SELF__.property(button)) %}
+        <li class="share-socials--item">
+            <a href="{{ __SELF__.property('buttons_parameters')[button]['href'] }}"
+               class="share-socials--link"
+               target="_blank"
+               style="background-color: {{ __SELF__.property('buttons_parameters')[button]['color'] }};"
+               title="{{ __SELF__.property('buttons_parameters')[button]['title'] }}">
+                <i class="{{ __SELF__.property('buttons_parameters')[button]['icon'] }}"></i>
+            </a>
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% if __SELF__.property('js') %}
+    <script src="/plugins/Cb/ssbuttons/assets/js/ssbuttons.js"></script>
+{% endif %}

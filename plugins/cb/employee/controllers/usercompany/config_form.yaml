@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: User Company
+
+# Model Form Field configuration
+form: $/cb/employee/models/usercompany/fields.yaml
+
+# Model Class name
+modelClass: Cb\Employee\Models\UserCompany
+
+# Default redirect location
+defaultRedirect: cb/employee/usercompany
+
+# Create page
+create:
+    title: Create User Company
+    redirect: cb/employee/usercompany/update/:id
+    redirectClose: cb/employee/usercompany
+
+# Update page
+update:
+    title: Edit User Company
+    redirect: cb/employee/usercompany
+    redirectClose: cb/employee/usercompany
+
+# Preview page
+preview:
+    title: Preview User Company

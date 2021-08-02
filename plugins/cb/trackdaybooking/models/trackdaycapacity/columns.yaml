@@ -1,0 +1,15 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    order_trackday:
+        label: Order Trackday
+        select: title
+        relation: order_trackday
+    amount:
+        label: amount
+        type: number
+    created_at:
+        label: created_at
+        type: date

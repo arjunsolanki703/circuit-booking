@@ -1,0 +1,68 @@
+fields:
+    id:
+        label: ID
+        disabled: true
+        type: text
+tabs:
+    fields:
+        title:
+            label: ordertitle
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        variant:
+            label: variant
+            nameFrom: name
+            descriptionFrom: name
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        description:
+            label: description
+            span: auto
+            type: textarea
+            tab: 'Tab 1'
+        trackday:
+            label: trackday
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        start_date:
+            label: 'start date'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: 'Tab 1'
+        end_date:
+            label: 'end date'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: 'Tab 1'
+        price:
+            label: price
+            span: auto
+            type: number
+            tab: 'Tab 1'
+        currency:
+            label: currency
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        vat_value:
+            label: 'vat value'
+            span: auto
+            type: number
+            tab: 'Tab 1'
+        booking:
+            label: Booking
+            nameFrom: description
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+

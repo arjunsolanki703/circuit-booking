@@ -1,0 +1,104 @@
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.continents'|trans }} <span class="required">*</span></div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select
+                            name="continent"
+                            id="continent"
+                            data-request="onRefreshLocation"
+                            data-request-update="'{{ __SELF__ }}::refreshLocation': '#refreshLocation'">
+                            <option selected disabled>Please select</option>
+                            {% for id, item in sircuitSharing.getContinentOptions() %}
+                                {% set selected = '' %}
+                                {% if (id == sircuitSharing.continent) %} {% set selected = 'selected' %} {% endif %}
+                                <option  value="{{ id }}" {{ selected }}>{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.countries'|trans }} <span class="required">*</span></div>
+            <div class="form-group--content">
+                {% set disabled = sircuitSharing.continent ? '' : 'disabled' %}
+                <div class="form-control {{ disabled }}">
+                    <div class="input-wrapper">
+                        <select
+                            name="country"
+                            id="countru"
+                            data-request="onRefreshLocation"
+                            data-request-update="'{{ __SELF__ }}::refreshLocation': '#refreshLocation'"
+                            {{ disabled }}>
+                            <option selected disabled>Please select</option>
+                            {% for id, item in sircuitSharing.getCountryOptions() %}
+                                {% set selected = '' %}
+                                {% if (id == sircuitSharing.country) %} {% set selected = 'selected' %} {% endif %}
+                                <option  value="{{ id }}" {{ selected }}>{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.location'|trans }} <span class="required">*</span></div>
+            <div class="form-group--content">
+                {% set disabled = sircuitSharing.country ? '' : 'disabled' %}
+                <div class="form-control {{ disabled }}">
+                    <div class="input-wrapper">
+                        <select
+                            name="location"
+                            id="location"
+                            data-request="onRefreshLocation"
+                            data-request-update="'{{ __SELF__ }}::refreshLocation': '#refreshLocation'"
+                            {{ disabled }}>
+                            <option selected disabled>Please select</option>
+                            {% for id, item in sircuitSharing.getLocationOptions() %}
+                                {% set selected = '' %}
+                                {% if (id == sircuitSharing.location) %} {% set selected = 'selected' %} {% endif %}
+                                <option  value="{{ id }}" {{ selected }}>{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.variant'|trans }} <span class="required">*</span></div>
+            <div class="form-group--content">
+                {% set disabled = sircuitSharing.location ? '' : 'disabled' %}
+                <div class="form-control {{ disabled }}">
+                    <div class="input-wrapper">
+                        <select
+                            name="variant_id"
+                            id="variant"
+                            data-request="onRefreshVariant"
+                            data-request-update="'{{ __SELF__ }}::refreshVariant': '#refreshVariant'"
+                            {{ disabled }}>
+                            <option selected disabled>Please select</option>
+                            {% for id, item in sircuitSharing.getVariantIdOptions() %}
+                                <option  value="{{ id }}">{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

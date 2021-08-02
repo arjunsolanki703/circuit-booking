@@ -1,0 +1,123 @@
+{% if __SELF__.filteredVariants.data %}
+{% set gradesObjects = __SELF__.getGradesObjects() %}
+{% for item in __SELF__.filteredVariants.data %}
+<div class="circuit-item">
+    {% if item.location_preview %}
+    <div class="circuit-item--preview">
+        <img src="{{ item.location_preview.path }}" alt="circuit preview">
+    </div>
+    {% endif %}
+    <div class="circuit-item--content">
+        <div class="circuit-item--header">
+            {% if item.location_scheme %}
+            <div class="circuit-item--map small">
+                <img src="{{ item.location_scheme.path }}" alt="circuit scheme">
+            </div>
+            {% endif %}
+            <div class="title-wrapper">
+                <div class="circuit-item--title">{{ item.name }}</div>
+                <div class="circuit-item--address">
+                    <i class="mdi mdi-map-marker"></i>
+                    <span>{{ item.fullAddress }}</span>
+                </div>
+            </div>
+            
+            <div class="grade-wrapper">
+                {% if item.grade[0] and gradesObjects[item.grade[0]] and gradesObjects[item.grade[0]].grade_logo %}
+                <div class="circuits-item--grade"><img src="{{ gradesObjects[item.grade[0]].grade_logo.path|resize(140, 140) }}" alt="grade"></div>
+                {% endif %}
+
+                {% set fl = 'assets/images/flags/' ~ item.country_name|lower|replace({' ': '-', ',': ''}) ~ '.png' %}
+                {% if item.country_name and fl %}
+                <div class="circuit-item--flag"><img src="{{ fl|theme }}" alt="flag icon"></div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="circuit-item--main">
+            <div class="columns">
+                <div class="col-12 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ item.shar_description }}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ 'cb.pgmware::lang.componentFilter.type'|trans }}</div>
+                        <div class="value">{{ item.type }}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        {% set strLen = item.min_length ~ 'm' %}
+                        {% if (item.min_length != item.max_length) %}
+                        {% set strLen = strLen ~ ' - ' ~ item.max_length ~ 'm' %}
+                        {% endif %}
+                        <div class="title">{{ 'cb.pgmware::lang.componentFilter.length'|trans }}</div>
+                        <div class="value">{{ strLen }}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-6">
+                    <div class="circuit-item--info">
+                        {% set fia = 'None' %}
+                        {% if (item.grade) %}{% set fia = item.grade|join(',') %}{% endif %}
+                        <div class="title">{{ 'cb.pgmware::lang.componentFilter.fiaGrade'|trans }}</div>
+                        <div class="value">{{ fia }}</div>
+                    </div>
+                </div>
+
+                <div class="col-3 col-xs-6">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ 'cb.pgmware::lang.componentSharing.trackVariant'|trans }}</div>
+                        <div class="value">{{ item.variant_name }}</div>
+                    </div>
+                </div>
+
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ 'cb.pgmware::lang.componentSharing.pricePerDay'|trans }}</div>
+                        <div class="value">{{ item.shar_price|currency({from: item.currency_code, to: item.currency_code}) }}</div>
+                    </div>
+                </div>
+                <div class="col-6 col-xs-6">
+                    <div class="circuit-item--info">
+                        <div class="title">{{ 'cb.pgmware::lang.componentSharing.dates'|trans }}</div>
+                        <div class="value">{{ item.shar_start_date|date('j.m.Y') }} - {{ item.shar_end_date|date('j.m.Y') }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="circuit-item--footer">
+            <div class="circuit-item--vehicle-types {{'alter'}}">
+                {% for vehicle in item.vehicles %}
+                {% if loop.index < 6 %}
+                    {% set activeVehicle = vehicle.id == item.shar_vehicle_type_id ? 'active' : '' %}
+                    <div class="item {{ activeVehicle }}"><img src="{{ vehicle.vehicle_icon.path }}" alt="vehicle icon"></div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="circuit-item--buttons">
+                <form
+                    data-request="{{__SELF__}}::onBookStripe"
+                    data-request-success="onBookStripeJs(data)"
+                >
+                <input type="hidden" name="circuit_sharing_id" value="{{item.shar_id}}">
+                <button type="submit" class="button">BOOK with Stripe </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% if (__SELF__.filteredVariants.next_page_url) %}
+    <a href="javascript:void(0);" class="button solid" id="show-more" data-index="{{__SELF__.filteredVariants.next_page_url}}" style="margin-top: 24px;" onclick="makeSubmitMore('{{__SELF__.filteredVariants.next_page_url}}');">{{ 'cb.pgmware::lang.componentFilter.showMore'|trans }}</a>
+{% endif %}
+{% else %}
+    {% set isLastMinute = __SELF__.property('isLastminute') %}
+    {% if isLastMinute %}
+        <p>We are sorry but unfortunately no Last Minute Bookings according to your search filters are available at the moment.</p>
+    {% else %}
+        <p>We are sorry, but unfortunately no Circuit Sharing Offers or Requests are available at the moment.</p>
+    {% endif %}
+{% endif %}

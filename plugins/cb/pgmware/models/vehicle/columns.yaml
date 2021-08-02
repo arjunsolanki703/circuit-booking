@@ -1,0 +1,7 @@
+columns:
+    id:
+        label: id
+        type: number
+    description:
+        label: 'cb.pgmware::lang.default.description'
+        type: text

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.service.label
+
+# Model Form Field configuration
+form: $/cb/company/models/service/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Service
+
+# Default redirect location
+defaultRedirect: cb/company/services
+
+# Create page
+create:
+    title: cb.company::lang.service.create_title
+    redirect: cb/company/services/update/:id
+    redirectClose: cb/company/services
+
+# Update page
+update:
+    title: cb.company::lang.service.update_title
+    redirect: cb/company/services
+    redirectClose: cb/company/services
+
+# Preview page
+preview:
+    title: cb.company::lang.service.preview_title

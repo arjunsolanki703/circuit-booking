@@ -1,0 +1,231 @@
+<!--MODAL-->
+<div class="modal-wrapper modal" id="sharing-create-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window">
+        <div class="modal-header">
+            <div class="modal-header--title">Circuit Sharing create</div>
+        </div>
+        <div class="modal-content">
+            <form class="sharing-request-form"
+                id="sharing-request-form"
+                data-request="{{ __SELF__ }}::onSharingCreate"
+                data-request-error="removeErrors($(this));addErrors($(this),jqXHR.responseJSON.X_OCTOBER_ERROR_FIELDS);return false;"
+                data-request-success="removeErrors($(this));magicFormSuccess($(this));document.location.reload();">
+                
+                <div class="columns">
+                    <div class="col-12">
+                        <div id="refreshLocation">{% partial __SELF__ ~ '::refreshLocation' %}</div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="pre_start_date">Dates <span class="required">*</span></label>
+                                <div data-disabled="[]"
+                                     data-min=""
+                                     data-max=""
+                                     class="date-input-wrapper single-date-picker">
+                                    <input type="text" placeholder="dd.mm.yyyy" readonly name="start_date" class="date-input first" id="pre_start_date">
+                                    <input type="text" placeholder="dd.mm.yyyy" readonly name="end_date" class="date-input second" id="pre_end_date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="pre_start_date">Bookable until <span class="required">*</span></label>
+                                <div data-disabled="[]"
+                                     data-min=""
+                                     data-max=""
+                                     class="date-input-wrapper single-date-picker one-date">
+                                    <input type="text" placeholder="dd.mm.yyyy" readonly name="valid_before_date" class="date-input first">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group--content">
+                                <div class="mdc-form-field">
+                                    <div class="mdc-checkbox">
+                                        <input type="checkbox"
+                                               class="mdc-checkbox__native-control"
+                                               value="1"
+                                               name="is_booked"
+                                               id="is_booked"/>
+                                        <div class="mdc-checkbox__background">
+                                            <svg class="mdc-checkbox__checkmark"
+                                                 viewBox="0 0 24 24">
+                                                <path class="mdc-checkbox__checkmark-path"
+                                                      fill="none"
+                                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                            </svg>
+                                            <div class="mdc-checkbox__mixedmark"></div>
+                                        </div>
+                                    </div>
+                                    <label class="right-label" for="is_booked">
+                                        <div class="left">
+                                            <span class="title">Circuit already booked</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-group--title">Type <span class="required">*</span></div>
+                            <div class="form-group--content">
+                                <div class="form-control">
+                                    <div class="input-wrapper">
+                                        <select
+                                                name="circuit_sharing_type"
+                                                id="circuit_sharing_type">
+                                            <option selected disabled>Please select</option>
+                                            {% for id, item in sircuitSharing.type %}
+                                            <option  value="{{ id }}">{{ item }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <i class="arrow-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="booking_type_id">{{ 'cb.pgmware::lang.componentBooking.typeOfEvent'|trans }} <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <select name="booking_type_id" id="booking_type_id">
+                                        <option selected disabled>Please select</option>
+                                        {% for item, key in bookingTypes %}
+                                        <option value="{{ key }}">{{ item }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="arrow-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-6 col-xs-12" id="refreshVariant">
+                        {% partial __SELF__ ~ '::refreshVariant' %}
+                    </div>
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="vehicles_count">{{ 'cb.pgmware::lang.componentBooking.vehOnTrack'|trans }} <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="number" min='0' id="vehicles_count" name="vehicles_count">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="sharing-request-name">Event title <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="sharing-request-name" name="title" placeholder="Enter title">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="message">Event description</label>
+                                <div class="input-wrapper">
+                                    <textarea name="description" id="message" placeholder="Your message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="price">Price per day <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="number" min='0' id="price" name="price">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-xs-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="currency">Currency <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <select name="currency_id" id="currency">
+                                        <option selected disabled>Please select</option>
+                                        {% for item, key in currencyList %}
+                                        <option value="{{ key }}">{{ item }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <i class="arrow-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group--content">
+                                <div class="mdc-form-field">
+                                    <div class="mdc-checkbox">
+                                        <input type="checkbox"
+                                               class="mdc-checkbox__native-control"
+                                               value="1"
+                                               name="is_with_vat"
+                                               id="is_with_vat"/>
+                                        <div class="mdc-checkbox__background">
+                                            <svg class="mdc-checkbox__checkmark"
+                                                 viewBox="0 0 24 24">
+                                                <path class="mdc-checkbox__checkmark-path"
+                                                      fill="none"
+                                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                            </svg>
+                                            <div class="mdc-checkbox__mixedmark"></div>
+                                        </div>
+                                    </div>
+                                    <label class="right-label" for="is_with_vat">
+                                        <div class="left">
+                                            <span class="title">National VAT included</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns jc-e">
+                    <div class="col-9 col-xs-12">
+                        <div class="columns">
+                            <div class="col-4 col-xs-12">
+                                <button type="button" class="button alt close-modal w-all">Cancel</button>
+                            </div>
+                            <div class="col-8 col-xs-12">
+                                <button data- type="submit" class="button solid w-all">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

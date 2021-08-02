@@ -1,0 +1,17 @@
+plugin:
+    name: 'Car2DB'
+    description: 'Circuit Booking Car2DB-Plugin'
+    author: cb
+    icon: oc-icon-car
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: CB Car2db
+        url: cb/car2db/LastUpdate
+        icon: icon-globe
+        sideMenu:
+            side-menu-item7:
+                label: 'Car2DB Last Update'
+                url: cb/car2db/LastUpdate
+                icon: icon-road
+

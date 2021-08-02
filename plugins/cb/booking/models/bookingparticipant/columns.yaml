@@ -1,0 +1,43 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    user:
+        label: 'User (if bound)'
+        relation: user
+        select: username
+    gender:
+        label: gender
+        type: text
+    name:
+        label: name
+        type: text
+    surname:
+        label: surname
+        type: text
+    email:
+        label: email
+        type: text
+    zip:
+        label: zip
+        type: text
+    address:
+        label: address
+        type: text
+    city:
+        label: city
+        type: text
+    country:
+        label: country
+        relation: country
+        select: name
+    created_at:
+        label: created_at
+        type: date
+    updated_at:
+        label: updated_at
+        type: date

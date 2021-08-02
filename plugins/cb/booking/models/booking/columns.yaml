@@ -1,0 +1,21 @@
+columns:
+    id:
+        label: ID
+        type: number
+    number_prefix:
+        label: 'number prefix'
+        type: text
+    number:
+        label: number
+        type: text
+    description:
+        label: description
+        type: text
+    booking_status:
+        label: 'booking status'
+        relation: booking_status
+        select: name
+    booking_type:
+        label: 'booking type'
+        relation: booking_type
+        select: name

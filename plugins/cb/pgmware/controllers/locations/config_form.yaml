@@ -1,0 +1,10 @@
+name: Locations
+modelClass: Cb\Pgmware\Models\Location
+form: $/cb/pgmware/models/location/fields.yaml
+defaultRedirect: cb/pgmware/locations
+create:
+    redirect: 'cb/pgmware/locations/update/:id'
+    redirectClose: cb/Pgmware/locations
+update:
+    redirect: cb/pgmware/locations
+    redirectClose: cb/pgmware/locations

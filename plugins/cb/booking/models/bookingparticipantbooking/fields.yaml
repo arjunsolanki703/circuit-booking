@@ -1,0 +1,36 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    booking:
+        label: booking
+        nameFrom: number
+        descriptionFrom: description
+        span: auto
+        type: relation
+        tab: 'Tab 1'
+    booking_participant:
+        label: bookingparticipant
+        nameFrom: id
+        descriptionFrom: description
+        span: auto
+        type: relation
+        tab: 'Tab 1'
+    participant_type:
+        label: participanttype
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+        tab: 'Tab 1'
+    booking_status:
+        label: booking status
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+        tab: 'Tab 1'

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking
+
+# Model Form Field configuration
+form: $/cb/booking/models/booking/fields.yaml
+
+# Model Class name
+modelClass: Cb\Booking\Models\Booking
+
+# Default redirect location
+defaultRedirect: cb/booking/bookings
+
+# Create page
+create:
+    title: Create Booking
+    redirect: cb/booking/bookings/update/:id
+    redirectClose: cb/booking/bookings
+
+# Update page
+update:
+    title: Edit Booking
+    redirect: cb/booking/bookings
+    redirectClose: cb/booking/bookings
+
+# Preview page
+preview:
+    title: Preview Booking

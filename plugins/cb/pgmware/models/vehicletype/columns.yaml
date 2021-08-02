@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        type: text
+    icon:
+        label: 'cb.pgmware::lang.default.icon'
+        type: text

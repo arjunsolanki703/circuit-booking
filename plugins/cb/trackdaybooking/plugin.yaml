@@ -1,0 +1,32 @@
+plugin:
+    name: 'CB Trackday'
+    description: 'Circuit Booking Trackdaybooking-Plugin'
+    author: cb
+    icon: oc-icon-car
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: CB Trackday
+        url: cb/trackdaybooking/Trackdays
+        icon: icon-globe
+        sideMenu:
+            side-menu-item7:
+                label: 'cb.trackdaybooking::lang.backend.label-trackday'
+                url: cb/trackdaybooking/Trackdays
+                icon: icon-road
+            side-menu-item6:
+                label: 'cb.trackdaybooking::lang.backend.label-order-trackday'
+                url: cb/trackdaybooking/OrderTrackday
+                icon: icon-calendar
+            trackdaycapacity:
+                label: 'cb.trackdaybooking::lang.backend.label-trackday-capacity'
+                url: cb/trackdaybooking/TrackdayCapacity
+                icon: icon-list
+            trackdaybooking:
+                label: 'Trackday Booking'
+                url: cb/trackdaybooking/BookingParticipantBooking
+                icon: icon-user-o
+            trackdaycompany:
+                label: 'Trackday Company'
+                url: cb/trackdaybooking/TrackdayCompany
+                icon: icon-industry

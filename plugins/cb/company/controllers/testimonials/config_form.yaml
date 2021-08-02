@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.testimonial.label
+
+# Model Form Field configuration
+form: $/cb/company/models/testimonial/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Testimonial
+
+# Default redirect location
+defaultRedirect: cb/company/testimonials
+
+# Create page
+create:
+    title: cb.company::lang.testimonial.create_title
+    redirect: cb/company/testimonials/update/:id
+    redirectClose: cb/company/testimonials
+
+# Update page
+update:
+    title: cb.company::lang.testimonial.update_title
+    redirect: cb/company/testimonials
+    redirectClose: cb/company/testimonials
+
+# Preview page
+preview:
+    title: cb.company::lang.testimonial.preview_title

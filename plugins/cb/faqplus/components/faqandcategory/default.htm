@@ -1,0 +1,16 @@
+{% set cats = __SELF__.faqCategories %}
+<div class="collapses faq-collapses">
+    {% set first = 'active' %}
+    {% for cat in cats %}
+    <div class="collapse {{first}}" id="question_{{ faq.id }}">
+        {% set first = '' %}
+        <div class="collapse--header">{{ cat.title }}</div>
+        <div class="collapse--content">
+            {% for faq in cat.question %}
+                <h4>{{faq.question}}</h4>
+                {{ faq.answer|md }}
+            {% endfor %}
+        </div>   
+    </div>
+    {% endfor %}
+</div>     

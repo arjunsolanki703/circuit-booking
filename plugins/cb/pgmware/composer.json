@@ -1,0 +1,23 @@
+{
+  "name": "cb/pgmware",
+  "description": "Pgmware Plugin",
+  "homepage": "https://www.circuit-booking.com",
+  "keywords": ["pgmware", "cms", "octobercms"],
+  "authors": [
+    {
+      "name": "Mathias Kohs",
+      "email": "mathias.kohs@circuit-booking.com",
+      "role": "dev"
+    }
+  ],
+  "support": {
+    "home": "www.circuit-booking.com"
+  },
+  "require": {
+    "php": ">=7.0",
+    "stripe/stripe-php": "^7.7"
+  },
+  "require-dev": {
+
+  }
+}

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Trackday Company
+
+# Model Form Field configuration
+form: $/cb/trackdaybooking/models/trackdaycompany/fields.yaml
+
+# Model Class name
+modelClass: Cb\Trackdaybooking\Models\Trackdays
+
+# Default redirect location
+defaultRedirect: cb/trackdaybooking/trackdaycompany
+
+# Create page
+create:
+    title: Create Trackday Company
+    redirect: cb/trackdaybooking/trackdaycompany
+    redirectClose: cb/trackdaybooking/trackdaycompany
+
+# Update page
+update:
+    title: Edit Trackday Company
+    redirect: cb/trackdaybooking/trackdaycompany
+    redirectClose: cb/trackdaybooking/trackdaycompany
+
+# Preview page
+preview:
+    title: Preview Trackday Company

@@ -1,0 +1,44 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    booking_prefix:
+        label: booking prefix
+        relation: booking
+        select: number_prefix
+    booking_number:
+        label: booking number
+        relation: booking
+        select: number
+    booking_description:
+        label: booking description
+        relation: booking
+        select: description
+    booking_participant:
+        label: participant id
+        relation: booking_participant
+        select: id
+    booking_participant_name:
+        label: participant Name
+        relation: booking_participant
+        select: name
+    booking_participant_surname:
+        label: participant Surname
+        relation: booking_participant
+        select: surname
+    booking_participant_email:
+        label: participant Email
+        relation: booking_participant
+        select: email
+    booking_participant_phone:
+        label: participant phone
+        relation: booking_participant
+        select: phone
+    participant_type:
+        label: participanttype
+        relation: participant_type
+        select: name

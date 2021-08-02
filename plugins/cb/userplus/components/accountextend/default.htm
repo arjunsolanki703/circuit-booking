@@ -1,0 +1,91 @@
+
+{% if type == 'signin' and not user %}
+    {% partial __SELF__ ~ '::signin' %}
+{% elseif type == 'signin' %}
+    {% set redirect = __SELF__.property('redirect')|page %}
+    <script type="text/javascript">location.href = '{{ redirect }}';</script>
+{% endif %}
+
+
+{% if type == 'register' and not user %}
+    {% partial __SELF__ ~ '::register' %}
+{% elseif type == 'register' %}
+    {% set redirect = __SELF__.property('redirect')|page %}
+    <script type="text/javascript">location.href = '{{ redirect }}';</script>
+{% endif %}
+
+
+{% if type == 'profile' and user %}
+    {% if not user.is_activated %}
+        <h3>{{ 'cb.userplus::lang.component.emailNotVerified'|trans }}</h3>
+        <p>
+            {{ 'cb.userplus::lang.component.youShouldVerify'|trans }}
+            <a href="javascript:;" data-request="onSendActivationEmail">{{ 'cb.userplus::lang.component.sendEmailAgain'|trans }}</a>.
+        </p>
+    {% else %}
+        {% partial __SELF__ ~ '::profile' %}
+    {% endif %}
+{% elseif type == 'profile' %}
+    {% set redirect = 'profile/login'|page %}
+    <script type="text/javascript">location.href = '{{ redirect }}';</script>
+{% endif %}
+
+
+{% put scripts %}
+<script>
+    $(document).ready(function() {
+        console.log("Code is up");
+
+        if ($('#resetCode').lenght > 0 && $('#resetCode').val().trim() != '') {
+            $('#reset').show();
+        }
+    });
+
+    function makeOnSignin(form, method, help) {
+        removeErrors(form);
+        form.request(method, {
+            success: function(data) {
+
+                console.log("makeOnSignin");
+                let redirectData = data;
+
+                $.ajax({
+                    type: "POST",
+                    url: "/api/login",
+                    data: { "password": $("#userSigninPassword").val(), "email": $("#userSigninLogin").val() },
+                    dataType: "json",
+                    success: function(data) {
+                        localStorage.setItem("currentUser", JSON.stringify(data));
+                        document.cookie = "currentUser=" + JSON.stringify(data);
+
+                        removeErrors(form);
+                        toastr.success('Success');
+                        location.href = redirectData.X_OCTOBER_REDIRECT;
+                    },
+                    error: function() {
+                        console.log("makeOnSignin error");
+                        location.href = redirectData.X_OCTOBER_REDIRECT;
+                    }
+                });
+
+
+            },
+            error: function(data) {
+                if (data && data.status != undefined && data.status == 406) {
+                    addErrors(form, data.responseJSON.X_OCTOBER_ERROR_FIELDS, help);
+                } else {
+                    toastr.error(data.responseText);
+                }
+            },
+        });
+    }
+    function addAlert(form, text, help) {
+        try {
+            a = JSON.parse(text);
+            addErrors(form, a.X_OCTOBER_ERROR_FIELDS, help);
+        } catch(e) {
+            toastr.error(text);
+        }
+    }
+</script>
+{% endput %}

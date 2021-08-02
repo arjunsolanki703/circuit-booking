@@ -1,0 +1,21 @@
+
+    <div class="form-group">
+        <div class="form-group--title">Model <span class="required">*</span></div>
+        <div class="form-group--content">
+            <div class="form-control">
+                <div class="input-wrapper">
+                    <select
+                            name="model"
+                            id="model"
+                            data-request="onRefreshModel"
+                            data-request-update="'{{ __SELF__ }}::refreshSeriePart': '#refreshSeriePart'">
+                        <option selected disabled>Please select</option>
+                        {% for item in modelList %}
+                        <option  value="{{ item.id }}">{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>

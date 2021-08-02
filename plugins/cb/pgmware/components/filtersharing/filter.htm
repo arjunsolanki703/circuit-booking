@@ -1,0 +1,285 @@
+{% set continent = __SELF__.continent %}
+{% set country = __SELF__.country %}
+{% set vehicleType = __SELF__.vehicleType %}
+{% set grade = __SELF__.grade %}
+{% set length = __SELF__.length %}
+{% set price = __SELF__.price %}
+{% set search = __SELF__.search %}
+
+<form
+    id="filterForm"
+    data-request="onFilter"
+    data-request-success="loadFilter(data);">
+
+    <div class="form-group">
+        <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.continents'|trans }}</div>
+        <div class="form-group--content">
+            <div class="form-control">
+                <div class="input-wrapper">
+                    <select name="continent" id="continent" onchange="contentChange($(this));">
+                        <option value="" selected>All</option>
+                        {% for id, item in __SELF__.getContinentOptions() %}
+                        {% set selected = '' %}
+                        {% if (id == continent) %} {% set selected = 'selected' %} {% endif %}
+                            <option  value="{{ id }}" {{ selected }}>{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control">
+            <label for="pre_start_date">Dates</label>
+            <div data-disabled="[]"
+                    data-min=""
+                    data-max=""
+                    class="date-input-wrapper sharing-date-picker">
+                <input type="text" placeholder="dd.mm.yyyy" readonly name="start_date" value="{{ __SELF__.startDate }}" class="date-input first" id="pre_start_date">
+                <input type="text" placeholder="dd.mm.yyyy" readonly name="end_date" value="{{ __SELF__.endDate }}" class="date-input second" id="pre_end_date">
+            </div>
+        </div>
+    </div>
+
+    {% if continent %}
+    <div class="form-group">
+        <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.countries'|trans }}</div>
+        <div class="form-group--content">
+            {% set count = 0 %}
+            {% set toggle = false %}
+
+            {% for id, item in __SELF__.getCountryOptions() %}
+
+                {% if (id == country or (country is iterable and id in country)) %}
+                {% set count = count + 1 %}
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               name="country[]"
+                               onchange="makeSubmit($(this));"
+                               value="{{ id }}"
+                               checked
+                               id="country-{{ id }}"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="country-{{ id }}">
+                        <div class="left">
+                            <span class="title">{{ item }}</span>
+                        </div>
+                    </label>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+            {% for id, item in __SELF__.getCountryOptions() %}
+                {% if (id != country and not(country is iterable and id in country)) %}
+                {% set count = count + 1 %}
+                {% if count > 5 and toggle == false %}
+                    {% set toggle = true %}
+                    <label class="filter-see-more">
+                        {% set countriesOpened = __SELF__.property('countriesOpened') == '1' ? 'checked' : '' %}
+                        <input onchange="$('.countries-toggle').slideToggle();" style="display:none;" type="checkbox" name="countriesOpened" value='1' {{ countriesOpened }}>
+                        See more
+                    </label>
+                    <div class="countries-toggle" {% if __SELF__.property('countriesOpened') != '1' %}style="display:none;"{% endif %}>
+                {% endif %}
+
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               name="country[]"
+                               onchange="makeSubmit($(this));"
+                               value="{{ id }}"
+                               {{ checked }}
+                               id="country-{{ id }}"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="country-{{ id }}">
+                        <div class="left">
+                            <span class="title">{{ item }}</span>
+                        </div>
+                    </label>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+            {% if toggle == true %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+        <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.vehicleType'|trans }}</div>
+        <div class="form-group--content">
+        {% for item in __SELF__.getVehicleTypeHelp() %}
+            {% set checked = '' %}
+            {% if (item.id == vehicleType or item.id in vehicleType) %} {% set checked = 'checked' %} {% endif %}
+
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control"
+                               onchange="makeSubmit($(this));"
+                               name="vehicleType[]"
+                               type="radio"
+                               id="vehicle-{{ item.id }}"
+                               value="{{ item.id }}"
+                               {{ checked }}>
+                        <div class="mdc-radio__background">
+                            <div class="mdc-radio__outer-circle"></div>
+                            <div class="mdc-radio__inner-circle"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="vehicle-{{ item.id }}">
+                        <div class="left">
+                            {% if item.vehicle_icon %}<span class="image"><img src="{{ item.vehicle_icon.path }}" alt=""></span>{% endif %}
+                            <span class="title">{{ item.name }}</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.circuisFiaGrade'|trans }}</div>
+        <div class="form-group--content">
+            <div class="form-control">
+                <div class="input-wrapper">
+                    <select name="grade" id="grade" onchange="makeSubmit($(this));" >
+                        <option value=""> - </option>
+                        {% for id, item in __SELF__.getGradeOptions() %}
+                            {% set selected = '' %}
+                            {% if (id == grade) %} {% set selected = 'selected' %} {% endif %}
+                            <option value="{{id}}" {{selected}}>{{item}}</option>
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-group--title">{{ 'cb.pgmware::lang.componentFilter.circuisLength'|trans }}</div>
+        <div class="form-group--content">
+            <div class="range-slider"
+                data-max="{{ __SELF__.getLengthOptions().max }}"
+                data-min="{{ __SELF__.getLengthOptions().min }}"
+                data-from="{{ length[0] ? length[0] : __SELF__.getLengthOptions().min }}"
+                data-to="{{ length[1] ? length[1] : __SELF__.getLengthOptions().max }}" >
+                <input type="text" id="filter-length" name="length">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-group--title">{{ 'cb.pgmware::lang.componentSharing.pricePerDay'|trans }}</div>
+        <div class="form-group--content">
+            <div class="range-slider"
+                data-max="{{ __SELF__.getPriceOptions().max }}"
+                data-min="{{ __SELF__.getPriceOptions().min }}"
+                data-from="{{ price[0] ? price[0] : __SELF__.getPriceOptions().min }}"
+                data-to="{{ price[1] ? price[1] : __SELF__.getPriceOptions().max }}" >
+                <input type="text" id="filter-price" name="price">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // init ripples
+            const buttons = document.querySelectorAll('.button');
+            rippleInit(buttons);
+            // init modals
+            const modalCallers = $('.modal-caller');
+            const modalsHTML = $('.modal');
+            const backdrops = $('.modal-backdrop');
+            const modalClose = $('.close-modal');
+
+            // @ts-ignore
+            modals = modalsInit(modalsHTML);
+            modalCallerInit(modalCallers, modals);
+            backdropsInit(backdrops, modals);
+            modalCloseInit(modalClose, modals);
+            // init date pickers
+            const item = $('.sharing-date-picker');
+            const firstInput = $(item).find('.first')[0];
+            const secondInput = $(item).find('.second')[0];
+
+            if (item.length) {
+                let picker = new Lightpick({
+                    field: firstInput,
+                    secondField: secondInput,
+                    singleDate: false,
+                    format: 'DD.MM.YYYY',
+                    minDate: $(item).data('min'),
+                    maxDate: $(item).data('max'),
+                    disableDates: $(item).data('disabled'),
+                    onClose: function() { makeSubmit($('.sharing-date-picker')) }
+                });
+                if ($(firstInput).attr('value') && $(secondInput).attr('value')) {
+                    picker.setDateRange($(firstInput).attr('value'), $(secondInput).attr('value'));
+                }
+            }
+
+            // searching for sliders
+            const sliders = $('.range-slider');
+            // init sliders
+            if (sliders.length) {
+                sliders.each(function() {
+                    const min = $(this).data('min');
+                    const max = $(this).data('max');
+                    const from = $(this).data('from');
+                    const to = $(this).data('to');
+
+                    $(this).find('input').ionRangeSlider({
+                        type: "double",
+                        min: min,
+                        max: max,
+                        from: from,
+                        to: to,
+                        skin: 'round',
+                        onFinish: function (data) {
+                            makeSubmit($('.range-slider'));
+                        },
+                    });
+                });
+            }
+
+        // searching for selects
+        // $('#select-location').multiselect({search: true});
+      });
+    </script>
+
+    <input type="hidden" name="search" value="{{search}}" />
+    <input type="hidden" name="page" value="0" />
+    <input type="hidden" name="isCircuitSharing" value="1" />
+    <input type="hidden" name="isLastminute" value="{{ __SELF__.property('isLastminute') }}" />
+
+    <div class="filter--footer">
+        <button class="button transparent" onclick="clearFilter();">{{ 'cb.pgmware::lang.componentFilter.clearAll'|trans }}</button>
+    </div>
+</form>

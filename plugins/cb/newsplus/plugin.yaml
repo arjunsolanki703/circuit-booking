@@ -1,0 +1,6 @@
+plugin:
+    name: 'cb.newsplus::lang.plugin.name'
+    description: 'cb.newsplus::lang.plugin.description'
+    author: cb
+    icon: oc-icon-newspaper-o
+    homepage: ''

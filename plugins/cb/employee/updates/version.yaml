@@ -1,0 +1,4 @@
+1.0.1: First version of employee
+1.0.2:
+  - 'Create the table user_companies'
+  - create_user_companies_table.php

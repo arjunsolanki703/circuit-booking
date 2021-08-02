@@ -1,0 +1,57 @@
+fields:
+    id:
+        label: ID
+        disabled: true
+        type: text
+secondaryTabs:
+    fields:
+        vehicle_type:
+            label: 'vehicle type'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        title:
+            label: title
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        description:
+            label: description
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        price:
+            label: price
+            span: auto
+            type: number
+            tab: 'Tab 1'
+        currency:
+            label: currency
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        vat_value:
+            label: 'VAT value [%]'
+            span: auto
+            type: number
+            tab: 'Tab 1'
+            min: 0
+            max: 99
+            step: 0.01
+        bookable:
+            label: bookable
+            span: auto
+            default: 1
+            type: switch
+            tab: 'Tab 1'
+        company:
+            label: 'Trackday Company'
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'

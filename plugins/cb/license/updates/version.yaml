@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table cb_license_tokens'
+    - builder_table_create_cb_license_tokens.php
+1.0.3:
+    - 'Updated table cb_license_tokens'
+    - builder_table_update_cb_license_tokens.php

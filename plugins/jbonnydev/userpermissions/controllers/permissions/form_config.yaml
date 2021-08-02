@@ -1,0 +1,22 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: jbonnydev.userpermissions::lang.permissions.menu_label
+form: $/jbonnydev/userpermissions/models/permission/fields.yaml
+modelClass: JBonnyDev\UserPermissions\Models\Permission
+
+create:
+    title: jbonnydev.userpermissions::lang.permissions.create_permission
+    redirect: jbonnydev/userpermissions/permissions/update/:id
+    redirectClose: jbonnydev/userpermissions/permissions
+
+update:
+    title: jbonnydev.userpermissions::lang.permissions.update_permission
+    redirect: jbonnydev/userpermissions/permissions/update/:id
+    redirectClose: jbonnydev/userpermissions/permissions
+
+preview:
+    title: jbonnydev.userpermissions::lang.permissions.view_permission
+
+defaultRedirect: jbonnydev/userpermissions/permissions

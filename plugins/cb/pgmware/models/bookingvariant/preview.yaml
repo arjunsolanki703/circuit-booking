@@ -1,0 +1,106 @@
+tabs:
+  fields:
+    start_date:
+      label: 'cb.pgmware::lang.default.startDate'
+      mode: date
+      span: auto
+      required: 1
+      type: datepicker
+      tab: 'Booking Details'
+    end_date:
+      label: 'cb.pgmware::lang.default.endDate'
+      mode: date
+      span: auto
+      required: 1
+      type: datepicker
+      tab: 'Booking Details'
+    location:
+      label: 'Circuit (name)'
+      nameFrom: name
+      keyFrom: variant_id
+      update: false
+      create: false
+      span: auto
+      required: 1
+      type: relation
+      tab: 'Booking Details'
+    variant:
+      label: 'cb.pgmware::lang.default.circuit'
+      nameFrom: name
+      descriptionFrom: description
+      span: auto
+      required: 1
+      type: relation
+      tab: 'Booking Details'
+    booking_type:
+      label: 'cb.pgmware::lang.default.bookingType'
+      nameFrom: name
+      descriptionFrom: description
+      span: auto
+      type: relation
+      tab: 'Booking Details'
+    track_start_date:
+      label: 'cb.pgmware::lang.default.track_start'
+      mode: date
+      span: auto
+      required: 0
+      type: datepicker
+      tab: 'Booking Details'
+    track_end_date:
+      label: 'cb.pgmware::lang.default.track_end'
+      mode: date
+      span: auto
+      required: 0
+      type: datepicker
+      tab: 'Booking Details'
+    consecutive_days:
+      label: 'cb.pgmware::lang.default.consecutive_days'
+      span: auto
+      required: 1
+      type: number
+      tab: 'Booking Details'
+    tear_down_days:
+      label: 'cb.pgmware::lang.default.tear_down_days'
+      span: auto
+      type: number
+      tab: 'Booking Details'
+    setup_days:
+      label: 'cb.pgmware::lang.default.setup_days'
+      span: auto
+      type: number
+      tab: 'Booking Details'
+    vehicle_type:
+      label: 'cb.pgmware::lang.default.vehicleType'
+      nameFrom: name
+      descriptionFrom: description
+      span: auto
+      required: 1
+      type: relation
+      tab: 'Booking Details'
+    vehicles_count:
+      label: 'cb.pgmware::lang.default.vehiclesCount'
+      span: auto
+      required: 1
+      type: text
+      tab: 'Booking Details'
+    garage:
+      label: 'cb.pgmware::lang.default.garage'
+      span: auto
+      type: number
+      tab: 'Booking Details'
+    meeting_rooms:
+      label: 'cb.pgmware::lang.default.meetengRooms'
+      span: auto
+      type: number
+      tab: 'Booking Details'
+    time_keeping:
+      label: 'cb.pgmware::lang.default.timeKeeping'
+      span: auto
+      type: checkbox
+      tab: 'Booking Details'
+    comment:
+      label: 'cb.pgmware::lang.default.comment'
+      span: full
+      size: large
+      type: textarea
+      tab: 'Booking Details'

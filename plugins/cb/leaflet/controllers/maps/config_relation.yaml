@@ -1,0 +1,9 @@
+objects:
+  label: Objects
+  view:
+      list: $/cb/leaflet/models/objects/columns.yaml
+      toolbarButtons: create|delete
+  manage:
+      form: $/cb/leaflet/models/objects/fields.yaml
+      recordsPerPage: 10
+  deferredBinding: true

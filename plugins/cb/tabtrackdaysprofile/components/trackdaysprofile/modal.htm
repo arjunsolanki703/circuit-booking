@@ -1,0 +1,18 @@
+<!--MODAL-->
+<div class="modal-wrapper modal" id="vehicle-create-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window" id="vehiclecreate">
+        <div class="modal-header">
+            <div class="modal-header--title">{{ 'cb.tabtrackdaysprofile::lang.component.titlevehicle_type' | trans }}</div>
+        </div>
+        {% if mode == 'edit' %}
+            <div class="modal-content">
+                {% partial __SELF__ ~ '::edit_form' %}
+            </div>
+        {% else %}
+            <div class="modal-content">
+                {% partial __SELF__ ~ '::create_form' %}
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+name: Maps
+form: $/cb/leaflet/models/maps/fields.yaml
+modelClass: cb\Leaflet\Models\Maps
+defaultRedirect: cb/leaflet/maps
+create:
+    redirect: 'cb/leaflet/maps/update/:id'
+    redirectClose: cb/leaflet/maps
+update:
+    redirect: cb/leaflet/maps
+    redirectClose: cb/leaflet/maps
+preview:
+    title: View

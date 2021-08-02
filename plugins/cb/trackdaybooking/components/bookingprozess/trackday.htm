@@ -1,0 +1,60 @@
+<div class="circuit-item" style="width: 100%;">
+    <div class="circuit-item--preview">
+        <img src="{{trackdaytrackday.image.getPath()}}" alt="circuit preview">
+    </div>
+    <div class="circuit-item--content">
+        <div class="circuit-item--header">
+            <div class="circuit-item--map small">
+                <img src=" {{ trackday.variant.location.location_scheme.getPath() }} " alt="circuit scheme">
+            </div>
+            <div class="title-wrapper">
+                <div class="circuit-item--title"> {{trackday.title}} </div>
+                <div class="circuit-item--address">
+                    <i class="mdi mdi-map-marker"></i>
+                    <span> {{trackday.variant.location.address.street}} {{trackday.variant.location.address.zip}}, {{trackday.variant.location.address.city}}</span>
+                </div>
+            </div>
+            <div class="col-6">
+
+            </div>
+            <div class="grade-wrapper">
+                {% set country = trackday.variant.location.country %}
+                {% set fl = 'assets/images/flags/' ~ country.name|lower|replace({' ': '-', ',': ''}) ~ '.png' %}
+                {% if country.name and fl %}
+                <div class="circuit-item--flag"><img src="{{ fl|theme }}" alt="flag icon"></div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="circuit-item--main">
+            <div class="columns">
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">Location</div>
+                        <div class="value">{{trackday.variant.location.address.name}}</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">Type</div>
+                        <div class="value">East Circuit</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title">Length</div>
+                        <div class="value">{{trackday.variant.length}} m</div>
+                    </div>
+                </div>
+                <div class="col-3 col-xs-12">
+                    <div class="circuit-item--info">
+                        <div class="title"> Date </div>
+                        <div class="value">{{ trackday.start_date |date('d.m.Y')}} - {{ trackday.end_date |date('d.m.Y')}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <p style="margin-left: 1em; margin-right: 1.5em;"> {{ trackday.description }} </p>
+            </div>
+        </div>
+    </div>
+</div>

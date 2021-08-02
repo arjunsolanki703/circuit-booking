@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Trackday Capacity
+
+# Model Form Field configuration
+form: $/cb/trackdaybooking/models/trackdaycapacity/fields.yaml
+
+# Model Class name
+modelClass: Cb\Trackdaybooking\Models\TrackdayCapacity
+
+# Default redirect location
+defaultRedirect: cb/trackdaybooking/trackdaycapacity
+
+# Create page
+create:
+    title: Create Trackday Capacity
+    redirect: cb/trackdaybooking/trackdaycapacity/update/:id
+    redirectClose: cb/trackdaybooking/trackdaycapacity
+
+# Update page
+update:
+    title: Edit Trackday Capacity
+    redirect: cb/trackdaybooking/trackdaycapacity
+    redirectClose: cb/trackdaybooking/trackdaycapacity
+
+# Preview page
+preview:
+    title: Preview Trackday Capacity

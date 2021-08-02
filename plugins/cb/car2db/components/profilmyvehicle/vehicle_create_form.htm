@@ -1,0 +1,43 @@
+<form class="sharing-request-form"
+      id="sharing-request-form"
+      data-request="{{ __SELF__ }}::onVehicleAdd"
+      data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+      data-request-success="removeErrors($(this));magicFormSuccessDynamic($(this), 'Added vehicle successful!');"
+>
+
+    <div class="columns">
+        <div class="col-6 col-xs-12" id="refreshMakePart">{% partial __SELF__ ~ '::refreshMakePart' %} </div>
+        <div class="col-6 col-xs-12" id="refreshModelPart">{% partial __SELF__ ~ '::refreshModelPart' %} </div>
+    </div>
+    <div class="columns">
+        <div class="col-6" id="refreshSeriePart"> {% partial __SELF__ ~ '::refreshSeriePart' %} </div>
+        <div class="col-6" id="refreshTrimPart"> {% partial __SELF__ ~ '::refreshTrimPart' %} </div>
+    </div>
+    <div class="columns">
+        <div class="col-12">
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="licenseplate"> Licenseplate <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="licenseplate" name="licenseplate" placeholder="licenseplate">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns jc-e">
+        <div class="col-9 col-xs-12">
+            <div class="columns">
+                <div class="col-4 col-xs-12">
+                    <button type="button" class="button alt"
+                            data-request="{{ __SELF__ }}::onStartTable"
+                            data-request-update="'{{ __SELF__ }}::vehicleDefault': '#vehicleDefault'"
+                    >Cancel</button>
+                </div>
+                <div class="col-8 col-xs-12">
+                    <button type="submit" class="button solid" data-toggle="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

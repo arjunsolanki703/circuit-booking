@@ -1,0 +1,24 @@
+<div class="form-group">
+    <div class="form-group--title">Serie <span class="required">*</span></div>
+    <div class="form-group--content">
+        <div class="form-control">
+            <div class="input-wrapper">
+                <select
+                        name="serie"
+                        id="serie"
+                        data-request="onRefreshSerie"
+                        data-request-update="'{{ __SELF__ }}::refreshTrimPart': '#refreshTrimPart'">
+                <option selected disabled>Please select</option>
+                    {% for item in serieList %}
+                        {% if item.gname == null %}
+                            <option  value="{{ item.id }}">{{ item.name }}</option>
+                        {% else %}
+                            <option  value="{{ item.id }}">{{ item.name }} - {{ item.gname }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <i class="arrow-icon"></i>
+            </div>
+        </div>
+    </div>
+</div>

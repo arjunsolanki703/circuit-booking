@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking Status
+
+# Model Form Field configuration
+form: $/cb/booking/models/bookingstatus/fields.yaml
+
+# Model Class name
+modelClass: Cb\Booking\Models\BookingStatus
+
+# Default redirect location
+defaultRedirect: cb/booking/bookingstatus
+
+# Create page
+create:
+    title: Create Booking Status
+    redirect: cb/booking/bookingstatus/update/:id
+    redirectClose: cb/booking/bookingstatus
+
+# Update page
+update:
+    title: Edit Booking Status
+    redirect: cb/booking/bookingstatus
+    redirectClose: cb/booking/bookingstatus
+
+# Preview page
+preview:
+    title: Preview Booking Status

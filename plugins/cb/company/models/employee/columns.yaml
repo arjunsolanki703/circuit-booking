@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: cb.company::lang.labels.id
+    first_name:
+        label: cb.company::lang.labels.first_name
+        searchable: true
+    last_name:
+        label: cb.company::lang.labels.last_name
+        searchable: true
+    published_at:
+        label: cb.company::lang.labels.published_at
+        type: date
+    updated_at:
+        label: cb.company::lang.labels.updated_at
+        type: date

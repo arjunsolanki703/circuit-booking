@@ -1,0 +1,6 @@
+<select name="variant_id">
+    {% for item in variant %}
+        <option value="{{ item.id }}">{{ item.name }}</option>
+    {% endfor %}
+</select>
+<i class="arrow-icon"></i>

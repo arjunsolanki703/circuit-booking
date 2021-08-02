@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.link.label
+
+# Model Form Field configuration
+form: $/cb/company/models/link/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Link
+
+# Default redirect location
+defaultRedirect: cb/company/links
+
+# Create page
+create:
+    title: cb.company::lang.link.create_title
+    redirect: cb/company/links/update/:id
+    redirectClose: cb/company/links
+
+# Update page
+update:
+    title: cb.company::lang.link.update_title
+    redirect: cb/company/links
+    redirectClose: cb/company/links
+
+# Preview page
+preview:
+    title: cb.company::lang.link.preview_title

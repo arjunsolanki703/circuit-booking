@@ -1,0 +1,30 @@
+<div class="forecast darSky_main">
+
+    <div class="vert-align">
+
+        <div>
+            <div class="widget-container">
+
+                <div class="header">
+                    <div class="more">Show More</div>
+                    <p>Weather</p>
+                </div>
+
+                <div class="container">
+                    <div id="daily">
+
+                        {% for d in location.getDarkSky()  %}
+                            <div class="day">
+                                <p class="day-name">{{ d.day }}</p>
+                                <img width="35" height="35" src="/plugins/cb/pgmware/assets/darksky/images/{{ d.icon }}.png">
+                                <p class="high-temp">{{ d.temperatureMax | round }}˚</p>
+                                <p class="low-temp">{{ d.temperatureMin | round }}˚</p>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,266 @@
+{% set map = __SELF__.map %}
+
+<div id="{{ map.fieldId }}" class="map" style="height: {{ map.height }};"></div>
+
+{% put scripts %}
+    <script>
+
+        var defaultIcon = L.icon({
+            iconUrl: '/plugins/cb/leaflet/assets/leaflet/images/marker-icon.png',
+            iconRetinaUrl: '/plugins/cb/leaflet/assets/leaflet/images/marker-icon-2x.png',
+            shadowUrl: '/plugins/cb/leaflet/assets/leaflet/images/marker-shadow.png',
+
+            iconSize:    [25, 41],
+            shadowSize:  [41, 41],
+            iconAnchor:  [12, 41],
+            popupAnchor: [1, -34],
+            tooltipAnchor: [16, -28]
+        });
+
+        {% if map.mapboxAccessToken %}
+            L.mapbox.accessToken = '{{ map.mapboxAccessToken }}';
+            // MAP INIT
+            var {{ map.fieldId }} = L.mapbox.map('{{ map.fieldId }}', null, { zoomControl:false }).setView([{{ map.latitude }}, {{ map.longitude }}], {{ map.zoom }});
+            L.control.fullscreen({
+                position: 'bottomright', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
+                content: null, // change the content of the button, can be HTML, default null
+                forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
+                forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
+                fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+            }).addTo({{ map.fieldId }});
+
+            {{ map.fieldId }}.on('enterFullscreen', function() {
+                {{ map.fieldId }}.invalidateSize()
+            });
+
+            L.control.zoom({ position: 'bottomright' }).addTo({{ map.fieldId }});
+
+            var southWest = L.latLng(-89.98155760646617, -180),
+                northEast = L.latLng(89.99346179538875, 180);
+            var bounds = L.latLngBounds(southWest, northEast);
+
+            {{ map.fieldId }}.setMaxBounds(bounds);
+            // MAP INIT OVER
+
+
+            let sitellite = L.mapbox.styleLayer('mapbox://styles/elena-jilyakova/cjvc1bkcw00ax1fr5qd4fshr7');
+            sitellite.addTo({{ map.fieldId }});
+            let standart = L.mapbox.styleLayer('{{ map.mapboxId }}');
+            standart.addTo({{ map.fieldId }});
+            let controlStandart = {"<span id='map-control-sitellite'>Satellite</span>": sitellite, "<span id='map-control-standart'>Standard</span>": standart};
+
+            L.control.layers(controlStandart, {}, { position: 'bottomleft' }).addTo({{ map.fieldId }});
+
+            {{ map.fieldId }}.scrollWheelZoom.disable();
+
+            $("#map").bind('mousewheel DOMMouseScroll', function (event) {
+                event.stopPropagation();
+                if (event.ctrlKey === true) {
+                    event.preventDefault();
+                    {{ map.fieldId }}.scrollWheelZoom.enable();
+                    $('#map').removeClass('map-scroll');
+                    setTimeout(function(){
+                        {{ map.fieldId }}.scrollWheelZoom.disable();
+                    }, 1000);
+                } else {
+                    {{ map.fieldId }}.scrollWheelZoom.disable();
+                    $('#map').addClass('map-scroll');
+                }
+
+            });
+
+            $(window).bind('mousewheel DOMMouseScroll', function (e) {
+                $('#map').removeClass('map-scroll');
+            });
+
+            $('#map-control-standart').closest('form').addClass('js-mab-controls');
+            $('#map-control-standart').closest('label').hide();
+            $('#map-control-standart').closest('label').on('click', function() {
+                if ($(this).find('input').prop('checked') == true) {
+                    $('#map-control-sitellite').closest('label').show();
+                    $('#map-control-standart').closest('label').hide();
+                    if ($('input[type=checkbox].leaflet-control-layers-selector').prop('checked') == false) {
+                        $('input[type=checkbox].leaflet-control-layers-selector').closest('div').click();
+                    }
+                }
+            });
+            $('#map-control-sitellite').closest('label').on('click', function() {
+                clickSitellite($(this));
+            });
+        {% else %}
+            // MAP INIT
+            var {{ map.fieldId }} = L.map('{{ map.fieldId }}').setView([{{ map.latitude }}, {{ map.longitude }}], {{ map.zoom }});
+
+            var southWest = L.latLng(-89.98155760646617, -180),
+                northEast = L.latLng(89.99346179538875, 180);
+            var bounds = L.latLngBounds(southWest, northEast);
+
+            {{ map.fieldId }}.setMaxBounds(bounds);
+            // MAP INIT OVER
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+                maxZoom: {{ map.maxZoom }}
+            }).addTo({{ map.fieldId }});
+        {% endif %}
+        var paramters = {};
+        {% for object in map.objectsToDisplay %}
+            parameters = {% if object.parameters %} {{ object.parameters|replace({"\n":'', "\r":''})|trim|raw }} {% else %} {} {% endif %};
+            {% if object.type == 'marker' %}
+                {% if object.icon is not empty %}
+                    parameters['icon'] = icon{{ object.icon }};
+                {% else %}
+                    parameters['icon'] = defaultIcon;
+                {% endif %}
+            {% endif %}
+            var mapObject{{ loop.index }} = L.{{ object.type }}([{{ object.position|trim }}], parameters).addTo({{ map.fieldId }});
+            {% if object.popup %}
+                mapObject{{ loop.index }}.bindPopup('{{ object.popup|replace({"\n":'', "\r":''})|trim|raw }}');
+            {% endif %}
+        {% endfor %}
+
+        // continent
+        {% if not country and continent and continent.geojson %}
+            var boundContinent = L.geoJSON({{continent.geojson|replace({"\n":'', "\r":''})|trim|raw}});
+            {{ map.fieldId }}.fitBounds(boundContinent.getBounds());
+        {% endif %}
+
+        // 1 - all countries inside current continent opacity > 0
+        // 2 - current country opacity > 0 + markers
+        // 3 - location: country opacity > 0 + current 1 mark
+
+        // country or countries inside continent if page continent  
+        var bounds = L.latLngBounds([]);
+        let isActiveCountry = false;
+        let CitiesList = [];
+        {% for item in countries %}
+            {% if (item.cb_geojson) %}
+
+                // and continent and item.cb_continent_id == continent.id
+                {% if (not country and not continent) or (country) or (not country and continent and item.cb_continent_id == continent.id) %}
+                    isActiveCountry = false;
+                    {% if (country and country.code == item.code and not location) %}
+                        isActiveCountry = true;
+                    {% endif %}
+                    var boundCountry = addCountry(
+                        {{item.cb_geojson|replace({"\n":'', "\r":''})|trim|raw}},
+                        "{{ item.name }}",
+                        isActiveCountry
+                    )
+                    CitiesList.push(boundCountry);
+
+                    boundCountry.addTo({{ map.fieldId }});
+                    var layerBounds = boundCountry.getBounds();
+                    {% if (country and country.code == item.code) %}
+                        bounds.extend(layerBounds);
+                    {% endif %}
+                    {% if (not country) %}
+                        bounds.extend(layerBounds);
+                    {% endif %}
+                {% endif %}
+
+            {% endif %}
+        {% endfor %}
+        if (CitiesList.length > 0) {
+            let cities = L.layerGroup(CitiesList);
+            L.control.layers({}, {"<span id='map-control-cities'>Cities</span>": cities}).addTo({{ map.fieldId }});
+            $('input[type=checkbox].leaflet-control-layers-selector').closest('div').click();
+            $('#map-control-cities').closest('.leaflet-control-layers').hide();
+        }
+
+
+        {% if (not country and continent and countries|length > 0) or (country) %}
+            {{ map.fieldId }}.fitBounds(bounds);
+        {% endif %}
+
+        function addCountry(item, countryName, isActive) {
+            return L.geoJSON(item, {
+                style: {
+                    "color": "#67708e",
+                    "opacity": 1,
+                    "weight": 2,
+                    'fillColor': isActive ? '#ca9db3' : '#a1b1c9',
+                    'fillOpacity': 0.7
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.bindTooltip(countryName, {
+                        sticky: true
+                    });
+                    layer.on('mouseover', function (ev) {
+                        this.setStyle({
+                            'fillColor': '#ca9db3',
+                        });
+                    });
+                    layer.on('mouseout', function (ev) {
+                        this.setStyle({
+                            'fillColor': isActive ? '#ca9db3' : '#a1b1c9',
+                        });
+                    });
+                    layer.on('click', function () {
+                        window.location = feature.properties.url;
+                    });
+                }});
+        }
+
+        // locations (sircuits)
+        var param = {
+            radius: 3,
+            fillColor: "#f80000",
+            color: "#f80000",
+            weight: 3,
+            opacity: 1,
+            fillOpacity: 0.8
+        };
+
+        var circuitsFromFilter = L.latLngBounds([]);
+        var circuitsFromFilterForDelete = [];
+
+        function addCircuitToMap(lat, lon, link, name) {
+            var mapObject = L.circleMarker([lat, lon], param).on('click', function() {
+                    window.location = link;
+            });
+            mapObject.bindPopup(name);
+            mapObject.on('mouseover',function(ev) {
+              ev.target.openPopup();
+              ev.target.setStyle({ radius: 5 });
+            })
+            .on('mouseout',function(ev) {
+              ev.target.closePopup();
+              ev.target.setStyle({ radius: 3 });
+            });
+            var featureGroup = L.featureGroup([mapObject]).addTo({{ map.fieldId }});
+            var layerBounds = featureGroup.getBounds();
+            circuitsFromFilter.extend(layerBounds);
+            circuitsFromFilterForDelete.push(mapObject);
+        }
+        function fitCircuitsOnMap() {
+            // TODO: bounds validation check is just a placeholder, countries with no circuits should not be displayed at all
+            if (circuitsFromFilter.isValid()) {
+                {{ map.fieldId }}.fitBounds(circuitsFromFilter);
+            } else {
+                console.warn('empty bounds');
+            }
+        }
+
+        function clearMarkers() {
+            for (let i = 0; i < circuitsFromFilterForDelete.length; ++i) {
+                {{ map.fieldId }}.removeLayer(circuitsFromFilterForDelete[i]);
+            }
+            circuitsFromFilterForDelete = [];
+        }
+
+        function setMapZoom(zoom) {
+            {{ map.fieldId }}.setZoom(zoom);
+        }
+
+        function clickSitellite(obj) {
+            if (obj.find('input').prop('checked') == true) {
+                $('#map-control-sitellite').closest('label').hide();
+                $('#map-control-standart').closest('label').show();
+                if ($('input[type=checkbox].leaflet-control-layers-selector').prop('checked') == true) {
+                    $('input[type=checkbox].leaflet-control-layers-selector').closest('div').click();
+                }
+            }
+        }
+                    
+    </script>
+{% endput %}

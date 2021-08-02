@@ -1,0 +1,20 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Add fields'
+    - add_profile_fields_to_users_table.php
+1.0.3:
+    - 'Created table cb_userplus_companies'
+    - builder_table_create_cb_userplus_companies.php
+1.0.4:
+    - 'Updated table cb_userplus_companies'
+    - builder_table_update_cb_userplus_companies.php
+1.0.5:
+    - 'Updated table cb_userplus_companies'
+    - builder_table_update_cb_userplus_companies_2.php
+1.0.6:
+    - 'Updated table cb_userplus_companies'
+    - builder_table_update_cb_userplus_companies_3.php
+1.0.7:
+    - 'Seed add news and jobs'
+    - seeder107.php

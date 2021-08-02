@@ -1,0 +1,22 @@
+fields:
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+    code:
+        label: 'cb.pgmware::lang.default.code'
+        span: auto
+        required: 1
+        type: text
+    is_enabled:
+        label: 'cb.pgmware::lang.default.enabled'
+        span: auto
+        default: 1
+        type: checkbox
+    description:
+        label: 'cb.pgmware::lang.default.description'
+        size: huge
+        mode: tab
+        span: full
+        type: markdown

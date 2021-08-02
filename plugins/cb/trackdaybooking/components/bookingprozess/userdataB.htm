@@ -1,0 +1,244 @@
+<div class="step-content">
+    <div class="user-group-selection">
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerGender">Gender<span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <select name="gender" id="registerGender" required="" placeholder="Enter your gender">
+
+                                {% if preuserdata.cb_gender == "unknown" %}
+                                <option value="female">female</option>
+                                <option value="male">male</option>
+                                <option selected="" value="unknown">unknown</option>
+                                {% elseif preuserdata.cb_gender == "female" %}
+                                <option selected="" value="female">female</option>
+                                <option value="male">male</option>
+                                <option value="unknown">unknown</option>
+                                {% elseif preuserdata.cb_gender == "male" %}
+                                <option value="female">female</option>
+                                <option selected="" value="male">male</option>
+                                <option value="unknown">unknown</option>
+                                {% else %}
+                                <option desabled="">Please select</option>
+                                <option value="female">female</option>
+                                <option value="male">male</option>
+                                <option selected="" value="unknown">unknown</option>
+                                {% endif %}
+
+                            </select>
+                            <i class="arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerName">
+                            <span>First Name</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            {% if preuserdata.name %}
+                                <input type="text" id="registerName" required="" name="name" placeholder="Enter your first name" value="{{preuserdata.name}}">
+                            {% else %}
+                                <input type="text" id="registerName" required="" name="name" placeholder="Enter your first name">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerLastName">Last Name<span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            {% if preuserdata.surname %}
+                                <input type="text" id="registerLastName" name="surname" required="" value="{{preuserdata.surname}}">
+                            {% else %}
+                                <input type="text" id="registerLastName" name="surname" required="" placeholder="Enter your last name">
+                            {% endif %}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerStreet">
+                            <span>Street / Address</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            {% if company.address %}
+                            <input type="text" required="" name="street" id="registerStreet" placeholder="Enter your Street" value="{{company.address}}">
+                            {% else %}
+                            <input type="text" required="" name="street" id="registerStreet" placeholder="Enter your Street" value="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerZip">
+                            <span>Zip</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            {% if company.zip %}
+                            <input type="text" id="registerZip" name="zip" placeholder="Enter your zip" value="{{company.zip}}">
+                            {% else %}
+                            <input type="text" id="registerZip" name="zip" placeholder="Enter your zip" value="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerCity">
+                            <span>City</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            {% if company.city %}
+                            <input type="text" id="registerCity" required="" name="city" placeholder="Enter your city" value="{{company.city}}">
+                            {% else %}
+                            <input type="text" id="registerCity" required="" name="city" placeholder="Enter your city">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns ai-st">
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerCountry">
+                            <span>Country</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <select
+                                    name="country_id"
+                                    required
+                                    id="registerCountry"
+                                    placeholder="{{'cb.userplus::lang.component.selectCountry'|trans}}">
+
+                                {% if not preuserdata %}
+                                <option selected disabled>Please select</option>
+                                {% endif %}
+                                {% for id, name in countriesList|sort %}
+                                {% if not preuserdata %}
+                                <option value="{{id}}">{{name}}</option>
+                                {% else %}
+                                {% set selected = '' %}
+                                {% if (preuserdata and id == preuserdata.company.country_id) %}{% set selected = 'selected' %}{% endif %}
+                                <option {{selected}} value="{{ id }}">{{name}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                            <i class="arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerPhone">
+                            <span>Phone</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            {% if preuserdata.cb_telephone %}
+                                <input type="text" id="registerPhone" required="" name="phone" placeholder="Enter your phone number" value="{{preuserdata.cb_telephone}}">
+                            {% else %}}
+                                <input type="text" id="registerPhone" required="" name="phone" placeholder="Enter your phone number">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control init">
+                        <label for="registerEmail">
+                            <span>Email</span>
+                            <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            {% if preuserdata.email %}
+                                <input type="text" id="registerEmail" required="" name="email" placeholder="Enter your email" value="{{preuserdata.email}}">
+                            {% else %}
+                                <input type="text" id="registerEmail" required="" name="email" placeholder="Enter your email">
+                            {% endif %}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="registration-form--footer">
+        <div class="columns ai-c jc-e">
+            <div class="col-6 col-xs-12">
+                <div class="columns">
+                    <div class="col-4 col-xs-12">
+                        <button type="button"
+                                onclick="$('#step1').click();return false;"
+                                class="button alt w-all mdc-ripple-upgraded">Cancel</button>
+                    </div>
+                    <div class="col-8 col-xs-12">
+                        <button id="checkInfoDataBtn" type="button"
+                                class="button solid w-all mdc-ripple-upgraded"
+                                onclick="makeRegisterValidate($(this).closest('form'));return false;">
+                            Check Data
+                        </button>
+                        <button id="sendInfoDataBtn" style="display: none;" type="button"
+                                class="button solid w-all mdc-ripple-upgraded"
+                                onclick="$('#step3').click();return false;"
+                                data-request="onSaveContactInfo"
+                                data-request-update="'{{ __SELF__ }}::vehilce': '#datapart3'">
+                            <i class="mdi mdi-upload"></i>
+                            Save and continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script type="text/javascript">
+    $(function(){
+        $( "#sendInfoDataBtn" ).hide();
+        $( "#checkInfoDataBtn" ).show();
+    });
+
+    function makeRegisterValidate(form) {
+        removeErrors(form);
+        form.request('onSaveContactInfo', {
+            success: function(data) {
+                $( "#sendInfoDataBtn" ).show();
+                $( "#checkInfoDataBtn" ).hide();
+            },
+            error: function(data) {
+                if (data && data.status != undefined && data.status == 406) {
+                    addErrors(form, data.responseJSON.X_OCTOBER_ERROR_FIELDS);
+                } else {
+                    addAlert(form, data.responseText);
+                }
+            },
+        });
+    }
+</script>
+{% endput %}

@@ -1,0 +1,14 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    value:
+        label: token
+        type: text
+        searchable: true
+        sortable: false
+    plugins:
+        label: plugins
+        type: partial
+        path: ~/plugins/cb/license/models/token/_plugins_column.htm

@@ -1,0 +1,63 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    user:
+        label: 'user (if bound)'
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: -- no user --
+        span: auto
+        type: relation
+        tab: 'Tab 1'
+    gender:
+        label: gender
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    name:
+        label: name
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    surname:
+        label: surname
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    email:
+        label: email
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    zip:
+        label: zip
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    address:
+        label: address
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    country:
+        label: country
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+        tab: 'Tab 1'
+    city:
+        label: city
+        span: auto
+        type: text
+        tab: 'Tab 1'
+    phone:
+        label: phone
+        span: auto
+        type: text
+        tab: 'Tab 1'

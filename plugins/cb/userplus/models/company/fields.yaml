@@ -1,0 +1,59 @@
+fields:
+    name:
+        label: 'cb.userplus::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+    user:
+        label: 'cb.userplus::lang.default.user'
+        nameFrom: email
+        span: auto
+        required: 1
+        type: relation
+    country:
+        label: 'cb.userplus::lang.default.country'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    city:
+        label: 'cb.userplus::lang.default.city'
+        span: auto
+        type: text
+    address:
+        label: 'cb.userplus::lang.default.address'
+        span: auto
+        type: text
+    zip:
+        label: 'cb.userplus::lang.default.zip'
+        span: auto
+        type: text
+    phone:
+        label: 'cb.userplus::lang.default.phone'
+        span: auto
+        type: text
+    fax:
+        label: 'cb.userplus::lang.default.companyFax'
+        span: auto
+        type: text
+    vat_number:
+        label: 'cb.userplus::lang.default.vat'
+        span: auto
+        type: text
+    url:
+        label: 'cb.userplus::lang.default.webpage'
+        span: auto
+        type: text
+    termsfile:
+        label: Terms and Conditions for Trackdays
+        mode: file
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+        tab: 'Tab 1'

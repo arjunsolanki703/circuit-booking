@@ -1,0 +1,4 @@
+title: TimeZones
+modelClass: Cb\Pgmware\Models\Timezone
+toolbar:
+    buttons: reorder_toolbar

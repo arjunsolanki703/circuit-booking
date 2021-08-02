@@ -1,0 +1,4 @@
+title: Modell
+modelClass: Cb\Pgmware\Models\Location
+toolbar:
+    buttons: reorder_toolbar

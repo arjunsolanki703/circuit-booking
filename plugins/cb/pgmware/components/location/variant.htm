@@ -1,0 +1,118 @@
+<div class="page-content">
+    <div class="location-variants--list">
+        {% set list = location.variants %}
+        {% if __SELF__.property('isCircuitSharing') %}
+            {% set isSharing = 'active' %}
+            {% set list = circuitSharing %}
+        {% endif %}
+        {% for item in list %}
+            {% set shar = null %}
+            {% if __SELF__.property('isCircuitSharing') %}
+                {% set shar = item %}
+                {% set item = shar.variant %}
+            {% endif %}
+        <div class="circuit-item location">
+            <div class="circuit-item--main d-f ai-st">
+                {% if item.variant_scheme %}
+                <div class="circuit-item--map">
+                    <img src="{{ item.variant_scheme.path|resize(140, 140) }}" alt="circuit map">
+                </div>
+                {% endif %}
+                <div class="d-f fx-w jc-sb w-all">
+                    <div class="circuit-item--header">
+                        <div class="title-wrapper">
+                            <div class="circuit-item--title w-all">
+                                {{ item.name }}
+                            </div>
+                        </div>
+                        {% if item.grade and item.grade.grade_logo %}
+                        <div class="grade-wrapper">
+                            <div class="circuits-item--grade"><img src="{{ item.grade.grade_logo.path|resize(140, 140) }}" alt="grade"></div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="columns w-all">
+                        {% if __SELF__.property('isCircuitSharing') %}
+                        <div class="col-12 col-xs-12">
+                            <div class="circuit-item--info">
+                                <div class="title">{{ shar.description }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if item.variantType %}
+                        <div class="col-3 col-xs-6">
+                            <div class="circuit-item--info">
+                                <div class="title">{{ 'cb.pgmware::lang.componentFilter.type'|trans }}</div>
+                                <div class="value">{{ item.variantType.description }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="col-3 col-xs-6">
+                            <div class="circuit-item--info">
+                                {% set fia = 'None' %}
+                                {% if (item.grade and (date(item.fia_grade_valid_before_date) >= date() or item.fia_grade_valid_before_date is empty)) %}{% set fia = item.grade.name %}{% endif %}
+                                <div class="title">{{ 'cb.pgmware::lang.componentFilter.fiaGrade'|trans }}</div>
+                                <div class="value">{{ fia }}</div>
+                            </div>
+                        </div>
+                        {% if item.length %}
+                        <div class="col-3 col-xs-6">
+                            <div class="circuit-item--info">
+                                <div class="title">{{ 'cb.pgmware::lang.componentFilter.length'|trans }}</div>
+                                <div class="value">{{ item.length }}m</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if __SELF__.property('isCircuitSharing') %}
+                        <div class="col-3 col-xs-6">
+                            <div class="circuit-item--info">
+                                <div class="title">{{ 'cb.pgmware::lang.componentSharing.pricePerDay'|trans }}</div>
+                                <div class="value">{{ shar.price|currency({from: shar.currency.currency_code, to: shar.currency_code}) }}</div>
+                            </div>
+                        </div>
+                        <div class="col-3 col-xs-6">
+                            <div class="circuit-item--info">
+                                <div class="title">Name</div>
+                                <div class="value">{{ shar.title }}m</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-xs-6">
+                            <div class="circuit-item--info">
+                                <div class="title">{{ 'cb.pgmware::lang.componentSharing.dates'|trans }}</div>
+                                <div class="value">{{ shar.start_date|date('j.m.Y') }} - {{ shar.end_date|date('j.m.Y') }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% set isMany = item.vehicleTypes|length > 8 %}
+            <div class="circuit-item--footer {{ isMany ? 'fx-w' : '' }}">
+                <div class="circuit-item--vehicle-types {{ isSharing ? 'alter' : '' }} {{ isMany ? 'many' : '' }}">
+                    {% for vehicle in item.vehicleTypes %}
+                    {% set activeVehicle = vehicle.id == shar.vehicle_type_id ? 'active' : '' %}
+                    <div class="item {{ activeVehicle }}"><img src="{{ vehicle.vehicle_icon.path }}" alt="vehicle type"></div>
+                    {% endfor %}
+                </div>
+                <div class="location-buttons">
+                    {% if __SELF__.property('isCircuitSharing') %}
+                        <button class="button solid modal-caller"
+                            data-hiddeninput="{
+                                circuit_sharing_id:'{{ shar.id }}',
+                                circuit_sharing_name:'{{ shar.title }}'
+                            }"
+                            data-target="sharing-request-modal">Send request</button>
+                    {% else %}
+                        <a href="{{ 'circuits/booking-request'|page({
+                            country: location.country.cb_slug,
+                            continent: location.country.continent.code,
+                            slug: location.slug,
+                            variant: item.id }) }}" class="button alt">
+                        {{ 'cb.pgmware::lang.componentFilter.book'|trans }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

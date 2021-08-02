@@ -1,0 +1,11 @@
+plugin:
+    name: 'cb.leaflet::lang.plugin.name'
+    description: 'cb.leaflet::lang.plugin.description'
+    author: 'Tim Foerster'
+    icon: icon-map-marker
+navigation:
+    main-menu-item:
+        label: Maps
+        url: cb/leaflet/maps
+        icon: icon-map-marker
+        permissions: ['cb.leaflet.*']

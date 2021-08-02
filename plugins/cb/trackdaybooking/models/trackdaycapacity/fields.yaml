@@ -1,0 +1,19 @@
+fields:
+    id:
+        label: ID
+        disabled: true
+        type: text
+tabs:
+    fields:
+        order_trackday:
+            label: Order Trackday
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'Tab 1'
+        amount:
+            label: amount
+            span: auto
+            type: number
+            tab: 'Tab 1'

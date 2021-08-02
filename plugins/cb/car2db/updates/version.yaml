@@ -1,0 +1,39 @@
+1.0.1: First version of car2db
+1.0.2:
+  - 'Create tables'
+  - create_types_table.php
+  - create_makes_table.php
+  - create_models_table.php
+  - create_generations_table.php
+  - create_series_table.php
+  - create_trims_table.php
+1.0.3:
+  - 'Create table user_vehicle to connect user and trim'
+  - create_user_vehicles_table.php
+1.0.4:
+  - 'Create table last_updates'
+  - create_last_updates_table.php
+1.0.5:
+  - 'Alter table last_updates'
+  - alter_last_updates_table.php
+1.0.6:
+  - 'Seed table last_updates'
+  - seed_last_updates.php
+1.0.7:
+  - 'Change update Attributes'
+  - alter_tables_update_data.php
+1.0.8:
+  - 'Seed by download Updates from Car2db Make'
+  - seed_by_download_updates_make.php
+1.0.9:
+  - 'Seed by download Updates from Car2db Model'
+  - seed_by_download_updates_model.php
+1.0.10:
+  - 'Seed by download Updates from Car2db Serie'
+  - seed_by_download_updates_serie.php
+1.0.11:
+  - 'Seed by download Updates from Car2db Trim'
+  - seed_by_download_updates_trim.php
+1.0.12:
+  - 'Seed by download Updates from Car2db Generation'
+  - seed_by_download_updates_generation.php

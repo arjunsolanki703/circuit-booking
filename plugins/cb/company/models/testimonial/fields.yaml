@@ -1,0 +1,28 @@
+fields:
+    content:
+        label: 'cb.company::lang.labels.content'
+        type: textarea
+        span: full
+    picture:
+        label: 'cb.company::lang.labels.picture'
+        type: fileupload
+        mode: image
+        span: right
+        imageHeight: 260
+        imageWidth: 260
+    source:
+        label: 'cb.company::lang.labels.source'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    url:
+        label: 'cb.company::lang.labels.url'
+        span: left
+        default: 'http://'
+        type: text
+    published_at:
+        label: 'cb.company::lang.labels.published_at'
+        type: datepicker
+        default: now
+        mode: date
+        span: left

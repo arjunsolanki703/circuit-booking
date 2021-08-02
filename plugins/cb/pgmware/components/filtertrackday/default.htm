@@ -1,0 +1,105 @@
+{% set selector = __SELF__.property('selectorResult') %}
+
+<div id="circuit-filter"
+     data-search="{{ __SELF__.property('search') }}"
+     data-country="{{ __SELF__.property('country') }}"
+     data-variantType="{{ __SELF__.property('variantType') }}"
+     data-continent="{{ __SELF__.property('continent') }}"
+></div>
+
+<div id='filtered-variants'></div>
+
+<script>
+    $(document).ready(function() {
+        const filter = $('#circuit-filter');
+
+        const initJSON = {
+            "continent": filter.data('continent'),
+            "variantType": filter.data('variantType'),
+            "country": filter.data('country'),
+            "search": filter.data('search')
+        };
+
+        // filter init
+        filter.request(
+            'onGetFilter', {
+                data: initJSON,
+                success: function(data) {
+                    filter.html(data.content);
+                    $('#grade').change();
+                }
+            }
+        );
+    });
+
+    function contentChange(obj) {
+        obj.closest('form').find('input[name="country[]"]').each(function(){
+            $(this).prop('checked', false);
+        });
+        obj.closest('form').find('input[name="location[]"]').each(function(){
+            $(this).prop('checked', false);
+        });
+        makeSubmit(obj);
+    }
+    function countryChange(obj) {
+        obj.closest('form').find('input[name="location[]"]').each(function(){
+            $(this).prop('checked', false);
+        });
+        makeSubmit(obj);
+    }
+    function makeSubmit(obj) {
+        obj.closest('form').find('input[name="page"]').val('1');
+        obj.closest('form').submit();
+        $('{{ selector }}').html('');
+        if (typeof circuitsFromFilterForDelete !== 'undefined') {
+            fillMap();
+        }
+    }
+    function fillMap() {
+        const hasContinent = $('#filterForm #continent').val() > 0;
+        if ($('#map').length && (hasContinent)) {
+            clearMarkers();
+            $('#filterForm').request(
+                'onFilter', {
+                    data: { "perPage": 400, "onlyGeo": true },
+                    success: function(data) {
+                        $(data.json.data).each(function(itemNumber, variant) {
+                            if (variant.gps_lat && variant.gps_lon) {
+                                addCircuitToMap(variant.gps_lat, variant.gps_lon, variant.link, variant.name);
+                            }
+                        });
+                        fitCircuitsOnMap();
+                    }
+                }
+            );
+        }
+    }
+    function loadFilter(data) {
+        $('#circuit-filter').html(data.filter);
+        //let page = 0;
+        //if ($('#show-more').length > 0) {
+        //    page = $('#show-more').attr('data-index').split('?page=')[1];
+        //}
+        //if (page > 1) {
+        if ($('#show-more').length > 0) {
+            $('#show-more').remove();
+        }
+        $('{{ selector }}').append(data.result);
+        //} else {
+        //    $('{{ selector }}').html(data.result); // APPEND FOR PAGINATION TODO
+        //}
+        $('#filter-helper').html(data.filterHelper); // APPEND FOR PAGINATION TODO
+    }
+    function makeSubmitMore(next) {
+        next = next.split('?page=')[1];
+        $('#filterForm').find('input[name="page"]').val(next);
+        $('#filterForm').submit();
+    }
+    function clearFilter() {
+        $('{{ selector }}').html('');
+        $('#filter-length').val('');
+        $('#grade').val('');
+        $('#continent').val('');
+        $('input[name="vehicleType[]"]').prop('checked', false);
+    }
+</script>

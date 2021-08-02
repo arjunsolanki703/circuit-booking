@@ -1,0 +1,10 @@
+name: TimeZones
+form: $/cb/pgmware/models/timezone/fields.yaml
+modelClass: Cb\Pgmware\Models\Timezone
+defaultRedirect: cb/pgmware/timezones
+create:
+    redirect: 'cb/pgmware/timezones/update/:id'
+    redirectClose: cb/pgmware/timezones
+update:
+    redirect: cb/pgmware/timezones
+    redirectClose: cb/pgmware/timezones

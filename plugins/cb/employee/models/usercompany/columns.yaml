@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    company:
+        label: company
+        relation: company
+        select: name
+    user:
+        label: user
+        relation: user
+        select: name

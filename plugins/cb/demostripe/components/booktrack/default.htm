@@ -1,0 +1,70 @@
+<section>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+
+        function onStartStripeJs(backendData) {
+            console.log("STRIPE BACKENDDATA");
+            console.log(backendData);
+
+            var stripe = Stripe('pk_test_e4wtZSZOABPer3wrFCwB9J0g', {
+                stripeAccount: 'acct_1FWg46AdLZe8A8RW'
+            });
+
+            console.log("STRIPE");
+            console.log(stripe);
+
+            console.log("DATAID");
+            console.log(backendData.id);
+
+            stripe.redirectToCheckout({
+                // Make the id field from the Checkout Session creation API response
+                // available to this file, so you can provide it as parameter here
+                // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+                sessionId: backendData.id
+            }).then(function (result) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer
+                // using `result.error.message`.
+            });
+        }
+
+    </script>
+
+    <div class="container wrapped">
+        <div id="result">
+            {% partial __SELF__ ~ '::userdisplay' %}
+        </div>
+        <p>Check up the User Id</p>
+
+        <small> blabla lblalalbllal allall</small>
+
+        <form
+            data-request="{{__SELF__}}::onCheckUserId"
+            data-request-update="'{{__SELF__}}::userdisplay': '#result'"
+        >
+            <button type="submit">check User Id</button>
+        </form>
+
+        <hr/>
+
+        <form
+            data-request="{{__SELF__}}::onStartStripe"
+            data-request-success="onStartStripeJs(data)"
+        >
+            <!--<label>Stripe Account</label><input type="text" name="acc" id="stripe_account">-->
+            <button type="submit">Stripe Starten</button>
+        </form>
+
+        <div id="stripemeta">
+            {% partial __SELF__ ~ '::stripedaten' %}
+        </div>
+
+        <div id="success">
+            <p>{{__SELF__.successparam}}</p>
+        </div>
+    </div>
+</section>
+
+

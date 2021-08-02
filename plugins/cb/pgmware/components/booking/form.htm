@@ -1,0 +1,233 @@
+<form class="contacts-form"
+    data-request="{{ __SELF__ }}::onBook"
+    data-request-error="removeErrors($(this));if(jqXHR.responseJSON==undefined){toastr.error('Unknown error');}else{addErrors($(this),jqXHR.responseJSON.X_OCTOBER_ERROR_FIELDS);showError($(this));}return false;"
+    data-request-success="removeErrors($(this));contactFormSuccess($(this));">
+    {{ form_token() }}
+<div class="columns">
+    <div class="mo-2 col-8 col-xs-12">
+        <div class="data-picker-header">
+            <div class="data-picker-tabs">
+                <div class="tabs-labels">
+                    <div class="tab-label">{{ 'cb.pgmware::lang.componentBooking.dayRange'|trans }}</div>
+                    <div class="tab-label">{{ 'cb.pgmware::lang.componentBooking.consecutiveDays'|trans }}</div>
+                </div>
+                <div class="form-control">
+                    <div class="tabs-buttons">
+                        <div class="tab-button active date-booked-fake-input" data-target="date-booked">
+                            {% set disabled = __SELF__.dateBooked ? '"' ~ __SELF__.dateBooked|join('","') ~ '"' : '' %}
+                            <div
+                                   class="tabs-datapicker"
+                                   data-start="start_date"
+                                   data-end="end_date"
+                                   data-container="booked-wrapper"
+                                   data-preselect-start="{{ __SELF__.property('startDateDefault') }}"
+                                   data-preselect-end="{{ __SELF__.property('endDateDefault') }}"
+                                   data-min="{{ __SELF__.dateStart }}"
+                                   data-max="{{ __SELF__.dateEnd }}"
+                                   data-disabled='[{{disabled}}]'
+                            >
+                                <input type="text" placeholder="dd.mm.yyyy - dd.mm.yyyy" class="fake-input w-all">
+                                <input type='hidden' name="start_date" id='start_date' value="{{ __SELF__.property('startDateDefault') }}" >
+                                <input type='hidden' name="end_date" id="end_date" value="{{ __SELF__.property('endDateDefault') }}" >
+                            </div>
+                        </div>
+                        <div class="tab-button raw-input">
+                            <input type="number" class="w-all h-all" name="consecutive_days" id="consecutive-days">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="data-picker-content">
+            <div class="tab-page active" id="date-booked">
+                <div class="booked-wrapper lightpicker-wrapper" id="booked-wrapper"></div>
+            </div>
+        </div>
+        <div class="data-picker-footer">
+            <div class="form-group terms">
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               name="agree"
+                               id="agree"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="agree">
+                        <div class="left">
+                            <span class="title">{{ 'cb.pgmware::lang.componentBooking.agreement'|trans }} <a target="_blank" href="{{ 'terms-and-conditions'|staticPage }}">{{ 'cb.pgmware::lang.componentBooking.termsOfServ'|trans }}</a> {{ 'cb.pgmware::lang.componentBooking.and'|trans }} <a target="_blank" href="{{ 'privacy-policy'|staticPage }}">{{ 'cb.pgmware::lang.componentBooking.privacyPolicy'|trans }}</a></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="buttons-wrapper d-f ai-c jc-c">
+                <button type="button" class="button alt modal-caller" data-target="booking-cancel-modal">Cancel</button>
+                <button type="submit" class="button solid">{{ 'cb.pgmware::lang.componentBooking.sendReq'|trans }}</button>
+            </div>
+            <input type="hidden" name="variant_id" value="{{ __SELF__.property('variant')}}">
+        </div>
+    </div>
+    <div class="mo-1 col-4 col-xs-12">
+        <div class="form-wrapper">
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="booking_type_id">{{ 'cb.pgmware::lang.componentBooking.typeOfEvent'|trans }}</label>
+                    <div class="input-wrapper">
+                        <select name="booking_type_id" id="booking_type_id">
+                            <option selected disabled>Please select</option>
+                            {% for item, key in __SELF__.bookingTypes %}
+                            <option value="{{ key }}">{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="vehicle_type_id">{{ 'cb.pgmware::lang.componentBooking.typeOfVeh'|trans }}</label>
+                    <div class="input-wrapper">
+                        <select name="vehicle_type_id" id="vehicle_type_id">
+                            <option selected disabled>Please select</option>
+                            {% for item, key in __SELF__.vehicleTypes %}
+                            <option value="{{ key }}">{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="vehicles_count">{{ 'cb.pgmware::lang.componentBooking.vehOnTrack'|trans }}</label>
+                    <div class="input-wrapper">
+                        <select name="vehicles_count" id="vehicles_count">
+                            <option selected disabled>Please select</option>
+                            {% for item in __SELF__.countVehicles %}
+                            <option value="{{ item }}">{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="columns">
+                    <div class="col-6">
+                        <div class="form-control">
+                            <label for="number">{{ 'cb.pgmware::lang.componentBooking.setupDays'|trans }}</label>
+                            <div class="input-wrapper">
+                                <input type="number" min='0' id="setup-days" name="setup_days">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-control">
+                            <label for="meeting_rooms">{{ 'cb.pgmware::lang.componentBooking.tearDownDays'|trans }}</label>
+                            <div class="input-wrapper">
+                                <input type="number" min='0' id="tear-down-days" name="tear_down_days">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="columns">
+                    <div class="col-6">
+                        <div class="form-control">
+                            <label for="number">{{ 'cb.pgmware::lang.componentBooking.garages'|trans }}</label>
+                            <div class="input-wrapper">
+                                <input type="number" min='0' id="number" name="garage">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-control">
+                            <label for="meeting_rooms">{{ 'cb.pgmware::lang.componentBooking.meetengRooms'|trans }}</label>
+                            <div class="input-wrapper">
+                                <input type="number" min='0' id="meeting_rooms" name="meeting_rooms">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               name="time_keeping"
+                               id="time_keeping"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark"
+                                 viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                      fill="none"
+                                      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="time_keeping">
+                        <div class="left">
+                            <span class="title">{{ 'cb.pgmware::lang.componentBooking.timekeeping'|trans }}</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-control">
+                    <label for="comment">{{ 'cb.pgmware::lang.componentBooking.comment'|trans }}</label>
+                    <div class="input-wrapper">
+                        <textarea name="comment" id="comment" placeholder="Enter here your comment"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<!--MODAL-->
+<div class="modal-wrapper modal" id="booking-cancel-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window">
+        <div class="modal-header">
+            <div class="modal-header--title">Cancel the booking process</div>
+            <div class="modal-header--subtitle">Are you sure, you want to cancel this request? All data will lost.</div>
+        </div>
+        <div class="modal-content"></div>
+        <div class="modal-footer">
+            <div class="columns">
+                <div class="col-6 col-xs-12"><button class="button w-all alt close-modal">No, stay on this page</button></div>
+                <div class="col-6 col-xs-12"><a href="/" class="button w-all solid">Yes, please</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--MODAL END-->
+
+{% put scripts %}
+<script>
+    function showError(data) {
+        var check = $(data).find('#agree:checked');
+        if (!check.length) {
+            toastr.error('You need to agree to the Terms and Conditions and Privacy Policy');
+        }
+    }
+    function contactFormSuccess(form) {
+        toastr.success('Thank you very much for your message. We will get in touch with you shortly.');
+        // form.prepend('<div class="success-alert" style="color:green;border:1px solid green;">Thank you for the message!</div>');
+        form.find('button[type="submit"]').attr('disabled', 'disabled');
+        setTimeout(function(){ window.location.href = '{{ "circuits/booking-success"|page }}' }, 500);
+    }
+</script>
+{% endput %}

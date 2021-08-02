@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.project.label
+
+# Model Form Field configuration
+form: $/cb/company/models/project/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Project
+
+# Default redirect location
+defaultRedirect: cb/company/projects
+
+# Create page
+create:
+    title: cb.company::lang.project.create_title
+    redirect: cb/company/projects/update/:id
+    redirectClose: cb/company/projects
+
+# Update page
+update:
+    title: cb.company::lang.project.update_title
+    redirect: cb/company/projects
+    redirectClose: cb/company/projects
+
+# Preview page
+preview:
+    title: cb.company::lang.project.preview_title

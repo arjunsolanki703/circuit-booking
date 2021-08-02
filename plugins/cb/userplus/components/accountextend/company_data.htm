@@ -1,0 +1,170 @@
+<div class="columns">
+    <div class="col-xs-12 col-4">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user and user.company %}{% set val = user.company.name %}{% set disabled = 'disabled' %}{% endif %}
+                <label for="companyName">
+                    {{ 'cb.userplus::lang.component.companyName'|trans }}
+                    <span class="required">*</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="companyName" name="company[name]" required placeholder="{{ 'cb.userplus::lang.component.enterCompanyName'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-4">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user and user.company %}{% set val = user.company.vat_number %}{% set disabled = 'disabled' %}{% endif %}
+                <label for="companyVAT">{{ 'cb.userplus::lang.component.vat'|trans }} <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="text" id="companyVAT" name="company[vat_number]" required placeholder="{{ 'cb.userplus::lang.component.enterVat'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-4">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user and user.company %}{% set val = user.company.url %}{% set disabled = 'disabled' %}{% endif %}
+                <label for="companyUrl">{{ 'cb.userplus::lang.component.url'|trans }}</label>
+                <div class="input-wrapper">
+                    <input type="text" id="companyUrl" name="company[url]" placeholder="{{ 'cb.userplus::lang.component.enterWebpage'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="col-8 col-xs-12">
+        <div class="columns">
+            <div class="col-8 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control">
+                        {% set val = '' %}
+                        {% if user and user.company %}{% set val = user.company.address %}{% set disabled = 'disabled' %}{% endif %}
+                        <label for="companyAddress">{{ 'cb.userplus::lang.component.addr'|trans }} <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="companyAddress" name="company[address]" required placeholder="{{ 'cb.userplus::lang.component.enterAddr'|trans }}" value="{{val}}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="form-group">
+                    <div class="form-control">
+                        {% set val = '' %}
+                        {% if user and user.company %}{% set val = user.company.zip %}{% set disabled = 'disabled' %}{% endif %}
+                        <label for="companyZip">{{ 'cb.userplus::lang.component.zip'|trans }} <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="companyZip" name="company[zip]" required placeholder="{{ 'cb.userplus::lang.component.enterZip'|trans }}" value="{{val}}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user and user.company %}{% set val = user.company.city %}{% set disabled = 'disabled' %}{% endif %}
+                <label for="companyCity">{{ 'cb.userplus::lang.component.city'|trans }} <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="text" id="companyCity" name="company[city]" required placeholder="{{ 'cb.userplus::lang.component.enterCity'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="col-xs-12 col-4">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="companyCountry">{{ 'cb.userplus::lang.component.country'|trans }} <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <select
+                            name="company[country_id]"
+                            required
+                            id="companyCountry"
+                            placeholder="{{ 'cb.userplus::lang.component.selectCountry'|trans }}">
+
+                        {% if not user %}
+                        <option selected disabled>Please select</option>
+                        {% endif %}
+                        {% for id, name in countriesList|sort %}
+                        {% if not user %}
+                        <option value="{{ id }}">{{ name }}</option>
+                        {% else %}
+                        {% set selected = '' %}
+                        {% if (user and id == user.company.country_id) %}{% set selected = 'selected' %}{% endif %}
+                        <option {{ selected }} value="{{ id }}">{{ name }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-4">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user and user.company %}{% set val = user.company.phone %}{% set disabled = 'disabled' %}{% endif %}
+                <label for="companyTelephone">
+                    {{ 'cb.userplus::lang.component.phone'|trans }}
+                    <span class="required">*</span>
+                </label>
+                <div class="input-wrapper">
+                    <input type="text" id="companyTelephone" name="company[phone]" placeholder="{{ 'cb.userplus::lang.component.enterPhone'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-4">
+        <div class="form-group">
+            <div class="form-control">
+                {% set val = '' %}
+                {% if user and user.company %}{% set val = user.company.fax %}{% set disabled = 'disabled' %}{% endif %}
+                <label for="companyFax">{{ 'cb.userplus::lang.component.fax'|trans }}</label>
+                <div class="input-wrapper">
+                    <input type="text" id="companyFax" name="company[fax]" placeholder="{{ 'cb.userplus::lang.component.enterCompanyFax'|trans }}" value="{{val}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="col-3 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label for="termsfile">Terms & Conditions for Trackdays</label>
+                <div class="input-wrapper file-input">
+                    <input type="file" id="termsfile" name="termsfile">
+                    <label for="termsfile" class="button solid w-all">
+                        <i class="mdi mdi-upload"></i>
+                        <span>Choose new file</span>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-2 col-xs-12">
+        <div class="form-group">
+            {% if user and user.company %}{% set val = user.company.termsfile.getPath() %}{% endif %}
+            <div class="form-control">
+                <label for="termsfile">Terms</label>
+                <a href="{{ val }}" class="button alt w-all">
+                    <i class="mdi mdi-download"></i>
+                    <span> &nbsp;actual file</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

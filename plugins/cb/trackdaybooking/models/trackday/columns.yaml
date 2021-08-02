@@ -1,0 +1,33 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    vehicle_type:
+        label: vehicle_type
+        relation: vehicle_type
+        select: name
+    title:
+        label: title
+        type: text
+    description:
+        label: description
+        type: text
+    price:
+        label: price
+        type: number
+    currency:
+        label: currency
+        relation: currency
+        select: currency_code
+    vat_value:
+        label: vat_value
+        type: number
+    bookable:
+        label: bookable
+        type: switch
+        default: '1'
+    companie_id:
+        label: trackday company
+        relation: company
+        select: name

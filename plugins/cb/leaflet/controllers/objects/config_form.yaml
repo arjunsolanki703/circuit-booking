@@ -1,0 +1,10 @@
+name: Objects
+form: $/cb/leaflet/models/objects/fields.yaml
+modelClass: cb\Leaflet\Models\Objects
+defaultRedirect: cb/leaflet/objects
+create:
+    redirect: 'cb/leaflet/objects/update/:id'
+    redirectClose: cb/leaflet/objects
+update:
+    redirect: cb/leaflet/objects
+    redirectClose: cb/leaflet/objects

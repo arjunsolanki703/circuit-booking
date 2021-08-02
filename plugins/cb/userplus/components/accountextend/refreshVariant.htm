@@ -1,0 +1,16 @@
+
+    <div class="form-group">
+        <div class="form-control">
+            <label for="vehicle_type_id">{{ 'cb.pgmware::lang.componentBooking.typeOfVeh'|trans }} <span class="required">*</span></label>
+            <div class="input-wrapper">
+                {% set disabled = sircuitSharing.variant ? '' : 'disabled' %}
+                <select name="vehicle_type_id" id="vehicle_type_id" {{ disabled }}>
+                    <option selected disabled>Please select</option>
+                    {% for item, key in vehicleTypes %}
+                    <option value="{{ item }}">{{ key }}</option>
+                    {% endfor %}
+                </select>
+                <i class="arrow-icon"></i>
+            </div>
+        </div>
+    </div>

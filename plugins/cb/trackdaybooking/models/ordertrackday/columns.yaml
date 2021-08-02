@@ -1,0 +1,39 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    variant:
+        label: variant
+        relation: variant
+        select: name
+    title:
+        label: Order title
+        type: text
+    trackday_title:
+        label: trackday title
+        select: title
+        relation: trackday
+    description:
+        label: description
+        type: text
+    start_date:
+        label: start_date
+        type: date
+    end_date:
+        label: end_date
+        type: date
+    price:
+        label: price
+        type: number
+    currency:
+        label: currency
+        select: currency_code
+        relation: currency
+    vat_value:
+        label: 'vat value'
+        type: number
+    booking:
+        label: booking
+        select: description
+        relation: booking

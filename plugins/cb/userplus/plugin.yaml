@@ -1,0 +1,6 @@
+plugin:
+    name: 'cb.userplus::lang.plugin.name'
+    description: 'cb.userplus::lang.plugin.description'
+    author: cb
+    icon: oc-icon-user-plus
+    homepage: ''

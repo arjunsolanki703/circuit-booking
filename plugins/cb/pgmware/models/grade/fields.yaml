@@ -1,0 +1,16 @@
+fields:
+    name:
+        label: 'cb.pgmware::lang.default.name'
+        span: auto
+        required: 1
+        type: text
+    grade_logo:
+        label: 'cb.pgmware::lang.default.logo'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+        tab: 'cb.pgmware::lang.default.files'

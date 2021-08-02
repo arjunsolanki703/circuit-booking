@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: cb.company::lang.gallery.label
+
+# Model Form Field configuration
+form: $/cb/company/models/gallery/fields.yaml
+
+# Model Class name
+modelClass: Cb\Company\Models\Gallery
+
+# Default redirect location
+defaultRedirect: cb/company/galleries
+
+# Create page
+create:
+    title: cb.company::lang.gallery.create_title
+    redirect: cb/company/galleries/update/:id
+    redirectClose: cb/company/galleries
+
+# Update page
+update:
+    title: cb.company::lang.gallery.update_title
+    redirect: cb/company/galleries
+    redirectClose: cb/company/galleries
+
+# Preview page
+preview:
+    title: cb.company::lang.gallery.preview_title

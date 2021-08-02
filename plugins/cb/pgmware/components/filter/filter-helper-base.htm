@@ -1,0 +1,59 @@
+<div class="filter-helper">
+    <div class="title">{{ 'cb.pgmware::lang.componentFilter.found'|trans }} {{ p.total }} {{ 'cb.pgmware::lang.componentFilter.circuitsOutOf'|trans }} {{ p.superTotal }}</div>
+    {% if (self.continent or self.country or self.vehicleType or self.grade or self.length[0] or self.length[1]) %}
+    <div class="filters">
+        <div class="filters-title">{{ 'cb.pgmware::lang.componentFilter.filtres'|trans }}</div>
+        <div class="filters-list">
+            {% if self.continent %}
+            <button class="filters-list--item" onclick="let v=$('#continent');v.val('');v.change();">
+                <span>{{ self.getContinentOptions()[self.continent] }}</span>
+                <i class="mdi mdi-close"></i>
+            </button>
+            {% endif %}
+            {% if self.country %}
+                {% set list = self.getCountryOptions %}
+                {% for id in self.country %}
+                <button class="filters-list--item" onclick="let v=$('#country-{{ id }}');v.prop('checked', false);v.change();">
+                    <span>{{ list[id] }}</span>
+                    <i class="mdi mdi-close"></i>
+                </button>
+                {% endfor %}
+            {% endif %}
+            {% if self.vehicleType %}
+                {% set list = self.getVehicleTypeOptions %}
+                {% for id in self.vehicleType %}
+                <button class="filters-list--item" onclick="let v=$('#vehicle-{{ id }}');v.prop('checked', false);v.change();">
+                    <span>{{ list[id] }}</span>
+                    <i class="mdi mdi-close"></i>
+                </button>
+                {% endfor %}
+            {% endif %}
+            {% if self.grade %}
+                {% set list = self.getGradeOptions %}
+                <button class="filters-list--item" onclick="let v=$('#grade');v.val('');v.change();">
+                    <span>{{ list[self.grade] }}</span>
+                    <i class="mdi mdi-close"></i>
+                </button>
+            {% endif %}
+            {% if self.length[0] or self.length[1] %}
+            <button class="filters-list--item" onclick="$('#filter-length').val('');$('#continent').change();">
+                <span>{{ self.length[0] }}m - {{ self.length[1] }}m</span>
+                <i class="mdi mdi-close"></i>
+            </button>
+            {% endif %}
+            {% if self.price[0] or self.price[1] %}
+            <button class="filters-list--item" onclick="$('#filter-price').val('');$('#continent').change();">
+                <span>{{ self.price[0] }} - {{ self.price[1] }} price</span>
+                <i class="mdi mdi-close"></i>
+            </button>
+            {% endif %}
+            {% if self.startDate and self.endDate %}
+            <button class="filters-list--item" onclick="$('#pre_start_date').val('');$('#pre_end_date').val('');$('#continent').change();">
+                <span>{{ self.startDate }} - {{ self.endDate }}</span>
+                <i class="mdi mdi-close"></i>
+            </button>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>

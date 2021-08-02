@@ -1,0 +1,166 @@
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.vehicle_type' | trans }}<span class="required">*</span></div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <select name="vehicle_type_id">
+                            {% for vehicleType in vehicleTypes %}
+                                <option value="{{ vehicleType.id }}" {{ item.vehicle_type_id == vehicleType.id ? 'selected' : ''}}>{{ vehicleType.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.title' | trans }}<span class="required">*</span></div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="text" name="title" value="{{ item.title }}"  class="form-control" autocomplete="off" maxlength="255">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.description' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <textarea name="description" autocomplete="off" class="form-control field-textarea size-large">{{ item.description }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.price' | trans }}<span class="required">*</span></div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        <input type="number" name="price" value="{{ item.price }}" class="form-control" autocomplete="off" pattern="-?\d+(\.\d+)?" maxlength="255">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label>{{ 'cb.trackdaybooking::lang.component.currency' | trans }}<span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <select name="currency_id">
+                        {% for currency in currencys %}
+                            <option value="{{ currency.id }}" {{ item.currency_id == currency.id ? 'selected' : ''}}>{{ currency.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <i class="arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-control">
+                <label>{{ 'cb.trackdaybooking::lang.component.vat_value' | trans }}<span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="number"
+                           step="any"
+                           name="vat_value"
+                           value="{{ item.vat_value }}"
+                           class="form-control"
+                           autocomplete="off" pattern="-?\d+(\.\d+)?"
+                           maxlength="255"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.bookable' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+
+                    {% set checked = item.bookable ? 'checked' : '' %}
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   name="bookable"
+                                   class="mdc-checkbox__native-control"
+                                   onchange="changeAvailability('{{ item.id }}');"
+                                   value="{{ item.id }}"
+                                   id="available-{{ item.id }}"
+                                    {{ checked }}/>
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                        <label class="right-label" for="available-{{ item.id }}">
+                            <div class="left">
+                                <span class="title">Active</span>
+                            </div>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.trackday_company' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper">
+                        {{ user.company.name }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="col-6 col-xs-12">
+        <div class="form-group">
+            <div class="form-group--title">{{ 'cb.trackdaybooking::lang.component.image' | trans }}</div>
+            <div class="form-group--content">
+                <div class="form-control">
+                    <div class="input-wrapper file-input">
+                        <input type="file" id="image" name="image">
+                        <label for="image" class="button solid w-all">
+                            <i class="mdi mdi-upload"></i>
+                            <span>Choose the file</span>
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <img style="width: auto" src="{{ item.image.path }}">
+            </div>
+        </div>
+    </div>
+</div>

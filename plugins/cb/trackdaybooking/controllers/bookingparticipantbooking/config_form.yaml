@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking Participant Booking
+
+# Model Form Field configuration
+form: $/cb/trackdaybooking/models/bookingparticipantbooking/fields.yaml
+
+# Model Class name
+modelClass: Cb\Trackdaybooking\Models\BookingParticipantBooking
+
+# Default redirect location
+defaultRedirect: cb/trackdaybooking/bookingparticipantbooking
+
+# Create page
+create:
+    title: Create Booking Participant Booking
+    redirect: cb/trackdaybooking/BookingParticipantBooking
+    redirectClose: cb/trackdaybooking/bookingparticipantbooking
+
+# Update page
+update:
+    title: Edit Booking Participant Booking
+    redirect: cb/trackdaybooking/bookingparticipantbooking
+    redirectClose: cb/trackdaybooking/bookingparticipantbooking
+
+# Preview page
+preview:
+    title: Preview Booking Participant Booking

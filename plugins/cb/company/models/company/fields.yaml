@@ -1,0 +1,80 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: cb.company::lang.company.name
+        span: auto
+    slogan:
+        label: cb.company::lang.company.slogan
+        span: auto
+    email:
+        label: cb.company::lang.labels.email
+        span: auto
+    address:
+        label: cb.company::lang.labels.address
+        span: auto
+    phone:
+        label: cb.company::lang.labels.phone
+        span: auto
+    fax:
+        label: cb.company::lang.labels.fax
+        span: auto
+    contact:
+        label: cb.company::lang.company.contact
+        type: dropdown
+        span: auto
+
+tabs:
+  fields:
+      logo:
+          label: cb.company::lang.labels.logo
+          type: fileupload
+          mode: image
+          imageHeight: 260
+          imageWidth: 260
+          tab: cb.company::lang.labels.logo
+      story:
+          type: richeditor
+          size: giant
+          label: cb.company::lang.company.story
+          tab: cb.company::lang.company.story
+      social_media:
+        type: repeater
+        tab: cb.company::lang.labels.social
+        prompt: cb.company::lang.labels.social_prompt
+        form:
+            fields:
+                name:
+                    label: cb.company::lang.labels.name
+                    comment: cb.company::lang.employees.name_comment
+                    span: auto
+                icon:
+                    label: cb.company::lang.labels.icon
+                    span: auto
+                    default: fa-
+                    comment: cb.company::lang.projects.icon_comment
+                    tab: cb.company::lang.labels.description
+                username:
+                    label: cb.company::lang.labels.username
+                    span: auto
+                url:
+                    label: cb.company::lang.labels.user_url
+                    span: auto
+      street_name:
+        label: cb.company::lang.labels.street_name
+        tab: cb.company::lang.labels.address
+        span: auto
+      street_number:
+        label: cb.company::lang.labels.street_number
+        tab: cb.company::lang.labels.address
+        span: auto
+      zip:
+        label: cb.company::lang.labels.zip
+        tab: cb.company::lang.labels.address
+        span: auto
+      city:
+        label: cb.company::lang.labels.city
+        tab: cb.company::lang.labels.address
+        span: auto

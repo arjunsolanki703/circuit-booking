@@ -1,0 +1,10 @@
+name: Lastminute
+form: $/cb/pgmware/models/lastminute/fields.yaml
+modelClass: Cb\Pgmware\Models\Lastminute
+defaultRedirect: cb/pgmware/lastminute
+create:
+    redirect: 'cb/pgmware/lastminute/update/:id'
+    redirectClose: cb/pgmware/lastminute
+update:
+    redirect: cb/pgmware/lastminute
+    redirectClose: cb/pgmware/lastminute

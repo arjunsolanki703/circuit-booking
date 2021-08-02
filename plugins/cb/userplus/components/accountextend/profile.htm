@@ -1,0 +1,29 @@
+<div class="profile-header d-f ai-st jc-s">
+    {% if user.avatar %}
+    <div class="profile-image d-f jc-c ai-c">
+        <img src="{{ user.avatar.path|resize(120, 120, { mode: 'crop'}) }}" alt="user avatar image">
+    </div>
+    {% endif %}
+    <div class="profile-info d-f flow-column jc-sb">
+        <div class="crumbs-wrapper">{% component 'breadcrumbs' %}</div>
+        <div class="person-info">
+            <h1>{{ user.name }} {{ user.surname }}</h1>
+            {% if user.company.city or user.company.url %}
+            <div class="profile-address-wrapper">
+                {% if user.company.city %}
+                <div class="profile-contact-item profile-address">
+                    <i class="mdi mdi-map-marker"></i>
+                    <span class="value">{{ user.company.city }}</span>
+                </div>
+                {% endif %}
+                {% if user.company.url %}
+                <div class="profile-contact-item profile-website">
+                    <i class="mdi mdi-earth"></i>
+                    <a href="{{ user.company.url }}" class="value">{{ user.company.url }}</a>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="profile-ch--header">
+    <div class="columns">
+        <div class="col-4 col-xs-12">
+            <button class="button solid modal-caller w-all" data-target="sharing-create-modal">Add new Circuit Sharing event</button>
+        </div>
+    </div>
+</div>
+
+<table class="table-sortable" id="table-sortable-2">
+    <thead>
+    <tr>
+        <th class="mobile-table-header">Circuit Name</th>
+        <th>Dates</th>
+        <th>Type</th>
+        <th>Type of Event</th>
+        <th>Type of Vehicle</th>
+        <th>Vehicles</th>
+        <th>Price per day</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in user.sharing %}
+    <tr>
+        <td class="mobile-table-column">
+            <div class="name">
+                {{ item.title }}<br>
+                Variant: {{ item.variant.name }}
+            </div>
+            <div class="mobile-info">
+                <div class="line">
+                    <div class="name">Circuit Variant</div>
+                    <div class="value">{{ item.variant.name }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Dates</div>
+                    <div class="value">{{ item.start_date|date('j.m.Y') }} - {{ item.end_date|date('j.m.Y') }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Bookable until</div>
+                    <div class="value">{{ item.valid_before_date|date('j.m.Y') }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Type</div>
+                    <div class="value">{{ item.circuit_sharing_type }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Type of Event</div>
+                    <div class="value">{{ item.booking_type.name }}</div>
+                </div>
+
+                <div class="line">
+                    <div class="name">Type of Vehicle</div>
+                    <div class="value">
+                        <img src="{{ item.vehicle_type.vehicle_icon.path }}" alt="vehicle icon">
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="name">Vehicles</div>
+                    <div class="value">{{ item.vehicles_count }}</div>
+                </div>
+                <div class="line">
+                    <div class="name">Price per day</div>
+                    <div class="value">{{ (item.price)|currency({from: item.currency.currency_code, to: item.currency.currency_code}) }}</div>
+                </div>
+            </div>
+        </td>
+        <td>
+            {{ item.start_date|date('j.m.Y') }} - {{ item.end_date|date('j.m.Y') }}<br>
+            Bookable until: {{ item.valid_before_date|date('j.m.Y') }}
+        </td>
+        <td>{{ item.circuit_sharing_type }}</td>
+        <td>{{ item.booking_type.name }}</td>
+        <td>
+            <img src="{{ item.vehicle_type.vehicle_icon.path }}" alt="vehicle icon">
+        </td>
+        <td>{{ item.vehicles_count }}</td>
+        <td>{{ (item.price)|currency({from: item.currency.currency_code, to: item.currency.currency_code}) }}</td>
+        <td>
+            {% set checked = item.is_available ? 'checked' : '' %}
+            <div class="mdc-form-field">
+                <div class="mdc-checkbox">
+                    <input type="checkbox"
+                           class="mdc-checkbox__native-control"
+                           onchange="changeAvailability('{{ item.id }}');"
+                           value="{{ item.id }}"
+                           id="available-{{ item.id }}"
+                           {{ checked }}/>
+                    <div class="mdc-checkbox__background">
+                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path"
+                                  fill="none"
+                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                        </svg>
+                        <div class="mdc-checkbox__mixedmark"></div>
+                    </div>
+                </div>
+                <label class="right-label" for="available-{{ item.id }}">
+                    <div class="left">
+                        <span class="title">Active</span>
+                    </div>
+                </label>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% put scripts %}
+<script>
+    function changeAvailability(sharingId) {
+        $.request(
+            'onSharingChangeAvailability', {
+                data: { "id": sharingId },
+                success: function(data) {
+                    toastr.success('Availability changed');
+                },
+                error: function() {
+                    toastr.error('Unknown error');
+                }
+            }
+        );
+    }
+</script>
+{% endput %}
+
+{% partial __SELF__ ~ '::sharing_create_form' %}

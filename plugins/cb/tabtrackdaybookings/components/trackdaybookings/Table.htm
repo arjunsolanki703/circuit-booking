@@ -1,0 +1,134 @@
+<table class="table-sortable">
+    <thead>
+    <tr>
+        <th class="mobile-table-header">{{ 'cb.tabtrackdaybookings::lang.component.title_variant' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaybookings::lang.component.dates' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaybookings::lang.component.vehicle_type' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaybookings::lang.component.vehicles' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaybookings::lang.component.slots_price' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaybookings::lang.component.vat' | trans }}</th>
+        <th>{{ 'cb.tabtrackdaybookings::lang.component.active' | trans }}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+        <tr>
+            <td class="mobile-table-column">
+                {{ item.title }} {{ item.variant.name }}
+            </td>
+            <td>{{ item.getStartDate() }} {{ item.getEndDate() }}</td>
+            <td><i class="{{ item.trackday.vehicle_type.icon }}"></i></td>
+            <td>{{ item.trackday.vehicle_type.name }}</td>
+            <td>{{ item.currency.currency_symbol }} {{ item.price }}</td>
+            <td>%{{ item.vat_value }}</td>
+            <td>
+                {% set checked = item.trackday.bookable ? 'checked' : '' %}
+                <div class="mdc-form-field">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox"
+                               class="mdc-checkbox__native-control"
+                               onchange="changeTrackDayBookingsAvailability('{{ item.id }}');"
+                               value="{{ item.id }}"
+                               id="availableTrackDayBookings-{{ item.id }}"
+                                {{ checked }}/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                    </div>
+                    <label class="right-label" for="availableTrackDayBookings-{{ item.id }}">
+                        <div class="left">
+                            <span class="title">Active</span>
+                        </div>
+                    </label>
+                </div>
+            </td>
+            <td>
+                <button class="alt" type="submit"
+                        data-request="onViewTrackDayBooking"
+                        data-request-data="{{ item }}"
+                        data-request-update="'{{ __SELF__ }}::view': '#TrackDayBookings'"
+                >
+                    <i class="mdi  mdi-eye"></i>
+                </button>
+                <button class="alt" type="submit"
+                        data-request="onEditTrackDayBooking"
+                        data-request-data="{{ item }}"
+                        data-request-update="'{{ __SELF__ }}::main': '#TrackDayBookings'"
+                >
+                    <i class="mdi  mdi-pencil"></i>
+                </button>
+                <button class="alt" type="submit" onclick="onDeleteTrackDayBookings({{ item.id }},{{ item.getCountBookingParticipantBooking() }})">
+                    <i class="mdi mdi-delete"></i>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% put scripts %}
+    <script>
+
+        function onDeleteTrackDayBookings(id,count) {
+
+            if (count!==0){
+                Modal.confirm({
+                    title: '{{ 'cb.tabtrackdaybookings::lang.component.title_alert_delete' | trans }}',
+                    message: '{{ 'cb.tabtrackdaybookings::lang.component.message_alert_delete' | trans }}',
+                    autoOpen: true,
+                    closeOnEscape: true,
+                    closeOnBlur: true,
+                    animated: true,
+                    buttonClass: '',
+                    buttonLbl: 'Yes',
+                    cancelLbl:'{{ 'cb.tabtrackdaybookings::lang.component.cancel' | trans }}',
+                    onConfirm: async function () {
+                        onForceDeleteTrackDayBookings(id);
+                    }
+                });
+                return;
+            }
+
+            onForceDeleteTrackDayBookings(id);
+        }
+
+        function onForceDeleteTrackDayBookings(id) {
+            Modal.confirm({
+                title: '{{ 'cb.tabtrackdaybookings::lang.component.delete_title_trackdaybookings' | trans }}',
+                message: '{{ 'cb.tabtrackdaybookings::lang.component.delete_message' | trans }}',
+                autoOpen: true,
+                closeOnEscape: true,
+                closeOnBlur: true,
+                animated: true,
+                buttonClass: '',
+                buttonLbl: 'OK',
+                cancelLbl: 'Cancel',
+                onConfirm: async function () {
+                    await $.request('onDeleteTrackDayBooking', {
+                            data: {id},
+                            update: {'{{ __SELF__ }}::main': '#TrackDayBookings'},
+                        },
+                    );
+                },
+            });
+        }
+
+        function changeTrackDayBookingsAvailability(sharingId) {
+            $.request('onTrackDayBookingsUpdateBookable', {
+                    data: {"id": sharingId},
+                    success: function (data) {
+                        toastr.success('Availability changed');
+                    },
+                    error: function () {
+                        toastr.error('Unknown error');
+                    },
+                    update: {'{{ __SELF__ }}::main': '#TrackDayBookings'}
+                },
+            );
+        }
+    </script>
+{% endput %}
