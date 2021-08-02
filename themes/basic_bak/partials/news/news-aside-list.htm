@@ -1,0 +1,23 @@
+[viewBag]
+==
+{% if posts %}
+<section class="news-aside">
+    <header class="news-aside--header">
+        <h2 class="news-aside--title">
+            {% if filePage == 'news/news-item' %}
+            {{ 'news.relatedNews'|_ }}
+            {% else %}
+            {{ 'news.relatedJobs'|_ }}
+            {% endif %}
+        </h2>
+    </header>
+    <main class="news-aside--list">
+        {% for p in posts %}
+            {% if (p.id != post.id and p.status == 1) %}
+            {% partial 'news/news-aside-item' item=p %}
+            {% endif %}
+        {% endfor %}
+    </main>
+</section>
+
+{% endif %}

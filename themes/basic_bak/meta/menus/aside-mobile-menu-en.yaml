@@ -1,0 +1,63 @@
+name: 'Aside Mobile Menu'
+items:
+    -
+        title: Homepage
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Proving Grounds'
+        type: cms-page
+        code: ''
+        reference: circuits/circuits-list
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: News
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: news/news-list
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Jobs
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: jobs/list
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: contact
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

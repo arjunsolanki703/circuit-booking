@@ -1,0 +1,38 @@
+title = "Trackday"
+url = "/trackday/:slug"
+layout = "main"
+is_hidden = 0
+child_of = "trackdaybooking/trackday-list"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumbElementTitle = "page-title"
+crumb_disabled = 0
+
+[viewBag]
+localeUrl[de] = "/trackday"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[trackdaybookingprozess]
+slug = "{{ :slug }}"
+==
+
+<div class="page location-page">
+    <div class="container page-wrapper">
+        <div class="page-content">
+            <header class="page-header">
+                <div class="wrapper">
+                    {% component 'breadcrumbs' %}
+                    <h1> Complete your trackday booking in a few clicks</h1>
+                </div>
+            </header>
+            <main class="page-main">
+                <p>PLEASE NOTE THAT JUST A PREVIEW PROTOTYPE</p>
+                {% component 'trackdaybookingprozess' %}
+            </main>
+        </div>
+    </div>
+</div>

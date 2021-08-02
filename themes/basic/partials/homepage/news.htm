@@ -1,0 +1,14 @@
+[viewBag]
+==
+{% if posts|length > 0 %}
+<section class="homepage-section news">
+    <div class="container wrapper">
+        <header class="section-header">
+            <h2 class="section-title">{{ 'home.news'|_ }}</h2>
+            <a href="{{ 'news/news-list'|page }}" class="button alt">{{ 'buttons.allNews'|_ }}</a>
+        </header>
+        <main class="homepage-news--list">
+            {% partial 'news/news-list' posts=posts %}
+        </main>
+</section>
+{% endif %}

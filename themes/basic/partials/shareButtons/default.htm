@@ -1,0 +1,55 @@
+<div
+
+        class="ya-share2"
+
+        {% if __SELF__.property('access_token') %}
+data-access-token="{{ __SELF__.property('access_token') }}"
+{% endif %}
+
+{% if __SELF__.property('bare') %}
+data-bare
+{% endif %}
+
+{% if __SELF__.property('counter') %}
+data-counter
+{% endif %}
+
+data-copy="{{ __SELF__.property('copy') }}"
+
+{% if __SELF__.property('description') %}
+data-description="{{ __SELF__.property('description') }}"
+{% endif %}
+
+data-direction="{{ __SELF__.property('direction') }}"
+
+{% if __SELF__.property('hashtags') %}
+data-hashtags="{{ __SELF__.property('hashtags') }}"
+{% endif %}
+
+{% if __SELF__.property('image') %}
+data-image="{{ __SELF__.property('image') }}"
+{% endif %}
+
+data-lang="{{ __SELF__.property('lang') }}"
+
+{% if __SELF__.property('limit') %}
+data-limit="{{ __SELF__.property('limit') }}"
+{% endif %}
+
+data-popup-direction="{{ __SELF__.property('popup_direction') }}"
+
+data-popup-position="{{ __SELF__.property('popup_position') }}"
+
+data-size="{{ __SELF__.property('size') }}"
+
+{% if __SELF__.property('title') %}
+data-title="{{ __SELF__.property('title') }}"
+{% endif %}
+
+{% if __SELF__.property('url') %}
+data-url="{{ __SELF__.property('url') }}"
+{% endif %}
+
+data-services="{% if __SELF__.property('collections') %}collections,{% endif %}{% if __SELF__.property('vkontakte') %}vkontakte,{% endif %}{% if __SELF__.property('facebook') %}facebook,{% endif %}{% if __SELF__.property('odnoklassniki') %}odnoklassniki,{% endif %}{% if __SELF__.property('moimir') %}moimir,{% endif %}{% if __SELF__.property('gplus') %}gplus,{% endif %}{% if __SELF__.property('pinterest') %}pinterest,{% endif %}{% if __SELF__.property('twitter') %}twitter,{% endif %}{% if __SELF__.property('blogger') %}blogger,{% endif %}{% if __SELF__.property('delicious') %}delicious,{% endif %}{% if __SELF__.property('digg') %}digg,{% endif %}{% if __SELF__.property('reddit') %}reddit,{% endif %}{% if __SELF__.property('evernote') %}evernote,{% endif %}{% if __SELF__.property('linkedin') %}linkedin,{% endif %}{% if __SELF__.property('lj') %}lj,{% endif %}{% if __SELF__.property('pocket') %}pocket,{% endif %}{% if __SELF__.property('qzone') %}qzone,{% endif %}{% if __SELF__.property('renren') %}renren,{% endif %}{% if __SELF__.property('sinaWeibo') %}sinaWeibo,{% endif %}{% if __SELF__.property('surfingbird') %}surfingbird,{% endif %}{% if __SELF__.property('tencentWeibo') %}tencentWeibo,{% endif %}{% if __SELF__.property('tumblr') %}tumblr,{% endif %}{% if __SELF__.property('viber') %}viber,{% endif %}{% if __SELF__.property('whatsapp') %}whatsapp,{% endif %}{% if __SELF__.property('skype') %}skype,{% endif %}{% if __SELF__.property('telegram') %}telegram{% endif %}"
+
+></div>

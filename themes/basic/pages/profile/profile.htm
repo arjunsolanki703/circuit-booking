@@ -1,0 +1,97 @@
+title = "Profile"
+url = "/profile"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[registration]
+paramCode = "code"
+forceSecure = 0
+type = "profile"
+cancel = "http://localhost:81/backend/cms"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+
+[TrackDayBookings]
+
+[TrackDaysProfile]
+
+[profilmyvehicle]
+
+[updatepasswort]
+
+[profilbookinghistory]
+
+[profileinformation]
+
+[companyinformation]
+==
+<div class="page profile-page">
+    <div class="container page-wrapper">
+        <div class="page-content">
+            <main class="page-main">
+                {% component 'registration' %}
+
+                {% if true and type == 'profile' and user and user.is_activated %}
+                    <div class="tabs">
+                        <div class="tabs-header profile-tabs-header">
+                            <button class="tabs-header--item active">{{ 'cb.userplus::lang.component.profileInfo'|trans }}</button>
+                            <button class="tabs-header--item">{{ 'cb.userplus::lang.component.companyInfo'|trans }}</button>
+                            <button class="tabs-header--item">{{ 'cb.userplus::lang.component.myVehicles'|trans }}</button>
+                            {% if inGroup('operator') or inGroup('cb_trackday_organizer') %}
+                                <button class="tabs-header--item">{{ 'cb.trackdaybooking::lang.component.trackdays'|trans }}</button>
+                            {% endif %}
+
+                            {% if inGroup('client') %}
+                                <button class="tabs-header--item">{{ 'cb.trackdaybooking::lang.component.trackdays'|trans }}</button>
+                            {% endif %}
+
+                            {% if inGroup('client') %}
+                                <button class="tabs-header--item">My Bookings</button>
+                            {% endif %}
+
+                            {% if inGroup('operator') and inGroup('cb_trackday_organizer') %}
+                                <button class="tabs-header--item">{{ 'cb.userplus::lang.component.trackdayBookings'|trans }}</button>
+                            {% endif %}
+
+                            <button class="tabs-header--item">{{ 'cb.userplus::lang.component.pass'|trans }}</button>
+                            <button class="tabs-header--item">{{ 'cb.userplus::lang.component.bookingHistory'|trans }}</button>
+
+                        </div>
+                        <div class="tabs-content">
+                            <div class="tab">{% component 'profileinformation' %}</div>
+                            <div class="tab">{% component 'companyinformation' %}</div>
+                            <div class="tab"> {% component 'profilmyvehicle' %} </div>
+                            {% if inGroup('operator') or inGroup('cb_trackday_organizer') %}
+                                <div class="tab">{% component 'TrackDaysProfile' %}</div>
+                            {% endif %}
+
+                            {% if inGroup('client') %}
+                                <div class="tab">TrackDays for client</div>
+                            {% endif %}
+
+                            {% if inGroup('client') %}
+                                <div class="tab">My Bookings</div>
+                            {% endif %}
+
+                            {% if inGroup('operator') and inGroup('cb_trackday_organizer') %}
+                                <div class="tab">{% component 'TrackDayBookings' %}</div>
+                            {% endif %}
+
+                            <div class="tab">{% component 'updatepasswort' %}</div>
+                            <div class="tab">{% component 'profilbookinghistory' %}</div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            </main>
+        </div>
+    </div>
+</div>

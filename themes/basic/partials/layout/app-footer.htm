@@ -1,0 +1,97 @@
+[viewBag]
+
+[staticMenuMultilingual footerMenu]
+code = "footer-menu"
+
+[staticMenuMultilingual footerMenuMobile]
+code = "footer-mobile-menu"
+
+==
+<?php
+function onStart()
+{
+    $this['url'] = $this->currentPageUrl();
+    $this['full'] = $this['page'] === 'home';
+}
+?>
+==
+{% set version = "v1.3.3.2" %}
+<footer class="app-footer_mobile">
+    <section class="footer-nav">
+        <div class="container">
+            {% component 'footerMenuMobile' %}
+        </div>
+    </section>
+    <section class="footer-info">
+        <div class="container">
+            <div class="wrapper">
+                <a href="/" class="logo-container">
+                    <img src="{{ 'assets/images/basic/logo-footer.png'|theme }}" alt="circuit booking logo image">
+                </a>
+                <div class="company-name">HTA Circuit Booking GmbH, 2019, {{ version }}</div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<footer id="app-footer">
+    <div class="container wrapper">
+        {% if full %}
+        {% component 'newsSubscribe' %}
+        {% endif %}
+        <section class="footer-nav">{% component 'footerMenu' %}</section>
+        <section class="footer-info">
+            <div class="company-info">
+                <div class="company-info--logo">
+                    <img src="{{ 'assets/images/basic/logo-footer.png'|theme }}" alt="company logo image">
+                </div>
+                <div class="company-info--name">HTA Circuit Booking GmbH, 2019, {{ version }}</div>
+            </div>
+            <div class="socials">
+                <a target="_blank" rel="nofollow" href="http://www.facebook.com/circuitbooking"><i class="mdi mdi-facebook-box"></i></a>
+                <a target="_blank" rel="nofollow" href="http://twitter.com/circuitbooking"><i class="mdi mdi-twitter"></i></a>
+                <a target="_blank" rel="nofollow" href="https://www.instagram.com/circuitbooking"><i class="mdi mdi-instagram"></i></a>
+            </div>
+        </section>
+    </div>
+</footer>
+
+{% put scripts %}
+<script>
+    function addErrors(form, json, help) {
+        $.each(json, function(i, v) {
+            var name = help == undefined ? i : help+'[' + i + ']';
+            var input = $(form).find('[name="'+name+'"]');
+
+            var control = $(form).find('[name="'+name+'"]').closest('.form-control');
+
+            $(control).addClass('error');
+            $(control).append('<div class="error-message">'+v+'</div>');
+            $(control).find('.input-wrapper').append('<i class="error-icon mdi mdi-alert-octagon"></i>');
+        });
+    }
+    function removeErrors(form) {
+        if (form.find('.error').length) {
+            form.find('.error').find('.error-message').remove();
+            form.find('.error').find('.error-icon').remove();
+            form.find('.error').removeClass('error');
+        }
+        if (form.find('.error-alert').length) {
+            form.find('.error-alert').remove();
+        }
+        if (form.find('.success-alert').length) {
+            form.find('.success-alert').remove();
+        }
+    }
+    function magicFormSuccess(form) {
+        toastr.success('Thank you very much for your message. We will get in touch with you shortly.');
+        $(form).find('button[type="submit"]').attr('disabled', 'disabled');
+    }
+    function magicFormSuccessDynamic(form, text) {
+        toastr.success(''+text);
+        $(form).find('button[type="submit"]').attr('disabled', 'disabled');
+    }
+</script>
+{% endput %}
+
+{% scripts %}

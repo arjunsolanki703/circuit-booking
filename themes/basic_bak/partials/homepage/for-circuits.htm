@@ -1,0 +1,29 @@
+[viewBag]
+==
+<section class="homepage-section for-circuits">
+    <div class="container wrapper">
+        <div class="columns">
+            <div class="col-6 hidden-xs">
+                <div class="img-wrapper">
+                    <img src="{{ 'assets/images/basic/forcircuits-image.png'|theme }}" alt="for circuits section image">
+                </div>
+            </div>
+            <div class="col-6 col-xs-12">
+                <div class="section-header">
+                    <div class="section-subtitle hidden-xs">{{ 'home.forCircuits.title'|_ }}</div>
+                    <h2 class="section-title">{{ 'home.forCircuits.description'|_ }}</h2>
+                </div>
+                <main class="section-content checked-list">
+                    {% content 'home/for-circuits' %}
+                    <div class="section-footer">
+                        {% if user %}
+                        <a href="{{ 'profile/profile'|page }}" class="button alt">{{ 'buttons.signUp'|_ }}</a>
+                        {% else %}
+                        <a href="{{ 'profile/register'|page }}" class="button alt">{{ 'buttons.signUp'|_ }}</a>
+                        {% endif %}
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</section>

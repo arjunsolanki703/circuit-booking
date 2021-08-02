@@ -1,0 +1,50 @@
+name: 'Header menu'
+items:
+    -
+        title: 'Circuits DE'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: circuits/circuits
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Circuit Sharing'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: circuits/circuitsharing
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Last Minute Bookings'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: last-minute-bookings
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: News
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

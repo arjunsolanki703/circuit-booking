@@ -1,0 +1,67 @@
+<!--MODAL-->
+<div class="modal-wrapper modal" id="sharing-request-modal" data-hidden-field="">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window">
+        <div class="modal-header">
+            <div class="modal-header--title">Send a request</div>
+        </div>
+        <div class="modal-content">
+            <form class="sharing-request-form"
+                id="sharing-request-form"
+                data-request="{{ __SELF__ }}::onFormSubmit"
+                data-request-error="removeErrors($(this));addErrors($(this),jqXHR.responseJSON.error_fields);return false;"
+                data-request-success="removeErrors($(this));magicFormSuccess($(this));">
+                {{ form_token() }}
+                <input type="hidden" id="circuit_sharing_id" name="circuit_sharing_id">
+                <input type="hidden" id="circuit_sharing_name" name="circuit_sharing_name">
+                <input type="hidden" id="is_lastminute" name="is_lastminute">
+                <div class="columns">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="sharing-request-name">Your name</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="sharing-request-name" name="name" placeholder="Enter your name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="sharing-request-mail">Your email</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="sharing-request-mail" name="email" placeholder="Enter your email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label for="message">Message</label>
+                                <div class="input-wrapper">
+                                    <textarea name="message" id="message" placeholder="Your message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns jc-e">
+                    <div class="col-9">
+                        <div class="columns">
+                            <div class="col-4">
+                                <button type="button" class="button alt close-modal w-all">Cancel</button>
+                            </div>
+                            <div class="col-8">
+                                <button type="submit" class="button solid w-all">Send a request</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

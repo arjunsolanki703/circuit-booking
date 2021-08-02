@@ -1,0 +1,33 @@
+@import '../base';
+
+a {
+  @include clear-button();
+
+  color: map-get($primary, 200);
+  transition: mat-transition(color);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: map-get($primary, 300);
+  }
+
+  .underline {
+    color: map-get($primary, 200);
+    position: relative;
+
+    &::after {
+      @include underline();
+    }
+  }
+
+  .alt {
+    color: map-get($gray, 700);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: map-get($primary, 200);
+    }
+  }
+}

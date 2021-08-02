@@ -1,0 +1,40 @@
+[viewBag]
+==
+<section class="news-item">
+    {% if post.image %}
+    <header class="news-item--header">
+        <div class="img-wrapper">
+            <img src="{{ post.image|media }}" alt="{{ post.title }}">
+        </div>
+        <div class="info">
+            <div class="date">{{ post.published_at|date('j M Y') }}</div>
+            <h1 class="title page-title" id="news-title">{{ post.title }}</h1>
+        </div>
+    </header>
+    {% else %}
+    <header class="news-item--no-image-header">
+        <div class="info">
+            <div class="date">{{ post.published_at|date('j M Y') }}</div>
+            <h1 class="title page-title w-all" id="news-title">{{ post.title }}</h1>
+        </div>
+    </header>
+    {% endif %}
+    <main class="news-item--main">{{ post.content|md }}</main>
+    {% if filePage == 'news/news-item' %}
+        <footer class="news-item--footer">
+            <div class="socials">{% component 'shares' %}</div>
+            <!--<div class="rating-buttons">rating buttons</div>-->
+        </footer>
+        <div class="columns news-item--related">
+            {% set prev = post.prevPlus() %}
+            {% if (prev) %}
+                <div class="col-6 col-xs-12">{% partial 'news/news-aside-item' item=prev %}</div>
+            {% endif %}
+            
+            {% set next = post.nextPlus() %}
+            {% if (next) %}
+                <div class="col-6 col-xs-12">{% partial 'news/news-aside-item' item=next %}</div>
+            {% endif %}
+        </div>
+    {% endif %}
+</section>

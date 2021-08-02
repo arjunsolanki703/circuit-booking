@@ -1,0 +1,26 @@
+@import '../../base';
+
+.homepage-section.about {
+  background: map-get($gray, 100);
+  color: map-get($gray, 700);
+
+  .wrapper {
+    padding-top: 108px;
+    padding-bottom: 108px;
+  }
+  .section-title {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .homepage-section.about {
+    .wrapper {
+      padding-top: map-get($gaps, regular);
+      padding-bottom: map-get($gaps, regular);
+    }
+    .section-title {
+      margin-bottom: map-get($gaps, small);
+    }
+  }
+}

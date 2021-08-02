@@ -1,0 +1,41 @@
+title = "Home"
+url = "/"
+layout = "main"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+localeTitle[de] = "Home DE"
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+postFeatured = 1
+categoryFilter = "News"
+postPage = 404
+categoryPage = 404
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[featuredLocation]
+countrySlug = "{{ :country }}"
+continentSlug = "{{ :continent }}"
+
+[newsSubscribe]
+
+[bookTrack]
+==
+{% partial 'homepage/first-screen' %}
+{% partial 'homepage/for-customers' %}
+{% partial 'homepage/for-circuits' %}
+{% partial 'homepage/news' posts=posts filePage='news/news-item' %}
+{% component 'featuredLocation' %}
+{% partial 'homepage/about' %}

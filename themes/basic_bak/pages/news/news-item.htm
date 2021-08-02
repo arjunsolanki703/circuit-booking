@@ -1,0 +1,51 @@
+title = "News"
+url = "/news/:slug"
+layout = "main"
+is_hidden = 0
+child_of = "news/news-list"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumbElementTitle = "news-title"
+crumb_disabled = 0
+
+[newsPost]
+slug = "{{ :slug }}"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 6
+noPostsMessage = "No posts found"
+sortOrder = "statistics desc"
+postFeatured = 0
+categoryFilter = "News"
+postPage = 404
+categoryPage = 404
+
+[shares]
+facebook = 1
+twitter = 1
+email = 0
+order_facebook = 1
+order_twitter = 2
+order_email = 3
+==
+<section class="page news-item-page">
+    <div class="container">
+        <header class="page-header">
+            {% component 'breadcrumbs' %}
+        </header>
+    </div>
+    <div class="container wrapper">
+        <main class="page-content">
+            {% partial 'news/news-item' post=post filePage='news/news-item' %}
+        </main>
+        <aside class="page-aside hidden-xs">
+            {% partial 'news/news-aside-list' filePage='news/news-item' %}
+        </aside>
+    </div>
+</section>

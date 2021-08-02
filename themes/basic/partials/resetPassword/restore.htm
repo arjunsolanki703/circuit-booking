@@ -1,0 +1,22 @@
+<p class="lead">
+    <strong>{{ 'user.lostPass'|_ }}</strong> {{ 'user.noProblemEnterEmail'|_ }}
+</p>
+
+<form
+    class="sign-in-form"
+    data-request="{{ __SELF__ }}::onRestorePassword"
+    data-request-error="addAlert($(this), jqXHR.responseText);return false;"
+    data-request-update="'{{ __SELF__ }}::reset': '#partialUserResetForm'">
+    <div class="form-group">
+        <div class="form-control">
+            <div class="input-wrapper">
+                <label for="userRestoreEmail">{{ 'user.email'|_ }}</label>
+                <input name="email" type="email" id="userRestoreEmail" placeholder="{{ 'user.enterEmail'|_ }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-footer">
+        <button type="submit" class="button solid">{{ 'user.restorePass'|_ }}</button>
+    </div>
+</form>

@@ -1,0 +1,225 @@
+name: 'Footer menu'
+items:
+    -
+        title: Services
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Terms and Conditions'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Privacy Policy'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'FAQ / Help'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Circuit Operators'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Concept Introduction'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Administration Software'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Registration
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Customers
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Online Booking'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Circuit Overview'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Registration
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Company
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Management
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Jobs
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: jobs/list
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Contact
+                nesting: '0'
+                type: static-page
+                code: ''
+                reference: contact
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Imprint
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: imprint
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'

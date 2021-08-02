@@ -1,0 +1,10 @@
+@mixin underline() {
+  content: '';
+  box-shadow: 0 2px 4px 0 rgba(map-get($primary, 200), 0.18);
+  background: map-get($primary, 200);
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

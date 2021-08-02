@@ -1,0 +1,52 @@
+title = "Continent"
+url = "/circuits/:continent"
+layout = "main"
+is_hidden = 0
+child_of = "circuits/circuits-list"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumbElementTitle = "page-title"
+crumb_disabled = 0
+
+[continent]
+continentSlug = "{{ :continent }}"
+
+[filter]
+selectorResult = "#circuits-list"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[map]
+map = 1
+showOnlyObject = 0
+fieldId = "map"
+height = "400px"
+latitude = 0
+longitude = 0
+zoom = 3
+==
+{% component 'map' %}
+<div class="page circuits-list-page">
+    <div class="container page-wrapper">
+        <div class="page-content">
+            <header class="page-header">
+                <div class="wrapper">
+                    {% component 'breadcrumbs' %}
+                    {% partial "page/title" %}
+                </div>
+            </header>
+            <main class="page-main">
+				{% component 'continent' %}
+                <button class="button solid modal-filter-caller hidden-xl" type="button">Filter</button>
+                <div id="filter-helper"></div>
+                <div class="circuits-list" id="circuits-list"></div>
+            </main>
+        </div>
+        <aside class="page-aside">
+            <div class="circuits-filter">{% component 'filter' continent=continent.id %}</div>
+        </aside>
+    </div>
+</div>

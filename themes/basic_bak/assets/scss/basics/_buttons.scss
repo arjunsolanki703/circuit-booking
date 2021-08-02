@@ -1,0 +1,100 @@
+@import '../base';
+@import '~@material/ripple/mdc-ripple';
+
+.button {
+  @include clear-button();
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 map-get($gaps, main);
+  height: map-get($page-sizes, buttons-height);
+  min-width: 96px;
+  color: $white;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  background: map-get($primary, 200);
+  border-radius: map-get($border-radius, main);
+  font-size: map-get($font-size, alt);
+  font-weight: map-get($font-weight, bold);
+  transition: mat-transition(color, background);
+
+  &:disabled,
+  &.disabled {
+    background: map-get($gray, 300) !important;
+  }
+
+  &.solid {
+
+    &:not(.disabled):not(:disabled) {
+      overflow: hidden;
+
+      @include mdc-ripple-surface;
+      @include mdc-ripple-radius-bounded;
+      @include mdc-states-base-color($white);
+      @include mdc-states-hover-opacity(.1);
+      //@include mdc-states-focus-opacity(.3);
+      @include mdc-states-press-opacity(.4);
+    }
+
+    &:hover {
+      color: $white;
+    }
+
+    &:disabled,
+    &.disabled {
+      background: map-get($gray, 300) !important;
+    }
+  }
+  &.alt {
+    background: rgba(map-get($primary, 200), .1);
+    color: map-get($primary, 200);
+
+    &:not(.disabled):not(:disabled) {
+      overflow: hidden;
+
+      @include mdc-ripple-surface;
+      @include mdc-ripple-radius-bounded;
+      @include mdc-states-base-color(map-get($primary, 200));
+      @include mdc-states-hover-opacity(.1);
+      //@include mdc-states-focus-opacity(.3);
+      @include mdc-states-press-opacity(.4);
+    }
+
+    &:disabled,
+    &.disabled {
+      background: map-get($gray, 300) !important;
+      color: $white !important;
+    }
+  }
+  &.transparent {
+    background: transparent;
+    color: map-get($primary, 200);
+
+    &:not(.disabled):not(:disabled) {
+      overflow: hidden;
+
+      @include mdc-ripple-surface;
+      @include mdc-ripple-radius-bounded;
+      @include mdc-states-base-color(map-get($primary, 200));
+      @include mdc-states-hover-opacity(.1);
+      //@include mdc-states-focus-opacity(.3);
+      @include mdc-states-press-opacity(.4);
+    }
+
+    &.disabled,
+    &:disabled {
+      background: transparent !important;
+      color: map-get($gray, 400) !important;
+    }
+  }
+
+  &.ripple-disabled {
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{% if error %}
+    {% partial __SELF__ ~ '::form' %}
+	<script>toastr.error('Sorry there was an error: {{ error }}');</script>
+{% else %}
+	<script>toastr.success('Great success! Now we can keep in touch, see you soon!');</script>
+{% endif %}

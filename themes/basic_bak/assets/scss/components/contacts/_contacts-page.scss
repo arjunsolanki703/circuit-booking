@@ -1,0 +1,47 @@
+@import '../../base';
+
+.contacts-page {
+
+  .contacts-info {
+    @media (max-width: map-get($breakpoints, desktop) - 1) {
+      margin-bottom: map-get($gaps, small);
+    }
+  }
+
+  .contacts-info--item {
+    .label {
+      margin-left: map-get($gaps, big);
+      color: map-get($gray, 600);
+      line-height: 1.6;
+      font-size: map-get($font-size, alt);
+      margin-bottom: 4px;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 16px;
+      font-size: 24px;
+      color: map-get($gray, 500);
+    }
+    .info {
+      font-size: 20px;
+      line-height: 1.4;
+      color: map-get($gray, 700);
+    }
+  }
+
+  .contacts-info--item + .contacts-info--item {
+    margin-top: 32px;
+  }
+
+  .contacts-form {
+    border: map-get($border, gray);
+    padding: 24px;
+  }
+
+  .contacts-form--content {}
+
+  .contacts-form--footer {
+    margin-top: 32px;
+  }
+}

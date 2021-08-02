@@ -1,0 +1,22 @@
+@import '../../base';
+
+.wrapper-404 {
+  padding: 53px map-get($gaps, small);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  .title {
+    font-size: 56px;
+    margin-bottom: map-get($gaps, small);
+    font-weight: 500;
+    color: map-get($gray, 700);
+    width: 100%;
+    text-align: center;
+  }
+  .subtitle {
+    margin-bottom: map-get($gaps, normal);
+    width: 100%;
+    text-align: center;
+  }
+}

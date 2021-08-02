@@ -1,0 +1,115 @@
+name: 'Header menu'
+items:
+    -
+        title: Circuits
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: circuits/circuits-list
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Europe
+                type: continent-page
+                code: ''
+                reference: '1'
+                cmsPage: circuits/continent
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'North America'
+                type: continent-page
+                code: ''
+                reference: '7'
+                cmsPage: circuits/continent
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'South America'
+                type: continent-page
+                code: ''
+                reference: '5'
+                cmsPage: circuits/continent
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Africa
+                type: continent-page
+                code: ''
+                reference: '3'
+                cmsPage: circuits/continent
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Asia
+                type: continent-page
+                code: ''
+                reference: '2'
+                cmsPage: circuits/continent
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Australia
+                type: continent-page
+                code: ''
+                reference: '12'
+                cmsPage: circuits/continent
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Circuit Sharing'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: sharing/circuit-sharing
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Last Minute Bookings'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: sharing/last-minute-bookings
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: News
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: news/news-list
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

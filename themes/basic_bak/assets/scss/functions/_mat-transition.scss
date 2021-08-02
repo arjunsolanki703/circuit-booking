@@ -1,0 +1,11 @@
+@function mat-transition($props...) {
+  $outcome: '';
+  @each $prop in $props {
+    @if ($outcome == '') {
+      $outcome: $outcome + unquote($prop + $mat-transition-time);
+    } @else {
+      $outcome: $outcome + ', ' + unquote($prop + $mat-transition-time);
+    }
+  }
+  @return unquote($outcome);
+}

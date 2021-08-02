@@ -1,0 +1,33 @@
+title = "Login"
+url = "/login"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[registration]
+redirect = "profile/profile"
+paramCode = "code"
+forceSecure = 0
+type = "signin"
+
+[resetPassword]
+paramCode = "code"
+==
+<div class="page sign-in-page">
+    <header class="page-header">
+        <h1>Sign in to circuit-booking.com</h1>
+        <div class="subheader">Enter your details below.</div>
+    </header>
+    <main class="page-content">
+        <div class="registration-wrapper">{% component 'registration' %}</div>
+        <div class="sign-up-wrapper">
+            <div class="sign-up-title">Don't have an account?</div>
+            <div class="sign-up-content">
+                <a href="{{ 'profile/register'|page }}" class="button alt">Sign up for free</a>
+            </div>
+        </div>
+    </main>
+</div>

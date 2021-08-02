@@ -1,0 +1,33 @@
+name: 'Footer Mobile Menu'
+items:
+    -
+        title: 'FAQ / Help'
+        type: cms-page
+        code: ''
+        reference: faq
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Privacy Policy'
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: privacy-policy
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Terms and conditions'
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: terms-and-conditions
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,25 @@
+title = "Booking success"
+url = "/booking-success"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+==
+<div class="page booking-success-page">
+    <div class="booking-success-message">
+        <div class="container">
+            <div class="title">Thank you for booking</div>
+            <div class="message">
+                Many thanks for your booking request.<br>
+                Your booking request has been forwarded to the corresponding circuit and we will get back to you shortly with their offer based on your parameters.<br>
+                An overview of all your bookings can be found in your user profile.<br>
+                Please do not hesitate to contact us in case of any questions or remarks from your side or in case your booking requirements should have changed.</div>
+        </div>
+        <div class='success-buttons'>
+            <a href="{{ 'profile/profile'|page }}" class="button alt">Profile</a>
+            <a href="{{ 'contact'|page }}" class="button alt">Contact</a>
+        </div>
+    </div>
+</div>

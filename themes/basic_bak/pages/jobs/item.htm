@@ -1,0 +1,43 @@
+title = "Job page"
+url = "/jobs/:slug"
+layout = "main"
+is_hidden = 0
+child_of = "jobs/list"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumbElementTitle = "news-title"
+crumb_disabled = 0
+
+[newsPost]
+slug = "{{ :slug }}"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 6
+noPostsMessage = "No posts found"
+sortOrder = "statistics desc"
+postFeatured = 0
+categoryFilter = "Jobs"
+postPage = 404
+categoryPage = 404
+==
+<section class="page news-item-page">
+    <div class="container">
+        <header class="page-header">
+            {% component 'breadcrumbs' %}
+        </header>
+    </div>
+    <div class="container wrapper">
+        <main class="page-content">
+            {% partial 'news/news-item' post=post filePage='jobs/item' %}
+        </main>
+        <aside class="page-aside">
+            {% partial 'news/news-aside-list' filePage='jobs/item' %}
+        </aside>
+    </div>
+</section>

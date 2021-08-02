@@ -1,0 +1,30 @@
+title = "Booking Request"
+url = "/circuits/:continent/:country/:slug/:variant"
+layout = "main"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[booking]
+variant = "{{ :variant }}"
+slug = "{{ :slug }}"
+countrySlug = "{{ :country }}"
+continentSlug = "{{ :continent }}"
+==
+<div class="page booking-page">
+    <header class="page-header">
+        <div class="container wrapper">
+            {% component 'breadcrumbs' %}
+            <div class="title">
+                <h1 id="page-title">Booking Request for {{ location.name}} - {{ variant.name }}</h1>
+            </div>
+        </div>
+    </header>
+    <main class="page-main">
+        <div class="container">
+            {% component 'booking' %}
+        </div>
+    </main>
+</div>

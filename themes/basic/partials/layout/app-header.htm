@@ -1,0 +1,172 @@
+[viewBag]
+
+[staticMenuMultilingual headerMenu]
+code = "header-menu"
+
+[continents]
+
+[staticMenuMultilingual headerMenuMobile]
+code = "aside-mobile-menu"
+==
+{% styles %}
+<header class="app-header_mobile">
+    <div class="container wrapper">
+        <a href="/" class="logo-container">
+            <img src="{{ 'assets/images/basic/logo-big.png'|theme }}" alt="circuit booking logo image">
+        </a>
+        <button type="button" class="mobile-aside-caller" id="mobile-menu-caller">
+            <i class="mdi mdi-menu"></i>
+        </button>
+    </div>
+</header>
+<aside class="mobile-aside">
+    <header class="mobile-aside--header">
+        {% if user %}
+        <div class="user-link-wrapper">
+            <a href="{{ 'profile/profile'|page }}" class="user-link">
+                {% if user.avatar %}
+                <img src="{{ user.avatar.path|resize(40, 40, { mode: 'crop'}) }}" alt="user image">
+                {% else %}
+                <i class="mdi mdi-account-circle"></i>
+                {% endif %}
+            </a>
+            <a href="{{ 'profile/profile'|page }}">{{ user.name }}</a>
+        </div>
+        {% else %}
+        <a href="{{ 'profile/login'|page }}">{{ 'buttons.signIn'|_ }}</a>
+        {% endif %}
+        <button class="mobile-aside-close header-close">
+            <i class="mdi mdi-close"></i>
+        </button>
+    </header>
+    {% component 'headerMenuMobile' %}
+    <div class="socials">
+        <div class="item"><a target="_blank" rel="nofollow" href="http://www.facebook.com/circuitbooking"><i class="mdi mdi-facebook-box"></i></a></div>
+        <div class="item"><a target="_blank" rel="nofollow" href="http://twitter.com/circuitbooking"><i class="mdi mdi-twitter"></i></a></div>
+        <div class="item"><a target="_blank" rel="nofollow" href="https://www.instagram.com/circuitbooking"><i class="mdi mdi-instagram"></i></a></div>
+    </div>
+</aside>
+<header class="app-header">
+    <div class="container wrapper">
+        <div class="left">
+            <a href='/' class="header-logo">
+                <img src="{{ 'assets/images/basic/logo-big.png'|theme }}" alt="circuit booking logo image">
+            </a>
+            <form class="header-search">
+                <input type="hidden" name="isSearch" value='1'>
+                <div class="header-search--wrapper">
+                    <i class="mdi mdi-magnify"></i>
+                    <input type="text" data-autocomplite='#header-search--result' autocomplete="off" name="search" id="header-search--input" class='autocomplite' placeholder="Type to search">
+                </div>
+                <div class="header-filter" id="header-filter">
+                    <div class="filter-wrapper">
+                        {% for continent in continents.continents %}
+                            <a href="{{ 'circuits/continent'|page({continent:continent.code}) }}" class="header-filter--item" for="continent-{{continent.id}}">{{continent.name}}</a>
+                        {% endfor %}
+<!--                        <a href="#" class="header-filter&#45;&#45;item more">More</a>-->
+                    </div>
+                    <div id="header-search--result" class="header-search--result" style="display: none; z-index:11; position:relative;"></div>
+                </div>
+            </form>
+            <nav class="header-menu">
+                {% component 'headerMenu' %}
+            </nav>
+        </div>
+        <div class="right">
+            {% if user %}
+            <div class="header-user drop-down--container">
+                <a href="{{ 'profile/profile'|page }}" class="header-user--link">
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.path|resize(40, 40, { mode: 'crop'}) }}" alt="user image">
+                    {% else %}
+                    <i class="mdi mdi-account-circle"></i>
+                    {% endif %}
+                </a>
+                <ul class="user-dropdown drop-down right">
+                    <li class="drop-down--item">
+                        <a href="{{ 'profile/profile'|page }}" class="drop-down--link">Profile</a>
+                    </li>
+                    <li class="drop-down--item">
+                        <a data-request="onLogout" data-request-data="redirect: '{{ 'profile/login'|page }}'" class="drop-down--link">{{ 'buttons.signOut'|_ }}</a>
+                    </li>
+                </ul>
+            </div>
+            {% else %}
+            <ul class="line-menu">
+                <li class="line-menu--item">
+                    <a href="{{ 'profile/login'|page }}" class="line-menu--link">{{ 'buttons.signIn'|_ }}</a>
+                </li>
+                <li class="line-menu--item">
+                    <a href="{{ 'profile/register'|page }}" class="line-menu--link">{{ 'buttons.signUp'|_ }}</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</header>
+{% framework extras %}
+
+{% put scripts %}
+<script>
+    $(document).ready(function () {
+        $(".autocomplite").keyup(function() {
+            var obj = $(this);
+            if ($(obj).val().trim().length > 2) {
+                $(obj).closest('form').request('onFilter', {
+                    success: function(data) {
+                        if (!data.result.trim()) {
+                            return false;
+                        }
+                        $(obj.data('autocomplite')).html(data.result);
+                        $(obj.data('autocomplite')).slideDown(280);
+                    }
+                });
+            } else {
+                $(obj.data('autocomplite')).html('');
+                $(obj.data('autocomplite')).slideUp(280);
+            }
+        });
+
+        $('.fast-booking-autocomplete').keyup(function() {
+            var obj = $(this);
+            var resultEl = $(obj.data('autocomplite'));
+            if ($(obj).val().trim().length > 2) {
+                $(obj).closest('form').request('onFilter', {
+                    data: { isSearch: 1 },
+                    success: function(data) {
+                        var result = data.json.data;
+                        if (!result.length) {
+                            return false;
+                        }
+                        // clear results
+                        $(resultEl).html('');
+                        var links = [];
+                        // append new results
+                        $.each(result, function(k, item) {
+                            var link = $('<a href='+item.link+'>'+item.name+'</a>');
+                            $(resultEl).append(link);
+                            links.push({link: link, name: item.name, href: item.link});
+                        });
+                        $(resultEl).html(data.result);
+                        $(resultEl).find('a').on('click', function(e) {
+                            e.preventDefault();
+                            var name = $(this).html();
+                            // var item = links.find(item => item.name === name);
+                            var item = links.find(function(item) {
+                                return item.name === name;
+                            });
+                            obj.val(item.name);
+                            obj.closest('form').attr('action', item.href);
+                            $(resultEl).slideUp(280);
+                        });
+                        $(resultEl).slideDown(280);
+                    }
+                });
+            } else {
+                $(resultEl).html('');
+                $(resultEl).slideUp(280);
+            }
+        });
+    });
+</script>
+{% endput %}

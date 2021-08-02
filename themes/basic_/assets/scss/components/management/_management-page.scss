@@ -1,0 +1,75 @@
+@import '../../base';
+
+.management-page {}
+
+.management-list {
+
+  .management-item + .management-item {
+    margin-top: 16px;
+  }
+}
+
+.management-item {
+  border: map-get($border, gray);
+  padding: 16px;
+  border-radius: map-get($border-radius, main);
+
+  .management-item--photo {
+    flex: 0 0 110px;
+    width: 110px;
+    height: 110px;
+    border-radius: map-get($border-radius, main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: map-get($gaps, regular);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .management-item--info {
+    flex: 1;
+    position: relative;
+  }
+
+  .management-item--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .management-item--socials {
+
+    .item {
+      color: map-get($gray, 400);
+      font-size: 22px;
+    }
+
+    .item + .item {
+      margin-left: 8px;
+    }
+  }
+
+  .management-item--name {
+    font-size: 20px;
+    line-height: 1.6;
+    color: map-get($gray, 700);
+  }
+
+  .management-item--duty {
+    font-size: map-get($font-size, alt);
+    line-height: 1.6;
+    color: map-get($primary, 200);
+  }
+
+  .management-item--description {
+    font-size: map-get($font-size, alt);
+    line-height: 1.6;
+    color: map-get($gray, 500);
+  }
+}

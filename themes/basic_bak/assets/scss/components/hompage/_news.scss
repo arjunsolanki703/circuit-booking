@@ -1,0 +1,24 @@
+@import '../../base';
+
+.homepage-section.news {
+  padding: 100px 0 100px;
+  border-top: map-get($border, gray);
+  border-bottom: map-get($border, gray);
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 42px;
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .homepage-section.news {
+    padding: map-get($gaps, regular) 0;
+
+    .section-header {
+      margin-bottom: map-get($gaps, regular);
+    }
+  }
+}

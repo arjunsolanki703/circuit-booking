@@ -1,0 +1,77 @@
+title = "Circuit"
+url = "/circuit-sharing/:slug"
+layout = "main"
+is_hidden = 0
+child_of = "sharing/circuit-sharing"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumbElementTitle = "page-title"
+crumb_disabled = 0
+
+[viewBag]
+localeUrl[de] = "/circuit"
+
+[map]
+isCircuitSharing = 0
+map = 1
+showOnlyObject = 0
+fieldId = "map"
+height = "400px"
+latitude = 0
+longitude = 0
+zoom = 3
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[galleryId locationGallery]
+idGallery = 1
+lang = "Gallery"
+jqueryinject = "yes"
+thumbnail = "true"
+caption = "true"
+desc = "true"
+counter = "true"
+controls = "true"
+preload = 1
+mode = "lg-slide"
+speed = 600
+loop = "true"
+auto = "false"
+pause = 2000
+escKey = "true"
+height = 70
+width = 100
+resizer = "auto"
+
+[location]
+isCircuitSharing = 1
+slug = "{{ :slug }}"
+countrySlug = "{{ :country }}"
+continentSlug = "{{ :continent }}"
+
+[genericForm genericFormSharing]
+rules[name] = "required"
+rules[email] = "required|email"
+rules[message] = "required"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_subject = "New request on Circuit Sharing"
+inline_errors = "variable"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+==
+{% component 'map' %}
+
+<div class="page location-page">
+    <div class="container page-wrapper">
+        {% component 'location' %}
+    </div>
+</div>
+{% component 'genericFormSharing' %}

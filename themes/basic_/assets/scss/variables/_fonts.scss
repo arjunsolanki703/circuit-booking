@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+$font-size: (
+  title: 24px,
+  subtitle: 20px,
+  main: 16px,
+  alt: 14px,
+);
+
+$font-weight: (
+  main: 400,
+  alt: 500,
+  bold: 700
+);
+
+$main-font: 'Roboto', Arial, "Helvetica Neue", Helvetica, sans-serif;
+$mat-icons-font: normal normal normal 24px/1 "Material Design Icons";

@@ -1,0 +1,14 @@
+{% for item in items if not item.viewBag.isHidden %}
+    {% if item.url %}
+    <a href="{{ item.url }}" class="mobile-menu--item{{ item.isActive ? ' active' : '' }} {{ item.viewBag.cssClass }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+        {{ item.title }}
+    </a>
+    {% else %}
+    <span class="mobile-menu--item">{{ item.title }}</span>
+    {% endif %}
+{% endfor %}
+{% if user %}
+<a data-request="onLogout" data-request-data="redirect: '{{ 'profile/login'|page }}'" class="mobile-menu--item">{{ 'buttons.signOut'|_ }}</a>
+{% else %}
+<a href="{{ 'profile/register'|page }}" class="mobile-menu--item">{{ 'buttons.signUp'|_ }}</a>
+{% endif %}

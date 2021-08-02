@@ -1,0 +1,22 @@
+description = "Footer menu"
+
+[viewBag]
+==
+{% if __SELF__.menuItems %}
+
+{% for item in __SELF__.menuItems if not item.viewBag.isHidden %}
+<div class="column">
+    <div class="footer-nav--title">{{ item.title }}</div>
+    <ul>
+        {% for item2 in item.items if not item2.viewBag.isHidden %}
+        <li>
+            <a href="{{ item2.url }}" class="footer-nav--item" {{ item2.viewBag.isExternal ? 'target="_blank"' }}>
+            {{ item2.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+            
+{% endif %}

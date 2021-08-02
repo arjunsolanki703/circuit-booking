@@ -1,0 +1,15 @@
+
+    <form data-request="onSignup" data-request-update="'{{ __SELF__ }}::result': '#mailchimp-container'" data-request-success="">
+        <input type="hidden" name="category[]" value="0">
+        <input name="name" type="hidden" id="subscribersName" required value="Subscriber">
+        <section class="sign-up">
+            <div class="sign-up-text">
+                <div class="title">{{ 'home.describe.title'|_ }}</div>
+                <div class="subtitle">{{ 'home.describe.description'|_ }}</div>
+            </div>
+            <div class="sign-up-input-wrapper">
+                <input type="email" name="email" placeholder="your@email.com">
+                <button type="submit" class="mdi mdi-arrow-right icon" title="sign up submit"></button>
+            </div>
+        </section>
+    </form>

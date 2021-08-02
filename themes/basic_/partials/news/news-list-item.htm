@@ -1,0 +1,12 @@
+[viewBag]
+==
+{% if post.status == 1 %}
+<a href="{{ filePage|page({ slug: post.slug }) }}" class="news-list--item">
+    <div class="img-wrapper">
+        {% if post.image %}<img src="{{ post.image|media }}" alt="news preview image">{% endif %}
+        <div class="date">{{ post.published_at|date('j M Y') }}</div>
+    </div>
+    <div class="title">{{ str_limit(post.title|raw, 85) }}</div>
+    <div class="preview">{{ str_limit(post.introductory|raw, 147) }}</div>
+</a>
+{% endif %}

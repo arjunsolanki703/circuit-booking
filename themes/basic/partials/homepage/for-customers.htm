@@ -1,0 +1,18 @@
+[viewBag]
+==
+<section class="homepage-section for-customers">
+    <div class="container wrapper">
+        <div class="left">
+            <header class="section-header">
+                <div class="section-subtitle hidden-xs">{{ 'home.forCustomers.title'|_ }}</div>
+                <h2 class="section-title">{{ 'home.forCustomers.description'|_ }}</h2>
+            </header>
+            <main class="section-content checked-list">
+                {% content 'home/for-customers' %}
+            </main>
+            <footer class="section-footer">
+                <a href="{{ 'circuits/circuits-list'|page }}" class="button alt">{{ 'buttons.seeAll'|_ }}</a>
+            </footer>
+        </div>
+    </div>
+</section>

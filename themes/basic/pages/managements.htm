@@ -1,0 +1,41 @@
+title = "Management"
+url = "/managements"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[Employees]
+itemId = "{{ :model }}"
+modelIdentifier = "id"
+maxItems = 36
+orderBy = "id"
+sort = "desc"
+page = 1
+perPage = 12
+roleIdentifier = "id"
+filterRole = 0
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[viewBag]
+localeUrl[de] = "/management"
+==
+<div class="page management-page">
+    <header class="page-header">
+        <div class="container small">
+            {% component 'breadcrumbs' %}
+            {% partial "page/title" %}
+        </div>
+    </header>
+    <main class="page-content">
+        <div class="container small">
+            {% component 'Employees' %}
+        </div>
+    </main>
+</div>

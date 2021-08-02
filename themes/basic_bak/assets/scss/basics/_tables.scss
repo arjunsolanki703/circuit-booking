@@ -1,0 +1,111 @@
+@import '../base';
+
+table {
+  width: 100%;
+  text-align: left;
+
+  thead {}
+
+  th {
+    position: sticky;
+    top: map-get($page-sizes, header-height);
+    z-index: 10;
+    line-height: 1.4;
+    font-size: map-get($font-size, alt);
+    color: map-get($gray, 600);
+    font-weight: map-get($font-weight, main);
+    border-bottom: map-get($border, gray);
+    padding: 12px 0;
+    cursor: pointer;
+    background: $white;
+
+    &::after {
+      content: '\F045';
+      font: $mat-icons-font;
+      font-size: map-get($font-size, main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 14px;
+      right: 4px;
+      opacity: 0;
+      color: map-get($primary, 200);
+      transition: mat-transition(opacity, transform);
+    }
+
+    &[aria-sort=ascending] {
+      color: map-get($primary, 200);
+
+      &::after {
+        opacity: 1;
+        transform-origin: center;
+        transform: rotate3d(1, 0, 0, 0deg);
+      }
+    }
+
+    &[aria-sort=descending] {
+      color: map-get($primary, 200);
+
+      &::after {
+        opacity: 1;
+        transform-origin: center;
+        transform: rotate3d(1, 0, 0, 180deg);
+      }
+    }
+  }
+
+  tbody {}
+
+  tr {}
+
+  td {
+    padding: 12px 0;
+    font-size: map-get($font-size, main);
+    color: map-get($gray, 700);
+    line-height: 1.5;
+
+    img {
+      max-width: 50px;
+    }
+  }
+
+  .mobile-info {
+    margin-top: map-get($gaps, small);
+    display: none;
+
+    @media (min-width: map-get($breakpoints, desktop)) {
+      display: none !important;
+    }
+  }
+  .line {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: map-get($gaps, mini) 0;
+
+    .name {
+      flex: 0 0 60%;
+    }
+    .value {
+      flex: 0 0 40%;
+      text-align: center;
+    }
+  }
+  .line + .line {
+    border-top: map-get($border, gray);
+  }
+}
+
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .profile-page table {
+
+    th:not(.mobile-table-header) {
+      display: none;
+    }
+
+    td:not(.mobile-table-column) {
+      display: none;
+    }
+  }
+}

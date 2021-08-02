@@ -1,0 +1,186 @@
+@import '../../base';
+
+
+.lightpicker-wrapper {
+  //styles for track days
+  &.alt {
+    .lightpick__day {
+      &.is-available {
+        color: map-get($primary, 200);
+        border: none;
+      }
+
+      &.is-available + .is-available {
+        border-left: none;
+        border-top: map-get($border, link);
+        border-bottom: map-get($border, link);
+      }
+
+      &.is-disabled + .is-available {
+        border-radius: 50px 0 0 50px !important;
+        border-top: map-get($border, link);
+        border-bottom: map-get($border, link);
+        border-left: map-get($border, link);
+      }
+
+      &.last-available {
+        border-right: map-get($border, link) !important;
+        border-radius: 0 50px 50px 0 !important;
+      }
+      &:nth-child(7n).is-available {
+        border-right: map-get($border, link);
+      }
+      &:nth-child(7n + 1).is-available {
+        border-top: map-get($border, link);
+        border-bottom: map-get($border, link);
+        border-left: map-get($border, link);
+      }
+    }
+  }
+
+  .lightpick {
+    box-shadow: none;
+  }
+
+  .lightpick__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    position: relative;
+    z-index: 2;
+
+    button {
+      margin: 0;
+      padding: 0;
+      height: 36px;
+      width: 36px;
+      border-radius: map-get($border-radius, main);
+      background: rgba(map-get($primary, 200), .1);
+      color: map-get($primary, 200);
+      cursor: pointer;
+      font-size: 22px;
+      transition: mat-transition(background);
+
+      &:hover {
+        background: rgba(map-get($primary, 200), .5);
+      }
+
+      i {
+        pointer-events: none;
+      }
+    }
+
+    .lightpick__close-action {
+      display: none;
+    }
+  }
+  .lightpick__months {
+    position: relative;
+    margin-top: -36px;
+    margin-bottom: 100px;
+    background: transparent;
+    grid-gap: 30px;
+  }
+}
+
+.lightpick__tooltip,
+.lightpick__months-of-the-year {
+  display: none;
+}
+
+.lightpick__toolbar {
+  display: none;
+}
+
+.lightpick--1-columns {
+  .lightpick__toolbar {
+    display: flex;
+    justify-content: space-around;
+    button {
+      background: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.lightpick {
+  padding: 0;
+  box-shadow: none;
+  min-width: 270px;
+  border-radius: map-get($border-radius, main);
+  overflow: hidden;
+  z-index: 999999;
+  
+  @include cb-elevation();
+}
+.lightpick__month {
+  width: 100%;
+  padding: 0;
+  background: $white;
+}
+.lightpick__month-title-bar {
+  justify-content: center;
+  height: 36px;
+  margin-bottom: 16px;
+}
+
+.lightpick__day {
+  font-weight: map-get($font-weight, main) !important;
+  margin: 4px 0;
+  height: 32px;
+  border: map-get($border, link-empty);
+  
+  //styles for first day of the week
+  &:nth-child(7n + 1) {
+    border-radius: 50px 0 0 50px !important;
+  }
+
+  //styles for last day of the week
+  &:nth-child(7n) {
+    border-radius: 0 50px 50px 0 !important;
+
+    &.is-disabled {
+      text-decoration: line-through;
+    }
+  }
+
+  &.is-disabled {
+    text-decoration: line-through;
+    color: map-get($gray, 500);
+    background: map-get($gray, 200);
+  }
+
+  &.is-available + .is-disabled {
+    border-top-left-radius: 50px !important;
+    border-bottom-left-radius: 50px !important;
+  }
+
+  &.is-available {}
+  &.is-flipped {
+    background: map-get($primary, 200) !important;
+
+    &.is-end-date {
+      border-radius: 50px 0 0 50px !important;
+      background: map-get($primary, 200) !important;
+    }
+    &.is-start-date {
+      border-radius: 0 50px 50px 0 !important;
+      background: map-get($primary, 200) !important;
+    }
+  }
+  &.is-in-range {
+    background: map-get($primary, 200) !important;
+    color: $white !important;
+  }
+  &.is-start-date {
+    border-top-left-radius: 50px !important;
+    border-bottom-left-radius: 50px !important;
+    background: map-get($primary, 200) !important;
+  }
+  &.is-end-date {
+    border-top-right-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+    background: map-get($primary, 200) !important;
+  }
+}

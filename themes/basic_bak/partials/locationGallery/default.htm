@@ -1,0 +1,47 @@
+{% if gallery.images %}
+<div class="location-gallery">
+    <div class="gallery" id="{{ __SELF__ }}">
+        {% for image in gallery.images %}
+        <div class="location-gallery--item" data-src="{{ image.path }}" data-sub-html="<h4 style='color: white;'>{{ image.title }}</h4><p>{{ image.description }}</p>">
+            {% set left = gallery.images|length - loop.index %}
+            {% set isMore = ((left > 0) and (loop.index == 4)) %}
+            <a href="#" class="location-gallery--link{% if isMore %} more{% endif %}" data-left="{{ left }}">
+                <img class="img-responsive" src="{{ image.getThumb(175, 175, resizer) }}" alt="{{ image.title }}" />
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% put scripts %}
+<script>
+  $(document).ready(function() {
+    var {{ __SELF__ }} = $("#{{ __SELF__ }}").lightGallery({
+      // Elements
+      thumbnail   : {{ thumbnail }},
+    caption     : {{ caption }},
+    desc        : {{ desc }},
+    counter     : {{ counter }},
+    controls    : {{ controls }},
+    preload     : {{ preload }},
+
+    // Transitions
+    mode   : '{{ mode }}',
+      useCSS : true,
+      easing : 'linear',
+      speed  : {{ speed }},
+
+    // Navigation
+    hideControlOnEnd : false,
+      loop             : {{ loop }},
+    auto             : {{ auto }},
+    pause            : {{ pause }},
+    escKey           : {{ escKey }},
+    swipeThreshold    : 50,
+
+      lang : { allPhotos: '{{ lang }}' },
+  });
+  });
+</script>
+{% endput %}

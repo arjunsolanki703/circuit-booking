@@ -1,0 +1,31 @@
+@import '../../base';
+//NO STYLES HERE, ONLY LAYOUT
+html, body {
+  height: 100%;
+}
+
+#app-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100%;
+  &>header {
+    flex-shrink: 0;
+  }
+  &>main {
+    flex: 1 0 auto;
+    margin-top: map-get($page-sizes, header-height);
+    overflow: hidden;
+  }
+  &>footer {
+    flex-shrink: 0;
+  }
+}
+
+
+//IE FIX
+@media all and (-ms-high-contrast:none) {
+  _:-ms-fullscreen, :root body {
+    display: flex;
+    flex-direction: column;
+  }
+}

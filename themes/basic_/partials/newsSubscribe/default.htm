@@ -1,0 +1,8 @@
+description = "newsSubscribe"
+
+[viewBag]
+==
+{% component 'mailSignup' %}
+<div id="mailchimp-container">
+    {% partial __SELF__ ~ '::form' %}
+</div>

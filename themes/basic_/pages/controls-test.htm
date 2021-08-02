@@ -1,0 +1,232 @@
+title = "Controls Test"
+url = "/ct"
+layout = "main"
+description = "page which contains list of all possible controls to make sure that they look gorgeous"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+localeUrl[de] = "/controls-test"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+==
+<!--MODAL-->
+<div class="modal-wrapper modal" id="booking-cancel-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window">
+        <div class="modal-header">
+            <div class="modal-header--title">Close the booking process</div>
+            <div class="modal-header--subtitle">Are you sure you want to close this page? All data will lost</div>
+        </div>
+        <!--<div class="modal-content"></div>-->
+        <div class="modal-footer">
+            <div class="columns">
+                <div class="col-6"><button class="button w-all alt close-modal">No, stay on this page</button></div>
+                <div class="col-6"><a href="/" class="button w-all solid">Yes, please</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--MODAL END-->
+
+<!--MODAL-->
+<div class="modal-wrapper modal" id="sharing-request-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window">
+        <div class="modal-header">
+            <div class="modal-header--title">Send a request</div>
+            <!--<div class="modal-header&#45;&#45;subtitle">Are you sure you want to close this page? All data will lost</div>-->
+        </div>
+        <div class="modal-content">
+            <form class="sharing-request-form" id="sharing-request-form">
+                <div class="columns">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label class="right-label" for="sharing-request-name">Your name</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="sharing-request-name" name="sharing-request-name" placeholder="Enter your name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label class="right-label" for="sharing-request-mail">Your email</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="sharing-request-mail" name="sharing-request-mail" placeholder="Enter your email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label class="right-label" for="sharing-request-message">Message</label>
+                                <div class="input-wrapper">
+                                    <textarea name="sharing-request-message" id="sharing-request-message" placeholder="Your message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns jc-e">
+                    <div class="col-9">
+                        <div class="columns">
+                            <div class="col-4">
+                                <button class="button alt close-modal w-all">Cancel</button>
+                            </div>
+                            <div class="col-8">
+                                <button type="submit" class="button solid w-all">Send a request</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--<div class="modal-footer">-->
+            <!--<div class="columns">-->
+                <!--<div class="col-6"><button class="button w-all alt close-modal">No, stay on this page</button></div>-->
+                <!--<div class="col-6"><a href="/" class="button w-all solid">Yes, please</a></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<!--MODAL END-->
+<div class="page">
+    <div class="container page-wrapper">
+        <div class="page-content">
+            <header class="page-header wrapper">
+                {% component 'breadcrumbs' %}
+                {% partial "page/title" %}
+            </header>
+            <main class="page-main">
+                <section class="test-section">
+                    <div class="test-section--header"><h2>Checkboxes</h2></div>
+                    <div class="test-section--content">
+                        <div class="checkboxes">
+                            <div class="mdc-form-field">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox"
+                                           class="mdc-checkbox__native-control"
+                                           id="checkbox-1"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark"
+                                             viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path"
+                                                  fill="none"
+                                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                </div>
+                                <label class="right-label" for="checkbox-1">
+                                    <div class="left">
+                                        <span class="image"><img src="/themes/basic/assets/images/v-types/type-3.png" alt=""></span>
+                                        <span class="title">Checkbox</span>
+                                    </div>
+                                    <div class="right">146</div>
+                                </label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-checkbox mdc-checkbox--disabled">
+                                    <input type="checkbox"
+                                           class="mdc-checkbox__native-control"
+                                           disabled
+                                           id="checkbox-2"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark"
+                                             viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path"
+                                                  fill="none"
+                                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                </div>
+                                <label class="right-label" for="checkbox-2">
+                                    <div class="left">
+                                        <span class="image"><img src="/themes/basic/assets/images/v-types/type-3.png" alt=""></span>
+                                        <span class="title">Disabled Checkbox</span>
+                                    </div>
+                                    <div class="right">146</div>
+                                </label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-checkbox mdc-checkbox--disabled">
+                                    <input type="checkbox"
+                                           class="mdc-checkbox__native-control"
+                                           disabled
+                                           checked
+                                           id="checkbox-3"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark"
+                                             viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path"
+                                                  fill="none"
+                                                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                </div>
+                                <label class="right-label" for="checkbox-3">
+                                    <div class="left">
+                                        <span class="image"><img src="/themes/basic/assets/images/v-types/type-3.png" alt=""></span>
+                                        <span class="title">Disabled Checked Checkbox</span>
+                                    </div>
+                                    <div class="right">146</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="test-section">
+                    <div class="test-section--header"><h2>Radio</h2></div>
+                    <div class="test-section--content">
+                        <div class="radios">
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label class="right-label" for="radio-1">Sample Radio Button</label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio mdc-radio--disabled">
+                                    <input class="mdc-radio__native-control" disabled type="radio" id="radio-2" name="radios" checked>
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label class="right-label" for="radio-2">Disabled</label>
+                            </div>
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio mdc-radio--disabled">
+                                    <input class="mdc-radio__native-control" disabled type="radio" id="radio-3" name="radios" checked>
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                </div>
+                                <label class="right-label" for="radio-3">Disabled Selected</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>

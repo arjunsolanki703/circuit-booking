@@ -1,0 +1,13 @@
+[viewBag]
+==
+<a href="{{ filePage|page({ slug: item.slug }) }}" class="news-aside--item">
+    <div class="img-wrapper">
+        {% if item.image %}
+            <img src="{{ item.image|media }}" alt="{{ item.title }}">
+        {% endif %}
+    </div>
+    <div class="info">
+        <div class="title">{{ item.title }}</div>
+        <div class="date">{{ item.published_at|date('j M Y') }}</div>
+    </div>
+</a>

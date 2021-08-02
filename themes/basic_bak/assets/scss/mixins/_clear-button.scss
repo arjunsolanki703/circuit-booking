@@ -1,0 +1,9 @@
+@mixin clear-button() {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}

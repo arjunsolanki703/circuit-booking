@@ -1,0 +1,36 @@
+<div class="management-list">
+    {% for person in employees %}
+    <div class="management-item">
+        <div class="wrapper d-f ai-fs jc-sb">
+            {% if person.picture %}
+            <div class="management-item--photo">
+                <img src="{{ person.picture.path }}" alt="Photo of {{ person.first_name }} {{ person.last_name }}">
+            </div>
+            {% endif %}
+            <div class="management-item--info">
+                <div class="management-item--header">
+                    <div class="management-item--name">{{ person.first_name }} {{ person.last_name }}</div>
+                    {% if person.social_media is empty %}
+                    <div class="management-item--socials">
+                        {% for item in person.social_media %}
+                        <a href="{{ item.url }}" class="item" target="_blank" rel="nofollow">
+                            <i class="mdi {{ item.icon }}"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% if person.duties %}
+                <div class="management-item--duty">{{ person.duties }}</div>
+                {% endif %}
+                {% if person.description %}
+                <div class="management-item--description">{{ person.description|raw }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!--{{ __SELF__.employee.toJson }}-->
+<!--{{ __SELF__.employees.toJson }}-->

@@ -1,0 +1,38 @@
+title = "Registration"
+url = "/register"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+localeUrl[de] = "/registration"
+
+[registration]
+redirect = "profile/reg-success"
+paramCode = "code"
+forceSecure = 0
+type = "register"
+cancel = "http://october.loc/backend/cms"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+==
+<section class="page registration-page">
+    <header class="page-header">
+        <div class="container wrapper">
+            {% component 'breadcrumbs' %}
+            {% partial "page/title" %}
+        </div>
+    </header>
+    <main class="page-content">
+        <div class="container wrapper">
+            <div class="description">You are a company that likes to book a circuit for some driving activities? You are a circuit operator and would like to manage all aspects of your daily work with us? Simply register in less than two minutes to start using circuit-booking.com. Please note that registrations of circuit operators will be validated through an additional offline routine.</div>
+            <div class="registration-form-wrapper">{% component 'registration' %}</div>
+        </div>
+    </main>
+</section>

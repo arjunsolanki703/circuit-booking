@@ -1,0 +1,53 @@
+title = "Circuits"
+url = "/circuits"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+localeUrl[de] = "/circuits"
+
+[filter]
+length = "min"
+selectorResult = "#circuits-list"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[map]
+map = 1
+showOnlyObject = 0
+fieldId = "map"
+height = "400px"
+latitude = 50
+longitude = 0
+zoom = 2
+==
+{% component 'map' %}
+
+<div class="page circuits-list-page">
+    <div class="container page-wrapper">
+        <div class="page-content">
+            <header class="page-header">
+                <div class="wrapper">
+                    {% component 'breadcrumbs' %}
+                    {% partial "page/title" %}
+                </div>
+            </header>
+            <main class="page-main">
+                {% content 'Circuits' %}
+                <button class="button solid modal-filter-caller hidden-xl" type="button">Filter</button>
+                <div id="filter-helper"></div>
+                <div class="circuits-list" id="circuits-list"></div>
+            </main>
+        </div>
+        <aside class="page-aside">
+            <div class="circuits-filter">{% component 'filter' %}</div>
+        </aside>
+    </div>
+</div>

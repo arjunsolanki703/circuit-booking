@@ -1,0 +1,13 @@
+[viewBag]
+==
+{% if posts %}
+<div class="columns news-list">
+{% for post in posts %}
+    {% if post.status == 1 %}
+    <div class="col-4 col-xs-12">
+        {% partial 'news/news-list-item' post=post %}
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+{% endif %}

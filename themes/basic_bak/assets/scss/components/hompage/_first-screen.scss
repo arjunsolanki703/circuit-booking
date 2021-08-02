@@ -1,0 +1,332 @@
+@import '../../base';
+
+.homepage-section.first-screen {
+  background: url(/themes/basic/assets/images/basic/first-screen.jpg) center no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(43, 45, 66, 0.27), rgba(43, 45, 66, 0));
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 600px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .first-screen--header {
+    color: #fff;
+
+    .title {
+      font-weight: map-get($font-weight, bold);
+      font-size: 46px;
+      color: inherit;
+      width: 100%;
+      max-width: 464px;
+      margin-bottom: map-get($gaps, regular);
+    }
+    .subtitle {
+      width: 100%;
+      max-width: 332px;
+      font-size: 20px;
+      color: inherit;
+    }
+    .background {
+      display: none;
+    }
+  }
+}
+
+.homepage-booking {
+  width: 1018px;
+  height: 140px;
+  background: #fff;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  z-index: 2;
+
+  .homepage-booking--wrapper {
+    border-radius: map-get($border-radius, main);
+    padding: 33px 32px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #000;
+    opacity: .2;
+    filter: blur(12px);
+    border-radius: map-get($border-radius, main);
+  }
+
+  .column {
+    flex: 33.3333%;
+  }
+  
+  .column + .column {
+    margin-left: map-get($gaps, main);
+  }
+
+  .button {
+    width: 100%;
+    font-weight: map-get($font-weight, bold);
+    font-size: 12px;
+    letter-spacing: .9px;
+  }
+
+  .homepage-booking--result {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    border-radius: map-get($border-radius, main);
+    background: #fff;
+    padding: 16px;
+    min-width: 280px;
+
+    @include cb-elevation();
+
+    a {
+      padding: map-get($gaps, mini) 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    a + a {
+      border-top: map-get($border, gray);
+    }
+  }
+}
+
+.homepage-more {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  width: 730px;
+  height: 140px;
+  z-index: 1;
+
+  .homepage-more--wrapper {
+    background: map-get($primary, 200);
+    border-radius: map-get($border-radius, main);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #000;
+    opacity: .2;
+    filter: blur(12px);
+  }
+
+  .more {
+    @include clear-button();
+
+    color: #fff;
+    position: absolute;
+    left: 56px;
+    bottom: 42px;
+    font-size: 20px;
+    font-weight: map-get($font-weight, alt);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  i {
+    margin-left: 12px;
+  }
+}
+.homepage-more_mobile {
+  display: none;
+}
+
+//MOBILE HOMEPAGE
+@media (max-width: map-get($breakpoints, desktop) - 1) {
+  .homepage-section.first-screen {
+    background: none;
+
+    &::after {
+      width: 100%;
+      background: rgba(43, 45, 66, 0.27);
+    }
+
+    .wrapper {
+      min-height: auto;
+      height: auto;
+      padding: 0;
+      flex-flow: column;
+    }
+
+    .first-screen--header {
+      padding: map-get($gaps, small) map-get($gaps, small) map-get($gaps, regular);
+      position: relative;
+      width: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(43, 45, 66, 0.27);
+        z-index: 1;
+      }
+
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: block;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .title {
+        font-size: 26px;
+        position: relative;
+        z-index: 2;
+      }
+      .subtitle {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+
+  .homepage-booking {
+    width: 100%;
+    height: auto;
+    position: relative;
+    bottom: 0;
+    right: 0;
+
+    .homepage-booking--wrapper {
+      padding: map-get($gaps, small);
+      border-radius: 0;
+      position: relative;
+    }
+    
+    .homepage-booking--result {
+      z-index: 2;
+      width: 80%;
+      top: 10px;
+      left: 10px;
+      max-height: 95px;
+      overflow-y: scroll;
+      padding: map-get($gaps, small);
+      box-shadow: 0 10px 17px 0 rgba(43, 45, 66, 0.3);
+    }
+  }
+
+  .homepage-more {
+    display: none;
+  }
+
+  .homepage-more_mobile {
+    background: map-get($primary, 200);
+    padding: map-get($gaps, regular) map-get($gaps, regular);
+    margin: map-get($gaps, small) map-get($gaps, small) 0;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: map-get($font-weight, alt);
+    position: relative;
+
+    @include mat-elevation(2);
+
+    &::before {
+      content: '';
+      height: 2px;
+      width: 90px;
+      background: #fff;
+      position: absolute;
+      bottom: 15px;
+      left: map-get($gaps, regular);
+      transition: mat-transition(width);
+    }
+
+    i {
+      font-size: 24px;
+      transform: translateX(0);
+
+      animation-name: mobile-arrow;
+      animation-duration: 2.80s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        width: 210px;
+      }
+    }
+  }
+}
+
+@keyframes mobile-arrow {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

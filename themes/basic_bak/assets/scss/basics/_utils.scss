@@ -1,0 +1,210 @@
+@import '../base';
+
+@import '~@material/ripple/mdc-ripple';
+
+//forms
+
+.form-group {
+
+  .form-group--title {
+    font-size: map-get($font-size, alt);
+    color: map-get($gray, 600);
+    line-height: 1.43;
+    margin-bottom: 8px;
+  }
+}
+
+.form-group + .form-group {
+  margin-top: map-get($gaps, regular);
+  
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    margin-top: map-get($gaps, small);
+  }
+}
+
+.gray-border {
+  border: map-get($border, gray);
+  border-radius: map-get($border-radius, main);
+}
+
+.primary-border {
+  border: map-get($border, main);
+  border-radius: map-get($border-radius, main);
+}
+
+.round {
+  border-radius: map-get($border-radius, round);
+  overflow: hidden;
+}
+
+//test section
+//TODO: remove after finish
+.test-section {
+  $test-section-width: 800px;
+
+  .test-section--header {}
+
+  .test-section--content {
+    margin-top: map-get($gaps, main);
+  }
+
+  .form-group {
+    width: $test-section-width;
+  }
+
+  .buttons {
+    width: $test-section-width;
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+    grid-gap: map-get($gaps, main);
+  }
+
+  .tabs {
+    width: $test-section-width;
+  }
+
+  .text-inputs {
+    width: $test-section-width;
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    grid-gap: map-get($gaps, main);
+  }
+
+  .columns {
+
+    h6 {
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+}
+
+.test-section + .test-section {
+  margin-top: map-get($gaps, main);
+}
+
+//Ripples
+.test-block {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: map-get($gray, 700);
+  border-radius: map-get($border-radius, main);
+  border: map-get($border, gray);
+  background: $white;
+  cursor: pointer;
+}
+
+//END OF TEST SECTION REMOVAL
+
+//RIPPLES
+.ripple-black:not(.disabled):not(:disabled) {
+  overflow: hidden;
+
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-states-base-color(map-get($gray, 600));
+  @include mdc-states-hover-opacity(.1);
+  //@include mdc-states-focus-opacity(.3);
+  @include mdc-states-press-opacity(.4);
+}
+
+.ripple-primary:not(.disabled):not(:disabled) {
+  overflow: hidden;
+
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-states-base-color(map-get($primary, 200));
+  @include mdc-states-hover-opacity(.1);
+  //@include mdc-states-focus-opacity(.3);
+  @include mdc-states-press-opacity(.4);
+}
+
+.ripple-white:not(.disabled):not(:disabled) {
+  overflow: hidden;
+
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-states-base-color($white);
+  @include mdc-states-hover-opacity(.1);
+  //@include mdc-states-focus-opacity(.3);
+  @include mdc-states-press-opacity(.4);
+}
+
+//atomic classes
+//SHOULD GO AT THE END
+
+//DISPLAY FLEX
+.d-f {
+  display: flex !important;}
+
+.flow-column {
+  flex-direction: column !important;}
+
+.flow-row {
+  flex-direction: row !important;}
+
+.fx-1 {
+  flex: 1;}
+
+.fx-w {
+  flex-wrap: wrap !important;}
+
+.fx-nw {
+  flex-wrap: nowrap !important;}
+
+.ai-st {
+  align-items: stretch !important;}
+
+.ai-s {
+  align-items: flex-start !important;}
+
+.ai-e {
+  align-items: flex-end !important;}
+
+.ai-c {
+  align-items: center !important;}
+
+.jc-s {
+  justify-content: flex-start !important;}
+
+.jc-e {
+  justify-content: flex-end !important;}
+
+.jc-sb {
+  justify-content: space-between !important;}
+
+.jc-c {
+  justify-content: center !important;}
+
+//SIZES
+.w-all {
+  width: 100% !important;}
+
+.h-all {
+  height: 100% !important;}
+
+//PADDINGS
+.p-mini {
+  padding: map-get($gaps, mini) !important;}
+
+.p-small {
+  padding: map-get($gaps, small) !important;}
+
+.p-medium {
+  padding: map-get($gaps, medium) !important;}
+
+.p-regular {
+  padding: map-get($gaps, regular) !important;}
+
+.p-main {
+  padding: map-get($gaps, main) !important;}
+
+.p-normal {
+  padding: map-get($gaps, normal) !important;}
+
+.p-big {
+  padding: map-get($gaps, big) !important;}

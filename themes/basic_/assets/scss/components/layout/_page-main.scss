@@ -1,0 +1,39 @@
+@import '../../base';
+
+.page {
+  margin-bottom: 32px;
+  margin-top: map-get($gaps, big);
+
+  .page-header {
+    margin-bottom: 32px;
+  }
+
+  .page-content {
+    flex: 1;
+  }
+
+  .page-aside {
+    flex: 0 0 350px;
+    margin-left: map-get($gaps, regular);
+  }
+
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    margin: map-get($gaps, small) 0;
+
+    .page-header {
+      margin-bottom: map-get($gaps, small);
+    }
+
+    .page-content {}
+    .page-aside {
+      flex: 0 0 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+@media all and (-ms-high-contrast:none) {
+  _:-ms-fullscreen, :root .page-content {
+    flex: 1 1 auto;
+  }
+}

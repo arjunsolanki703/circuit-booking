@@ -1,0 +1,108 @@
+@import '../../base';
+
+.profile-page {
+
+  .profile-header {
+    margin-bottom: map-get($gaps, big);
+    margin-top: map-get($gaps, big);
+  }
+
+  .profile-image {
+    width: 120px;
+    margin-right: map-get($gaps, big);
+    border-radius: map-get($border-radius, main);
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    @media (max-width: map-get($breakpoints, desktop) - 1) {
+      margin-right: map-get($gaps, small);
+      max-height: 120px;
+    }
+  }
+
+  h1 {
+    font-size: map-get($font-size, title);
+    font-weight: map-get($font-weight, alt);
+    margin-bottom: 12px;
+  }
+
+  .person-info {}
+
+  .profile-tabs-header {
+
+    height: 60px;
+    overflow-x: auto;
+    display: flex;
+    .tabs-header--item {
+      flex: 0 0 auto;
+    }
+  }
+
+  .profile-address-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .profile-contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    i {
+      margin-right: map-get($gaps, small);
+      color: map-get($gray, 400);
+    }
+
+    .value {
+      color: map-get($gray, 700);
+      font-size: map-get($font-size, main);
+      line-height: 1.5;
+      opacity: .9;
+    }
+
+    a {
+      transition: mat-transition(color);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($primary, hover);
+      }
+    }
+  }
+
+  .profile-contact-item + .profile-contact-item {
+    margin-left: map-get($gaps, regular);
+
+    &::before {
+      content: '';
+      height: 6px;
+      width: 6px;
+      border-radius: map-get($border-radius, round);
+      background: map-get($gray, 400);
+      opacity: .9;
+      margin-right: map-get($gaps, regular);
+    }
+  }
+  
+  .profile-ch--header {
+    padding: map-get($gaps, small) 0;
+    margin-bottom: map-get($gaps, small);
+  }
+
+  .profile-address {}
+
+  .profile-website {}
+  
+  .password-reset-form {
+    
+    .button-wrapper {
+      margin-top: map-get($gaps, main);
+    }
+  }
+}

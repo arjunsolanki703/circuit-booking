@@ -1,0 +1,50 @@
+[viewBag]
+==
+<section class="homepage-section first-screen">
+    <div class="container wrapper">
+        <header class="first-screen--header">
+            <h1 class="title">{{ 'home.title'|_ }}</h1>
+            <div class="subtitle">{{ 'home.description'|_ }}</div>
+            <div class="background">
+                <img src="{{ '/assets/images/basic/first-screen.jpg'|theme }}" alt="">
+            </div>
+        </header>
+        <div class="homepage-booking">
+            <form action="/circuits" method="GET" class="homepage-booking--wrapper">
+                <div class="columns ai-e">
+                    <div class="col-4 col-xs-12">
+                        <div class="form-control">
+                            <label for="fast-booking-search">{{ 'home.circuit'|_ }}</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="fast-booking-search" placeholder="Type to search circuit" name="search" data-autocomplite='#header-search--result-2' autocomplete="off" class='fast-booking-autocomplete'>
+                                <i class="error-icon mdi mdi-alert-octagon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-xs-12">
+                        <div class="form-control">
+                            <label for="pre_start_date">{{ 'home.dates'|_ }}</label>
+                            <div    data-disabled="[]"
+                                    data-min="{{ dateStart }}"
+                                    data-max="{{ dateEnd }}"
+                                    class="date-input-wrapper single-date-picker">
+                                <input type="text" placeholder="dd.mm.yyyy" readonly name="start_day" class="date-input first" id="pre_start_date">
+                                <input type="text" placeholder="dd.mm.yyyy" readonly name="end_day" class="date-input second" id="pre_end_date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-xs-12">
+                        <button type="submit" class="button solid w-all">{{ 'buttons.bookNow'|_ }}</button>
+                    </div>
+                </div>
+            </form>
+            <div id="header-search--result-2" class="homepage-booking--result"></div>
+        </div>
+        <div class="homepage-more">
+            <div class="homepage-more--wrapper">
+                <a href="{{ 'circuits/circuits-list'|page }}" class="more">{{ 'home.goMap'|_ }}<i class="mdi mdi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<a href="{{ 'circuits/circuits-list'|page }}" class="homepage-more_mobile">{{ 'home.goMap'|_ }}<i class="mdi mdi-arrow-right"></i></a>

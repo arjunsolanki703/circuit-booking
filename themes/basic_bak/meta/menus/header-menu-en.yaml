@@ -1,0 +1,99 @@
+name: 'Header menu'
+items:
+    -
+        title: 'Proving Grounds'
+        type: cms-page
+        code: ''
+        reference: circuits/circuits-list
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Europe
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '1'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'North America'
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '7'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'South America'
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '5'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Africa
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '3'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Asia
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '2'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Australia
+                nesting: ''
+                type: continent-page
+                url: ''
+                code: ''
+                reference: '12'
+                cmsPage: circuits/continent
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: News
+        type: cms-page
+        code: ''
+        reference: news/news-list
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

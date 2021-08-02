@@ -1,0 +1,107 @@
+@import 'base';
+@import 'basics/basic';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: map-get($container, desktop);
+  margin: 0 auto;
+
+  @media (max-width: map-get($breakpoints, desktop) - 1) {
+    max-width: none;
+    padding: 0 map-get($gaps, small);
+  }
+
+  &.small {
+    max-width: 540px;
+  }
+
+}
+
+body {
+  font-family: $main-font;
+  font-size: map-get($font-size, main);
+  font-weight: map-get($font-weight, main);
+  color: map-get($gray, 600);
+  background: map-get($backgrounds, main);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+p {
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  margin: 0;
+  color: $black;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: map-get($font-weight, alt);
+  color: map-get($gray, 700);
+  margin-top: map-get($gaps, medium);
+  @media (max-width: map-get($breakpoints, desktop)) {
+    font-size: 22px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  @media (max-width: map-get($breakpoints, desktop)) {
+    font-size: 20px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  @media (max-width: map-get($breakpoints, desktop)) {
+    font-size: 18px;
+  }
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+.faq-collapses {
+  margin-top: map-get($gaps, small);
+}
+
+.success-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin: 0 map-get($gaps, mini);
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --config webpack.config.dev.js",
+    "start": "yarn dev --watch",
+    "build": "webpack --config webpack.config.prod.js"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "dependencies": {
+    "@material/checkbox": "^1.1.0",
+    "@material/form-field": "^1.1.0",
+    "@material/radio": "^1.1.0",
+    "@material/ripple": "^0.44.1",
+    "@mdi/font": "^3.3.92",
+    "@types/jquery": "^3.3.29",
+    "@types/node": "^10.12.24",
+    "autoprefixer": "^9.4.7",
+    "css-loader": "^2.1.0",
+    "cssnano": "^4.1.8",
+    "file-loader": "^3.0.1",
+    "ion-rangeslider": "^2.3.0",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "lightpick": "^1.2.9",
+    "mini-css-extract-plugin": "^0.5.0",
+    "moment": "^2.24.0",
+    "node-sass": "^4.11.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.5.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "sugarss": "^2.0.0",
+    "tablesort": "^5.1.0",
+    "toastr": "^2.1.4",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.2.1"
+  }
+}

@@ -1,0 +1,7 @@
+name: basic
+description: 'basic october theme'
+author: CB
+homepage: ''
+code: basic-CB-theme
+previewImage: 'assets/images/theme_preview.jpg'
+translate: lang.yaml

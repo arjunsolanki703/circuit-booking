@@ -1,0 +1,171 @@
+name: 'Footer menu'
+items:
+    -
+        title: 'Proving Grounds'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Concept Introduction'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: concept-introduction
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Registration
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: profile/register
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Members
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Circuit Overview'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: circuits/circuits-list
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Registration
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: profile/register
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Services
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Privacy Policy'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: privacy-policy
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'FAQ / Help'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: faq
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Imprint
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: imprint
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'About IAMTS'
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Jobs
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: jobs/list
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Contact
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: contact
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'

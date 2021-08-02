@@ -1,0 +1,59 @@
+title = "Contact"
+url = "/contact"
+layout = "main"
+is_hidden = 0
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[genericForm]
+rules[company] = "required"
+rules[forename] = "required"
+rules[lastname] = "required"
+rules[email] = "required|email"
+rules[phone] = "max:20"
+rules[subject] = "required|min:2"
+rules[message] = "required|min:5"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_recipients[] = "info@circuit-booking.com"
+mail_resp_enabled = 1
+mail_resp_field = "email"
+mail_resp_from = "booking@circuit-booking.com"
+mail_resp_subject = "Contact [Circuit Booking]"
+inline_errors = "variable"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+==
+<div class="page contacts-page">
+    <header class="page-header">
+        <div class="container">
+            {% component 'breadcrumbs' %}
+            {% partial "page/title" %}
+        </div>
+    </header>
+    <main class="page-content">
+        <div class="container">
+            <div class="columns">
+                <div class="col-6 col-xs-12">
+                    <div class="contacts-info">
+                        {% content 'contact' %}
+                    </div>
+                </div>
+                <div class="col-6 col-xs-12">
+                    {% component 'genericForm' %}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

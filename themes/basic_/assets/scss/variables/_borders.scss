@@ -1,0 +1,13 @@
+$border: (
+  main: 1px solid map-get($primary, 300),
+  main-empty: 1px solid transparent,
+  link: 2px solid map-get($primary, 200),
+  link-empty: 2px solid transparent,
+  gray: 1px solid map-get($gray, 300),
+);
+
+$border-radius: (
+  main: 2px,
+  big: 25px,
+  round: 50%,
+);

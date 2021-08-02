@@ -1,0 +1,60 @@
+title = "Circuit"
+url = "/circuits/:continent/:country/:slug"
+layout = "main"
+is_hidden = 0
+child_of = "circuits/country"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumbElementTitle = "page-title"
+crumb_disabled = 0
+
+[viewBag]
+localeUrl[de] = "/circuit"
+
+[location]
+slug = "{{ :slug }}"
+countrySlug = "{{ :country }}"
+continentSlug = "{{ :continent }}"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+
+[map]
+isCircuitSharing = 0
+map = 1
+showOnlyObject = 0
+fieldId = "map"
+height = "400px"
+latitude = 0
+longitude = 0
+zoom = 3
+
+[galleryId locationGallery]
+idGallery = 1
+lang = "Gallery"
+jqueryinject = "no"
+thumbnail = "true"
+caption = "true"
+desc = "true"
+counter = "true"
+controls = "true"
+preload = 1
+mode = "lg-slide"
+speed = 600
+loop = "true"
+auto = "false"
+pause = 2000
+escKey = "true"
+height = 175
+width = 175
+resizer = "crop"
+==
+{% component 'map' %}
+
+<div class="page location-page">
+    <div class="container page-wrapper">
+        {% component 'location' %}
+    </div>
+</div>
